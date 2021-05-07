@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Livewire\Admin\Category\Add;
+use App\Http\Livewire\Admin\Category\Browse;
+use App\Http\Livewire\Admin\Pages\CategoryIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +30,13 @@ Route
     ->name('admin.')
     ->group(function () {
 
-        Route::get('categories', \App\Http\Livewire\CategoriesPage::class)
-            ->name('categories');
+        Route
+            ::prefix('category')
+            ->name('category.')
+            ->group(function () {
 
+                Route::get('', CategoryIndex::class)->name('index');
+//                Route::get('add', Add::class)->name('add');
+
+            });
     });
