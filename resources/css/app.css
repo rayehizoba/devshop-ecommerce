@@ -1,3 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.parent:hover .parent-hover\:opacity-100 {
+    @apply opacity-100;
+}

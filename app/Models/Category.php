@@ -28,4 +28,9 @@ class Category extends Model
     {
         return $this->parent()->with('parentRecursive');
     }
+
+    public function getUpdatedAtForHumansAttribute()
+    {
+        return $this->updated_at->format('M, d Y');
+    }
 }

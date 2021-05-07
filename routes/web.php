@@ -27,8 +27,7 @@ Route
     ->name('admin.')
     ->group(function () {
 
-        Route::get('categories', function () {
-            return view('categories');
-        })->name('categories');
+        Route::get('categories', \App\Http\Livewire\CategoriesPage::class)
+            ->name('categories');
 
     });

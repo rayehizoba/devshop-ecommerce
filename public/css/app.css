@@ -33374,6 +33374,10 @@ select {
   --tw-backdrop-sepia: sepia(100%);
 }
 
+.parent:hover .parent-hover\:opacity-100 {
+  opacity: 1;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
