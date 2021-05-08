@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1acec001-e33a-47d4-b677-30fecb0fbb67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/Traits/InteractsWithModal.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/admin/forms/category-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Admin/Category/Add.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/CategoryForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Admin/Category/Edit.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/CategoryEdit.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/admin/category/add.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/admin/category/edit.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/admin/forms/category-edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/admin/forms/category-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/admin/forms/category-form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/admin/pages/category-index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/admin/pages/category-index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,10 +49,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
+            <state relative-caret-position="738">
               <caret line="47" column="68" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="68" />
               <folding>
                 <element signature="e#49#97#0#PHP" expanded="true" />
@@ -74,18 +64,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/pages/category-index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="384">
+              <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/forms/category-form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" column="97" selection-start-line="10" selection-start-column="97" selection-end-line="10" selection-end-column="97" />
-              <caret line="15" column="124" selection-start-line="15" selection-start-column="124" selection-end-line="15" selection-end-column="124" />
+            <state relative-caret-position="32">
+              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -172,10 +161,10 @@
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Livewire/Components/Modal.php" />
         <option value="$PROJECT_DIR$/resources/views/livewire/components/modal.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php" />
         <option value="$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/CategoryForm.php" />
-        <option value="$PROJECT_DIR$/resources/views/livewire/admin/pages/category-index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/livewire/admin/forms/category-form.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/livewire/admin/pages/category-index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php" />
       </list>
     </option>
   </component>
@@ -453,12 +442,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1620336609075</updated>
-      <workItem from="1620336610790" duration="37377000" />
+      <workItem from="1620336610790" duration="37756000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37377000" />
+    <option name="totallyTimeSpent" value="37756000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -866,16 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="47" column="68" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="68" />
-          <folding>
-            <element signature="e#49#97#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
@@ -885,16 +864,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/pages/category-index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="384">
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/forms/category-form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="97" selection-start-line="10" selection-start-column="97" selection-end-line="10" selection-end-column="97" />
-          <caret line="15" column="124" selection-start-line="15" selection-start-column="124" selection-end-line="15" selection-end-column="124" />
+        <state relative-caret-position="32">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="47" column="68" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="68" />
+          <folding>
+            <element signature="e#49#97#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

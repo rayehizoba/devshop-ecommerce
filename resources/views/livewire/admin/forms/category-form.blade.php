@@ -20,12 +20,12 @@
         </div>
 
         <div class="px-6 py-4 bg-gray-100 text-right space-x-2">
-            <x-jet-button wire:loading.attr="disabled">
-                {{ __('Save') }}
-            </x-jet-button>
             <x-jet-secondary-button type="button" wire:click="cancel" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
             </x-jet-secondary-button>
+            <x-jet-button wire:loading.attr="disabled">
+                {{ __('Save') }}
+            </x-jet-button>
         </div>
     </form>
 </div>
