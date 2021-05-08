@@ -45,6 +45,7 @@
         @stack('modals')
 
         @livewire('components.modal')
+        @livewire('components.delete-modal')
 
         @livewireScripts
     </body>

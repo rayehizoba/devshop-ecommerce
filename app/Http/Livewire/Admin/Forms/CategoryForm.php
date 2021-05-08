@@ -50,8 +50,9 @@ class CategoryForm extends Component
             $data
         );
 
-        $this->emit('toast', 'Category Saved');
         $this->emit('list:refresh');
+        $this->emit('toast', 'Category Saved');
+
         $this->closeModal();
     }
 

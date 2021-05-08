@@ -14,25 +14,16 @@ class Modal extends Component
     protected $listeners = [
         'showModal' => 'open',
         'closeModal' => 'close',
-        'showDeleteModal' => 'openDelete',
-        'closeDeleteModal' => 'closeDelete',
     ];
 
     public function open(string $type, array $params = [], string $maxWidth = null)
     {
-        $this->isOpen = true;
         $this->type = $type;
         $this->params = $params;
-
         if ($maxWidth) {
             $this->maxWidth = $maxWidth;
         }
-    }
-
-    public function openDelete($params, string $form = null)
-//    public function openDelete($params, string $form = 'forms.base-delete-form')
-    {
-        return $this->open($form, $params);
+        $this->isOpen = true;
     }
 
     public function close()

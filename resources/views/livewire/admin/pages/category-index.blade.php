@@ -63,8 +63,8 @@
                                             class="text-gray-500 capitalize text-xs transition bg-gray-200 rounded-md p-1 px-5 hover:bg-gray-300 font-bold focus:outline-none focus:ring focus:ring-gray-100">
                                         edit
                                     </button>
-                                    <button x-on:click="confirm('Are you sure you want to delete {{ $category->name }}') && $wire.delete({{ $category->id }})"
-                                            type="button" class="text-gray-500 capitalize text-xs transition bg-gray-200 rounded-md p-1 px-5 hover:bg-gray-300 font-bold focus:outline-none focus:ring focus:ring-gray-100">
+                                    <button wire:click="confirmDelete({{ $category->id }})" type="button"
+                                            class="text-gray-500 capitalize text-xs transition bg-gray-200 rounded-md p-1 px-5 hover:bg-gray-300 font-bold focus:outline-none focus:ring focus:ring-gray-100">
                                         delete
                                     </button>
                                 </x-table.cell>

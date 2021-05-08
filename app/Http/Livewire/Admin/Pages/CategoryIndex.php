@@ -18,7 +18,8 @@ class CategoryIndex extends Component
     public $pageSize = 10;
 
     protected $listeners = [
-        'list:refresh' => '$refresh'
+        'list:refresh' => '$refresh',
+        'list:unset' => 'delete'
     ];
 
     protected $queryString = ['search', 'sortField', 'sortDirection', 'pageSize'];
@@ -49,6 +50,23 @@ class CategoryIndex extends Component
     }
 
 
+    public function confirmDelete(Category $category)
+    {
+        $this->openDeleteModal(
+            $category['id'],
+            'Remove Category',
+            'Are you sure you want to remove \''.$category['name'].'\' category?'
+        );
+    }
+
+
+    public function delete(Category $category)
+    {
+        $category->delete();
+        $this->emit('toast', 'Category Deleted');
+    }
+
+
     public function updatingSearch()
     {
         $this->resetPage();
@@ -69,12 +87,5 @@ class CategoryIndex extends Component
             $this->sortDirection = 'asc';
         }
         $this->sortField = $field;
-    }
-
-
-    public function delete(Category $category)
-    {
-        $category->delete();
-        session()->flash('message', 'Category successfully deleted.');
     }
 }
