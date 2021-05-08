@@ -1,22 +1,16 @@
 <div x-data>
-    <x-slot name="header">
-        <div class="flex items-center justify-between">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Categories') }}
-            </h2>
-            {{--            <a href="{{ route('admin.category.add') }}"--}}
-            {{--               class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">--}}
-            {{--                {{ __('New Category') }}--}}
-            {{--            </a>--}}
-            <x-jet-button wire:click="setEdit">
-                {{ __('New Category') }}
-            </x-jet-button>
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ __('Categories') }}
+                </h2>
+                <x-jet-button wire:click="create">
+                    {{ __('New Category') }}
+                </x-jet-button>
+            </div>
         </div>
-    </x-slot>
-
-    <x-jet-button wire:click="setEdit">
-        {{ __('New Category') }}
-    </x-jet-button>
+    </header>
 
     <div>
         @if (session()->has('message'))
@@ -65,7 +59,7 @@
                                     {{ $category->updated_at_for_humans }}
                                 </x-table.cell>
                                 <x-table.cell class="flex justify-end space-x-2">
-                                    <button wire:click="setEdit({{ $category->id }})" type="button"
+                                    <button wire:click="edit({{ $category->id }})" type="button"
                                             class="text-gray-500 capitalize text-xs transition bg-gray-200 rounded-md p-1 px-5 hover:bg-gray-300 font-bold focus:outline-none focus:ring focus:ring-gray-100">
                                         edit
                                     </button>
@@ -103,32 +97,4 @@
             </div>
         </div>
     </div>
-
-    {{-- Edit Modal --}}
-    <x-jet-dialog-modal wire:model="editMode">
-        <x-slot name="title">
-            @if($model)
-                {{ __('Edit Category') }}
-            @else
-                {{ __('New Category') }}
-            @endif
-        </x-slot>
-
-        <x-slot name="content">
-            <div>
-                @if($model)
-                    <h1>{{ $model->name }}</h1>
-                @endif
-                {{ __('Please copy your new API token. For your security, it won\'t be shown again.') }}
-            </div>
-        </x-slot>
-
-        <x-slot name="footer">
-            <x-jet-secondary-button wire:click="$set('editMode', false)" wire:loading.attr="disabled">
-                {{ __('Close') }}
-            </x-jet-secondary-button>
-        </x-slot>
-    </x-jet-dialog-modal>
-
-    {{--    <livewire:admin.category.edit :category="$category"/>--}}
 </div>
