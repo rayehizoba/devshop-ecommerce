@@ -5,3 +5,7 @@
 .parent:hover .parent-hover\:opacity-100 {
     @apply opacity-100;
 }
+
+[x-cloak] {
+    display: none !important;
+}

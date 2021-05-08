@@ -45,13 +45,13 @@ class CategoryForm extends Component
     {
         $data = $this->validate()['form'];
 
-        Category::updateOrCreate(
+        $category = Category::updateOrCreate(
             ['id' => $data['id']],
             $data
         );
 
         $this->emit('list:refresh');
-        $this->emit('toast', 'Category Saved');
+        $this->emit('toast', 'Category Saved', $category['name'].' has been saved.');
 
         $this->closeModal();
     }

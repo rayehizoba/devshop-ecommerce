@@ -46,6 +46,7 @@
 
         @livewire('components.modal')
         @livewire('components.delete-modal')
+        @livewire('components.toast')
 
         @livewireScripts
     </body>

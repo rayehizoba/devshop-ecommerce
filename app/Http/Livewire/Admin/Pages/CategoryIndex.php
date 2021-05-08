@@ -63,7 +63,7 @@ class CategoryIndex extends Component
     public function delete(Category $category)
     {
         $category->delete();
-        $this->emit('toast', 'Category Deleted');
+        $this->emit('toast', 'Category Deleted', $category['name'].' has been deleted.');
     }
 
 
