@@ -3,10 +3,10 @@
 namespace App\Http\Livewire\Admin\Forms;
 
 use App\Http\Livewire\Traits\InteractsWithModal;
-use App\Models\Category;
+use App\Models\License;
 use Livewire\Component;
 
-class CategoryForm extends Component
+class LicenseForm extends Component
 {
     use InteractsWithModal;
 
@@ -16,12 +16,16 @@ class CategoryForm extends Component
         'id' => null,
         'name' => '',
         'order' => 1,
+        'summary' => '',
+        'description' => '',
     ];
 
     protected $rules = [
         'form.id' => 'nullable',
         'form.name' => 'required',
-        'form.order' => 'required'
+        'form.order' => 'required',
+        'form.summary' => 'required',
+        'form.description' => 'required',
     ];
 
 
@@ -29,13 +33,15 @@ class CategoryForm extends Component
     {
         parent::mount($params);
 
-        $this->title = isset($params['id']) ? 'Update Category' : 'Add A Category';
+        $this->title = isset($params['id']) ? 'Update License' : 'Add A License';
 
         if (isset($params['id'])) {
             $this->form = [
                 'id' => $params['id'],
                 'name' => $params['name'],
                 'order' => $params['order'],
+                'summary' => $params['summary'],
+                'description' => $params['description'],
             ];
         }
     }
@@ -45,7 +51,7 @@ class CategoryForm extends Component
     {
         $data = $this->validate()['form'];
 
-        $category = Category::updateOrCreate(
+        $license = License::updateOrCreate(
             ['id' => $data['id']],
             $data
         );
@@ -53,7 +59,7 @@ class CategoryForm extends Component
         $this->closeModal();
 
         $this->emit('list:refresh');
-        $this->emit('toast', 'Category Saved', $category['name'].' has been saved.');
+        $this->emit('toast', 'License Saved', $license['name'].' has been saved.');
 
     }
 
@@ -66,6 +72,6 @@ class CategoryForm extends Component
 
     public function render()
     {
-        return view('livewire.admin.forms.category-form');
+        return view('livewire.admin.forms.license-form');
     }
 }

@@ -1,12 +1,12 @@
-<div x-data>
+<div>
     <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-5 px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ __('Categories') }}
+                    {{ __('Licences') }}
                 </h2>
                 <x-jet-button wire:click="create">
-                    {{ __('New Category') }}
+                    {{ __('New License') }}
                 </x-jet-button>
             </div>
         </div>
@@ -15,11 +15,6 @@
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-5 space-y-3">
-                <div class="flex">
-                    <x-jet-input class="block text-sm w-full md:w-auto" type="text" placeholder="Search..."
-                                 wire:model="search"/>
-                </div>
-
                 <x-table>
                     <x-slot name="head">
                         <x-table.heading sortable wire:click="sortBy('order')"
@@ -28,7 +23,11 @@
                         </x-table.heading>
                         <x-table.heading sortable wire:click="sortBy('name')"
                                          :direction="$sortField === 'name' ? $sortDirection : null">
-                            Category
+                            License
+                        </x-table.heading>
+                        <x-table.heading sortable wire:click="sortBy('summary')"
+                                         :direction="$sortField === 'summary' ? $sortDirection : null">
+                            Summary
                         </x-table.heading>
                         <x-table.heading sortable wire:click="sortBy('updated_at')"
                                          :direction="$sortField === 'updated_at' ? $sortDirection : null">
@@ -37,23 +36,26 @@
                         <x-table.heading></x-table.heading>
                     </x-slot>
                     <x-slot name="body">
-                        @forelse($categories as $category)
-                            <x-table.row wire:key="{{ $category->id }}" wire:loading.class.delay="opacity-50" class="transition">
+                        @forelse($licenses as $license)
+                            <x-table.row wire:key="{{ $license->id }}" wire:loading.class.delay="opacity-50" class="transition">
                                 <x-table.cell>
-                                    {{ $category->order }}
+                                    {{ $license->order }}
                                 </x-table.cell>
                                 <x-table.cell>
-                                    {{ $category->name }}
+                                    {{ $license->name }}
                                 </x-table.cell>
                                 <x-table.cell>
-                                    {{ $category->updated_at_for_humans }}
+                                    {{ $license->summary }}
+                                </x-table.cell>
+                                <x-table.cell>
+                                    {{ $license->updated_at_for_humans }}
                                 </x-table.cell>
                                 <x-table.cell class="flex justify-end space-x-2">
-                                    <button wire:click="edit({{ $category->id }})" type="button"
+                                    <button wire:click="edit({{ $license->id }})" type="button"
                                             class="text-gray-500 capitalize text-xs transition bg-gray-200 rounded-md p-1 px-5 hover:bg-gray-300 font-bold focus:outline-none focus:ring focus:ring-gray-100">
                                         edit
                                     </button>
-                                    <button wire:click="confirmDelete({{ $category->id }})" type="button"
+                                    <button wire:click="confirmDelete({{ $license->id }})" type="button"
                                             class="text-gray-500 capitalize text-xs transition bg-gray-200 rounded-md p-1 px-5 hover:bg-gray-300 font-bold focus:outline-none focus:ring focus:ring-gray-100">
                                         delete
                                     </button>
@@ -63,7 +65,7 @@
                             <x-table.row>
                                 <x-table.cell colspan="4">
                                     <div class="text-xl py-8 text-gray-400 text-center">
-                                        No categories found...
+                                        No licenses found...
                                     </div>
                                 </x-table.cell>
                             </x-table.row>
@@ -81,7 +83,7 @@
                     </select>
 
                     <div class="flex-1">
-                        {{ $categories->links() }}
+                        {{ $licenses->links() }}
                     </div>
                 </div>
             </div>

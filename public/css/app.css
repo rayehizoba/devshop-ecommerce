@@ -33378,8 +33378,36 @@ select {
   opacity: 1;
 }
 
-[x-cloak] {
-  display: none !important;
+.trix-content ol {
+  list-style-type: decimal;
+}
+
+.trix-content ul {
+  list-style-type: disc;
+}
+
+.trix-content h1 {
+  font-weight: 700 !important;
+  font-size: 1.875rem !important;
+  line-height: 2.25rem !important;
+}
+
+.trix-content a {
+  --tw-text-opacity: 1;
+  color: rgba(59, 130, 246, var(--tw-text-opacity));
+}
+
+.trix-content a:hover {
+  --tw-text-opacity: 1;
+  color: rgba(30, 64, 175, var(--tw-text-opacity));
+}
+
+.trix-content a {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 @media (min-width: 640px) {

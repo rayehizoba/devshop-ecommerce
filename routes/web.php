@@ -3,6 +3,7 @@
 use App\Http\Livewire\Admin\Category\Add;
 use App\Http\Livewire\Admin\Category\Browse;
 use App\Http\Livewire\Admin\Pages\CategoryIndex;
+use App\Http\Livewire\Admin\Pages\LicenseIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +37,15 @@ Route
             ->group(function () {
 
                 Route::get('', CategoryIndex::class)->name('index');
-//                Route::get('add', Add::class)->name('add');
+
+            });
+
+        Route
+            ::prefix('license')
+            ->name('license.')
+            ->group(function () {
+
+                Route::get('', LicenseIndex::class)->name('index');
 
             });
     });

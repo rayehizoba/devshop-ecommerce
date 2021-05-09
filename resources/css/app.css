@@ -6,6 +6,18 @@
     @apply opacity-100;
 }
 
-[x-cloak] {
-    display: none !important;
+.trix-content ol {
+    @apply list-decimal;
+}
+
+.trix-content ul {
+    @apply list-disc;
+}
+
+.trix-content h1 {
+    @apply text-3xl font-bold !important;
+}
+
+.trix-content a {
+    @apply text-blue-500 transition hover:text-blue-800;
 }
