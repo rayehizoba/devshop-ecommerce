@@ -6,9 +6,9 @@
             </div>
 
             <div class="mt-4 space-y-5">
-                <div>
+                <div x-data="{}" x-init="() => setTimeout(() => $refs.autofocus.focus(), 250)">
                     <x-jet-label for="name" value="{{ __('Name') }}" />
-                    <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="form.name" autocomplete="off" autofocus/>
+                    <x-jet-input x-ref="autofocus" id="name" type="text" class="mt-1 block w-full" wire:model.defer="form.name" autocomplete="off" autofocus/>
                     <x-jet-input-error for="form.name" class="mt-2" />
                 </div>
                 <div class="w-20">

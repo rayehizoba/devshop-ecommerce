@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1acec001-e33a-47d4-b677-30fecb0fbb67" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/CategoryForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/CategoryForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/Traits/WithSortingAndPagination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/admin/forms/category-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/admin/forms/category-form.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,28 +52,18 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/forms/category-form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
-              <folding>
-                <element signature="e#49#97#0#PHP" expanded="true" />
-                <element signature="e#537#865#0#PHP" />
-                <element signature="e#536#567#0#PHP" />
-                <element signature="e#633#694#0#PHP" />
-                <element signature="e#1132#1181#0#PHP" />
-                <element signature="e#597#669#0#PHP" />
-                <element signature="e#675#749#0#PHP" />
-                <element signature="e#755#1028#0#PHP" />
-              </folding>
+            <state relative-caret-position="16">
+              <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/CategoryForm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="518">
               <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
               <folding>
                 <element signature="e#49#97#0#PHP" expanded="true" />
@@ -83,20 +72,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/livewire/components/toast.blade.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/vendor/jetstream/components/modal.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+            <state relative-caret-position="256">
+              <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Components/Toast.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/livewire/components/modal.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="48">
+              <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -105,12 +94,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>/dashboard</find>
-      <find>HOME</find>
-      <find>nav</find>
-      <find>path</find>
-      <find>User::create</find>
-      <find>CreateNewUser</find>
       <find>pointer</find>
       <find>x-jet-input</find>
       <find>x-jet</find>
@@ -122,9 +105,7 @@
       <find>&lt;x-slot name=&quot;header&quot;&gt;</find>
       <find>editMode</find>
       <find>focusables</find>
-      <find>model</find>
       <find>$wire</find>
-      <find>&lt;x-jet-dialog-modal</find>
       <find>'modals'</find>
       <find>@livewire(</find>
       <find>&lt;x-jet-modal</find>
@@ -132,6 +113,17 @@
       <find>confirmation-modal</find>
       <find>list:refresh</find>
       <find>display</find>
+      <find>$sortField</find>
+      <find>sortField</find>
+      <find>sortDirection</find>
+      <find>pageSize</find>
+      <find>getQueryString</find>
+      <find>name</find>
+      <find>search</find>
+      <find>confirming-password</find>
+      <find>&lt;x-jet-dialog-modal</find>
+      <find>model</find>
+      <find>show =</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -140,9 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
-        <option value="$PROJECT_DIR$/config/fortify.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" />
         <option value="$PROJECT_DIR$/resources/views/categories.blade.php" />
         <option value="$PROJECT_DIR$/database/seeders/CategorySeeder.php" />
         <option value="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" />
@@ -173,8 +162,6 @@
         <option value="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/livewire/admin/forms/category-edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/CategoryEdit.php" />
-        <option value="$PROJECT_DIR$/resources/views/livewire/components/modal.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/livewire/admin/forms/category-form.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/livewire/components/confirmation-modal.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Livewire/Components/ModalDelete.php" />
         <option value="$PROJECT_DIR$/app/Http/Livewire/Components/Modal.php" />
@@ -185,10 +172,17 @@
         <option value="$PROJECT_DIR$/app/Http/Livewire/Components/DeleteModal.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/css/app.css" />
-        <option value="$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php" />
         <option value="$PROJECT_DIR$/app/Http/Livewire/Components/Toast.php" />
         <option value="$PROJECT_DIR$/resources/views/livewire/components/toast.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/CategoryForm.php" />
+        <option value="$PROJECT_DIR$/app/Http/Livewire/Traits/WithSorting.php" />
+        <option value="$PROJECT_DIR$/app/Http/Livewire/Traits/HasDatatable.php" />
+        <option value="$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php" />
+        <option value="$PROJECT_DIR$/app/Http/Livewire/Traits/WithSortingAndPagination.php" />
+        <option value="$PROJECT_DIR$/resources/views/livewire/admin/forms/category-form.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/livewire/components/modal.blade.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/jetstream/resources/views/components/modal.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/vendor/jetstream/components/modal.blade.php" />
       </list>
     </option>
   </component>
@@ -313,8 +307,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -330,6 +325,76 @@
             <path>
               <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Livewire" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Livewire" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Livewire" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="Forms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="jetstream" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="jetstream" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -347,6 +412,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -396,12 +462,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1620336609075</updated>
-      <workItem from="1620336610790" duration="50750000" />
+      <workItem from="1620336610790" duration="57801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50750000" />
+    <option name="totallyTimeSpent" value="57801000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -410,7 +476,7 @@
       <window_info id="npm" order="0" side_tool="true" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.26385543" />
+      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.26385543" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32891566" />
@@ -426,7 +492,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="3" visible="true" weight="0.27753934" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="3" visible="true" weight="0.20171674" />
       <window_info anchor="right" id="Database" order="4" weight="0.32956383" />
     </layout>
   </component>
@@ -434,37 +500,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/categories/add.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="22" column="47" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/categories/browse.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="73" column="54" lean-forward="true" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Admin/Categories/Browse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="50" column="5" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="50" selection-end-column="5" />
-          <folding>
-            <element signature="e#54#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Admin/Categories/Add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/TestCase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -559,11 +594,6 @@
         <state relative-caret-position="191">
           <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/two-factor-authentication-form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/jetstream/resources/views/components/button.blade.php">
@@ -700,20 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/livewire/components/modal.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/forms/category-form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Components/DeleteModal.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="516">
@@ -745,51 +761,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/pages/category-index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/jetstream/resources/views/components/modal.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Components/Modal.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Traits/InteractsWithModal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
-          <folding>
-            <element signature="e#49#97#0#PHP" expanded="true" />
-            <element signature="e#537#865#0#PHP" />
-            <element signature="e#536#567#0#PHP" />
-            <element signature="e#633#694#0#PHP" />
-            <element signature="e#1132#1181#0#PHP" />
-            <element signature="e#597#669#0#PHP" />
-            <element signature="e#675#749#0#PHP" />
-            <element signature="e#755#1028#0#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -807,13 +782,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Traits/InteractsWithModal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="24" lean-forward="true" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/pages/category-index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-372">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/livewire/livewire/src/WithPagination.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Traits/WithSortingAndPagination.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding>
+            <element signature="e#516#590#0#PHP" />
+            <element signature="e#691#763#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/CategoryIndex.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+          <folding>
+            <element signature="e#49#97#0#PHP" expanded="true" />
+            <element signature="e#536#567#0#PHP" />
+            <element signature="e#633#694#0#PHP" />
+            <element signature="e#1132#1181#0#PHP" />
+            <element signature="e#1382#1555#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/two-factor-authentication-form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-635" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/jetstream/resources/views/components/confirms-password.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="17" selection-start-line="17" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/forms/category-form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/livewire/components/modal.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/jetstream/resources/views/components/modal.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="751">
+          <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+          <caret line="48" column="94" selection-start-line="48" selection-start-column="94" selection-end-line="48" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/CategoryForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="518">
           <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
           <folding>
             <element signature="e#49#97#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/vendor/jetstream/components/modal.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
         </state>
       </provider>
     </entry>

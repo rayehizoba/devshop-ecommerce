@@ -3,37 +3,39 @@
 namespace App\Http\Livewire\Admin\Pages;
 
 use App\Http\Livewire\Traits\InteractsWithModal;
+use App\Http\Livewire\Traits\WithSortingAndPagination;
 use App\Models\Category;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 class CategoryIndex extends Component
 {
-    use WithPagination;
-    use InteractsWithModal;
+    use WithSortingAndPagination, InteractsWithModal;
 
     public $search = '';
-    public $sortField = 'order';
-    public $sortDirection = 'asc';
-    public $pageSize = 10;
 
     protected $listeners = [
         'list:refresh' => '$refresh',
         'list:unset' => 'delete'
     ];
 
-    protected $queryString = ['search', 'sortField', 'sortDirection', 'pageSize'];
+
+    protected $queryString = [
+        'search' => ['except' => '']
+    ];
+
+
+    public function mount()
+    {
+        $this->setSort('order');
+    }
 
 
     public function render()
     {
-        $categories = Category
-            ::search('name', $this->search)
-            ->orderBy($this->sortField, $this->sortDirection)
-            ->paginate($this->pageSize);
-
         return view('livewire.admin.pages.category-index', [
-            'categories' => $categories,
+            'categories' => $this->queryBuilder(
+                Category::search('name', $this->search)
+            )
         ]);
     }
 
@@ -67,25 +69,4 @@ class CategoryIndex extends Component
     }
 
 
-    public function updatingSearch()
-    {
-        $this->resetPage();
-    }
-
-
-    public function updatingPageSize()
-    {
-        $this->resetPage();
-    }
-
-
-    public function sortBy($field)
-    {
-        if ($this->sortField === $field) {
-            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
-        } else {
-            $this->sortDirection = 'asc';
-        }
-        $this->sortField = $field;
-    }
 }
