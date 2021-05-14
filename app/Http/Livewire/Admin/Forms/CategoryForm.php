@@ -4,9 +4,9 @@ namespace App\Http\Livewire\Admin\Forms;
 
 use App\Http\Livewire\Traits\InteractsWithModal;
 use App\Models\Category;
-use Livewire\Component;
+use Illuminate\Support\Arr;
 
-class CategoryForm extends Component
+class CategoryForm extends BaseForm
 {
     use InteractsWithModal;
 
@@ -18,33 +18,23 @@ class CategoryForm extends Component
         'order' => 1,
     ];
 
-    protected $rules = [
-        'form.id' => 'nullable',
-        'form.name' => 'required',
-        'form.order' => 'required'
-    ];
+
+    public function rules()
+    {
+        return Arr::dot(['form' => Category::validationRules()]);
+    }
 
 
     public function mount(array $params = [])
     {
         parent::mount($params);
-
         $this->title = isset($params['id']) ? 'Update Category' : 'Add A Category';
-
-        if (isset($params['id'])) {
-            $this->form = [
-                'id' => $params['id'],
-                'name' => $params['name'],
-                'order' => $params['order'],
-            ];
-        }
     }
 
 
     public function submit()
     {
         $data = $this->validate()['form'];
-
         $category = Category::updateOrCreate(
             ['id' => $data['id']],
             $data

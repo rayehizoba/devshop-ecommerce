@@ -23,6 +23,10 @@
                                     :active="request()->routeIs('admin.license.index')">
                         {{ __('Licenses') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin.product.index') }}"
+                                    :active="request()->routeIs('admin.product.index')">
+                        {{ __('Products') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

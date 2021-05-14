@@ -24,7 +24,7 @@
                 @elseif ($direction === 'desc')
                     <i class="mdi mdi-sort-descending"></i>
                 @else
-                    <i class="mdi mdi-sort parent-hover:opacity-100 opacity-0 transition duration-50 ease-out"></i>
+                    <i class="mdi mdi-sort opacity-25 hover:opacity-100 transition duration-50 ease-out"></i>
                 @endif
             </span>
         </button>

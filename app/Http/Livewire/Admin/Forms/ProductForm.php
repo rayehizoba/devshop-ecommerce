@@ -4,40 +4,43 @@ namespace App\Http\Livewire\Admin\Forms;
 
 use App\Http\Livewire\Traits\InteractsWithModal;
 use App\Models\License;
+use App\Models\Product;
 use Illuminate\Support\Arr;
 
-class LicenseForm extends BaseForm
+class ProductForm extends BaseForm
 {
     use InteractsWithModal;
 
     public $title;
 
     public $form = [
-        'id' => null,
-        'name' => '',
-        'order' => 1,
-        'summary' => '',
-        'description' => '',
+        'id'                => null,
+        'cover_image_path'  => '',
+        'name'              => '',
+        'web_url'           => null,
+        'play_store_url'    => null,
+        'app_store_url'     => null,
+        'description'       => '',
     ];
-
 
     public function rules()
     {
-        return Arr::dot(['form' => License::validationRules()]);
+        return Arr::dot(['form' => Product::validationRules()]);
     }
 
 
     public function mount(array $params = [])
     {
         parent::mount($params);
-        $this->title = isset($params['id']) ? 'Update License' : 'Add A License';
+        $this->title = isset($params['id']) ? 'Update Product' : 'Add A Product';
     }
 
 
     public function submit()
     {
         $data = $this->validate()['form'];
-        $license = License::updateOrCreate(
+
+        $product = Product::updateOrCreate(
             ['id' => $data['id']],
             $data
         );
@@ -45,7 +48,7 @@ class LicenseForm extends BaseForm
         $this->closeModal();
 
         $this->emit('list:refresh');
-        $this->emit('toast', 'License Saved', $license['name'].' has been saved.');
+        $this->emit('toast', 'Product Saved', $product['name'].' has been saved.');
 
     }
 
@@ -55,9 +58,8 @@ class LicenseForm extends BaseForm
         $this->closeModal();
     }
 
-
     public function render()
     {
-        return view('livewire.admin.forms.license-form');
+        return view('livewire.admin.forms.product-form');
     }
 }

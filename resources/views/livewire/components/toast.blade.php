@@ -1,7 +1,7 @@
-<div class="absolute top-0 left-0 w-full h-full pointer-events-none" x-data="{ show: $wire.entangle('isOpen').defer }" x-cloak>
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none" x-data="{ show: $wire.entangle('isOpen').defer }" x-cloak>
     <div class="max-w-7xl mx-auto relative">
         <div x-show="show" x-on:click.away="show = false"
-             class="pointer-events-auto absolute left-0 sm:left-auto top-0 right-0 m-5 border border-gray-100 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all"
+             class="pointer-events-auto absolute left-0 sm:left-auto top-0 right-0 m-5 border border-gray-100 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all lg:max-w-md"
              x-transition:enter="ease-out duration-300"
              x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
              x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"

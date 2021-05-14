@@ -2,18 +2,33 @@
 
 namespace App\Models;
 
+use App\Http\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory, HasSlug;
 
     protected $fillable = [
         'name',
         'order',
     ];
+
+    static function validationRules()
+    {
+        return [
+            'id' => 'nullable',
+            'name' => 'required',
+            'order' => 'required'
+        ];
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 
     public function setNameAttribute($value) {
 
@@ -23,18 +38,6 @@ class Category extends Model
 
         $this->attributes['name'] = $value;
         $this->attributes['slug'] = $slug;
-    }
-
-    public function incrementSlug($slug) {
-
-        $original = $slug;
-        $count = 2;
-
-        while (static::whereSlug($slug)->exists()) {
-            $slug = "{$original}-" . $count++;
-        }
-
-        return $slug;
     }
 
     public function children()

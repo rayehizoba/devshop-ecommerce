@@ -4,6 +4,7 @@ use App\Http\Livewire\Admin\Category\Add;
 use App\Http\Livewire\Admin\Category\Browse;
 use App\Http\Livewire\Admin\Pages\CategoryIndex;
 use App\Http\Livewire\Admin\Pages\LicenseIndex;
+use App\Http\Livewire\Admin\Pages\ProductIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,21 +32,8 @@ Route
     ->name('admin.')
     ->group(function () {
 
-        Route
-            ::prefix('category')
-            ->name('category.')
-            ->group(function () {
+        Route::get('category', CategoryIndex::class)->name('category.index');
+        Route::get('license', LicenseIndex::class)->name('license.index');
+        Route::get('product', ProductIndex::class)->name('product.index');
 
-                Route::get('', CategoryIndex::class)->name('index');
-
-            });
-
-        Route
-            ::prefix('license')
-            ->name('license.')
-            ->group(function () {
-
-                Route::get('', LicenseIndex::class)->name('index');
-
-            });
     });
