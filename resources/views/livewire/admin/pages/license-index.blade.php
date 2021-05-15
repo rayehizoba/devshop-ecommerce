@@ -48,7 +48,7 @@
                                     {{ $license->summary }}
                                 </x-table.cell>
                                 <x-table.cell>
-                                    {{ $license->updated_at_for_humans }}
+                                    @dateforhumans($license->updated_at)
                                 </x-table.cell>
                                 <x-table.cell class="flex justify-end space-x-2">
                                     <button wire:click="edit({{ $license->id }})" type="button"

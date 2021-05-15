@@ -32,12 +32,12 @@
 
                 <x-table>
                     <x-slot name="head">
+                        <x-table.heading>
+                            Cover
+                        </x-table.heading>
                         <x-table.heading sortable wire:click="sortBy('id')"
                                          :direction="$sortField === 'id' ? $sortDirection : null">
                             id
-                        </x-table.heading>
-                        <x-table.heading>
-                            Cover
                         </x-table.heading>
                         <x-table.heading sortable wire:click="sortBy('name')"
                                          :direction="$sortField === 'name' ? $sortDirection : null">
@@ -46,12 +46,12 @@
                         <x-table.heading>
                             Price
                         </x-table.heading>
-                        <x-table.heading>
-                            Demo URL
-                        </x-table.heading>
                         <x-table.heading sortable wire:click="sortBy('updated_at')"
                                          :direction="$sortField === 'updated_at' ? $sortDirection : null">
                             Updated
+                        </x-table.heading>
+                        <x-table.heading>
+                            Demo URL
                         </x-table.heading>
                         <x-table.heading></x-table.heading>
                     </x-slot>
@@ -59,19 +59,22 @@
                         @forelse($products as $product)
                             <x-table.row wire:key="{{ $product->id }}" wire:loading.class.delay="opacity-50" class="transition">
                                 <x-table.cell>
-                                    {{ $product->id }}
-                                </x-table.cell>
-                                <x-table.cell>
                                     <img src="{{ $product->cover_image_path }}" alt="" class="w-20 rounded-md shadow-md">
                                 </x-table.cell>
                                 <x-table.cell>
+                                    {{ $product->id }}
+                                </x-table.cell>
+                                <x-table.cell class="max-w-sm xl:max-w-md">
                                     {{ $product->name }}
                                 </x-table.cell>
                                 <x-table.cell>
                                     ${{ $product->starting_price }}
                                 </x-table.cell>
                                 <x-table.cell>
-                                    <ul class="space-y-1">
+                                    @dateforhumans($product->updated_at)
+                                </x-table.cell>
+                                <x-table.cell>
+                                    <ul class="space-y-1 whitespace-nowrap">
                                         @if($product->web_url)
                                             <li>
                                                 <a href="{{ $product->web_url }}" target="_blank"
@@ -100,9 +103,6 @@
                                             </li>
                                         @endif
                                     </ul>
-                                </x-table.cell>
-                                <x-table.cell>
-                                    {{ $product->updated_at_for_humans }}
                                 </x-table.cell>
                                 <x-table.cell class="text-right space-x-2">
                                     <button wire:click="edit({{ $product->id }})" type="button"

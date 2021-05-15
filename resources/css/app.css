@@ -7,17 +7,40 @@
 }
 
 .trix-content ol {
-    @apply list-decimal;
+    @apply list-decimal list-inside;
 }
 
 .trix-content ul {
-    @apply list-disc;
+    @apply list-disc list-inside;
 }
 
 .trix-content h1 {
-    @apply text-3xl font-bold !important;
+    @apply text-2xl font-semibold !important;
 }
 
 .trix-content a {
     @apply text-blue-500 transition hover:text-blue-800;
+}
+
+.container {
+    @apply mx-auto px-3 lg:px-5;
+}
+
+.radio {
+    @apply h-6 w-6 rounded-full bg-gray-300 flex items-center justify-center transition;
+}
+
+input[type='radio']:checked ~ .radio {
+    @apply bg-green-700;
+}
+input[type='radio']:checked ~ .radio .mdi-check {
+    @apply opacity-100;
+}
+
+.btn-primary {
+    @apply rounded bg-green-700 p-4 px-8 text-white text-sm font-medium transition hover:bg-green-800;
+}
+
+.btn-outline {
+    @apply border rounded border-green-700 text-sm font-medium p-2 px-4 text-green-700 hover:text-green-900 hover:border-green-900;
 }

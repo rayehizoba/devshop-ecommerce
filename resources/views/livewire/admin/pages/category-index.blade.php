@@ -46,7 +46,7 @@
                                     {{ $category->name }}
                                 </x-table.cell>
                                 <x-table.cell>
-                                    {{ $category->updated_at_for_humans }}
+                                    @dateforhumans($category->updated_at)
                                 </x-table.cell>
                                 <x-table.cell class="flex justify-end space-x-2">
                                     <button wire:click="edit({{ $category->id }})" type="button"

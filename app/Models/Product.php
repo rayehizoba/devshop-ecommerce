@@ -21,6 +21,10 @@ class Product extends Model
         'description',
     ];
 
+    protected $appends = [
+        'starting_price'
+    ];
+
     static function validationRules()
     {
         return [
@@ -51,17 +55,16 @@ class Product extends Model
 
     public function licenses()
     {
-        return $this->belongsToMany(License::class)->withPivot('price')->orderBy('price');
+        return $this->belongsToMany(License::class)->orderBy('order')->withPivot('price');
     }
 
-    public function getUpdatedAtForHumansAttribute()
+    public function cheapestLicense()
     {
-        return $this->updated_at->format('M, d Y');
+        return $this->licenses()->orderBy('price')->first();
     }
 
     public function getStartingPriceAttribute()
     {
-        $first_license = $this->licenses()->first();
-        return $first_license ? $first_license->pivot->price : 0;
+        return $this->cheapestLicense()->pivot->price ?? 0;
     }
 }

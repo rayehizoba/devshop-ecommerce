@@ -35,7 +35,7 @@ class ProductIndex extends Component
     }
 
 
-    private function getProducts()
+    private function _getProducts()
     {
         $query = Product::query();
 
@@ -52,7 +52,7 @@ class ProductIndex extends Component
     public function render()
     {
         return view('livewire.admin.pages.product-index', [
-            'products' => $this->getProducts(),
+            'products' => $this->_getProducts(),
             'categories' => Category::orderBy('order')->get(),
         ]);
     }

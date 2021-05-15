@@ -60,8 +60,19 @@ class Category extends Model
         return $this->parent()->with('parentRecursive');
     }
 
-    public function getUpdatedAtForHumansAttribute()
+    public function getLatestProductsAttribute()
     {
-        return $this->updated_at->format('M, d Y');
+        return $this->products()->orderByDesc('updated_at')->get();
     }
+
+    public function getCheapestProductsAttribute()
+    {
+        return $this->products()->cursor()->sortBy('starting_price');
+    }
+
+    public function getPremiumProductsAttribute()
+    {
+        return $this->products()->cursor()->sortByDesc('starting_price');
+    }
+
 }

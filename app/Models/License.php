@@ -31,9 +31,4 @@ class License extends Model
     {
         return $this->belongsToMany(Product::class);
     }
-
-    public function getUpdatedAtForHumansAttribute()
-    {
-        return $this->updated_at->format('M, d Y');
-    }
 }
