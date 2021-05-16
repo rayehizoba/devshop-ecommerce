@@ -133,13 +133,13 @@
                 </div>
             </li>
             <li class="">
-                <div class="flex items-center justify-between p-3">
+                <div class="flex items-center justify-between p-3 space-x-3">
                     <p class="font-medium">
                         Category
                     </p>
-                    <div>
+                    <div class="text-right">
                         @foreach($product->categories as $category)
-                            <a href="{{ route('category', ['slug' => $category->slug]) }}" class="text-blue-400">
+                            <a href="{{ route('category', ['slug' => $category->slug]) }}" class="text-blue-400 whitespace-nowrap">
                                 {{ $category->name }}@if(!$loop->last),@endif
                             </a>
                         @endforeach
@@ -185,27 +185,29 @@
     </div>
 
     {{--  Related Templates  --}}
-    @foreach($product->categories as $category)
-        <section class="border-t py-8 flex flex-col md:flex-row flex-wrap items-start lg:col-span-full">
-            <header class="flex-1">
-                <p class="text-lg font-medium">
-                    {{ $category->name }}
-                </p>
-                <p class="text-gray-500 text-sm">
-                    Related templates in the same category.
-                </p>
-            </header>
-            <a href="{{ route('category', ['slug' => $category->slug]) }}" class="order-last md:order-none w-full md:w-auto text-center rounded border border-green-700 bg-green-700 md:bg-transparent p-3 px-4 text-white md:text-green-700 text-sm md:text-xs font-medium transition hover:border-green-800 hover:bg-green-800 md:hover:bg-transparent md:hover:text-green-800">
-                View all <span class="md:hidden">related templates</span>
-            </a>
-            <ul class="grid grid-cols-2 xl:grid-cols-3 gap-6 w-full my-6">
-                @foreach($category->products->take(4) as $product)
-                    <li class="@if($loop->index > 1) hidden lg:block @endif">
-                        <x-product-card :product="$product"/>
-                    </li>
-                @endforeach
-            </ul>
-        </section>
+    @foreach ($product->categories as $category)
+        @if($category->products->where('id', '!=', $product->id)->count() > 0)
+            <section class="border-t py-8 flex flex-col md:flex-row flex-wrap items-start lg:col-span-full">
+                <header class="flex-1">
+                    <p class="text-lg font-medium">
+                        {{ $category->name }}
+                    </p>
+                    <p class="text-gray-500 text-sm">
+                        Related templates in the same category.
+                    </p>
+                </header>
+                <a href="{{ route('category', ['slug' => $category->slug]) }}" class="order-last md:order-none w-full md:w-auto text-center rounded border border-green-700 bg-green-700 md:bg-transparent p-3 px-4 text-white md:text-green-700 text-sm md:text-xs font-medium transition hover:border-green-800 hover:bg-green-800 md:hover:bg-transparent md:hover:text-green-800">
+                    View all <span class="md:hidden">related templates</span>
+                </a>
+                <ul class="grid grid-cols-2 xl:grid-cols-3 gap-6 w-full my-6">
+                    @foreach($category->products->where('id', '!=', $product->id)->take(4) as $each)
+                        <li class="@if($loop->index > 1) hidden lg:block @endif">
+                            <x-product-card :product="$each"/>
+                        </li>
+                    @endforeach
+                </ul>
+            </section>
+        @endif
     @endforeach
 
 </div>

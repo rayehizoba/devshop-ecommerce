@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Forms;
 
 use App\Http\Livewire\Traits\InteractsWithModal;
+use App\Models\Category;
 use App\Models\License;
 use App\Models\Product;
 use Illuminate\Support\Arr;
@@ -21,6 +22,8 @@ class ProductForm extends BaseForm
         'play_store_url'    => null,
         'app_store_url'     => null,
         'description'       => '',
+        'category_ids'      => [],
+        'license_prices'    => [],
     ];
 
     public function rules()
@@ -45,6 +48,16 @@ class ProductForm extends BaseForm
             $data
         );
 
+        if (isset($data['category_ids'])) {
+            $product->categories()->sync($data['category_ids']);
+        }
+
+        if (isset($data['license_prices'])) {
+            $product->licenses()->sync(
+                array_filter($data['license_prices'], fn($i) => is_numeric($i['price']))
+            );
+        }
+
         $this->closeModal();
 
         $this->emit('list:refresh');
@@ -60,6 +73,9 @@ class ProductForm extends BaseForm
 
     public function render()
     {
-        return view('livewire.admin.forms.product-form');
+        return view('livewire.admin.forms.product-form', [
+            'categories' => Category::orderBy('order')->get(),
+            'licenses' => License::orderBy('order')->get(),
+        ]);
     }
 }

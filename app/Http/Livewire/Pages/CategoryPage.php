@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\Pages;
 
 use App\Models\Category;
-use Illuminate\Support\Facades\Config;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class CategoryPage extends Component
 {
+    use WithPagination;
+
     public $category;
 
     public $orderby;
@@ -16,26 +18,26 @@ class CategoryPage extends Component
 
     public function mount($slug)
     {
-//        $this->orderby = Config::get('constants.options.orderby')[0];
-
         $this->category = Category::where('slug', $slug)->first();
     }
 
     private function _getProducts()
     {
+        $query = $this->category->products();
+
         if ($this->orderby === 'date') {
-            return $this->category->latest_products;
+            $query = $this->category->latestProducts();
         }
 
         if ($this->orderby === 'price') {
-            return $this->category->cheapest_products;
+            $query = $this->category->cheapestProducts();
         }
 
         if ($this->orderby === 'price-desc') {
-            return $this->category->premium_products;
+            $query = $this->category->premium_products;
         }
 
-        return $this->category->products;
+        return $query->paginate(2);
     }
 
     public function render()

@@ -12,7 +12,8 @@
                 </p>
             </div>
             <div>
-                <select wire:model="orderby" class="bg-white rounded border w-full md:w-auto p-2 text-sm focus:outline-none focus:ring text-gray-500">
+                <select wire:model="orderby"
+                        class="bg-white rounded border w-full md:w-auto p-2 text-sm focus:outline-none focus:ring pr-8 text-gray-500">
                     @foreach(Config::get('constants.options.orderby') as $key => $value)
                         <option value="{{ $value }}">
                             {{ $key }}
@@ -27,7 +28,7 @@
                     <x-product-card :product="$product"/>
                 </li>
             @empty
-                <div class="col-span-2 text-center py-20">
+                <div class="col-span-2 xl:col-span-3 text-center py-20">
                     <p class="text-2xl">
                         No Products
                     </p>
@@ -39,6 +40,9 @@
                     </a>
                 </div>
             @endforelse
+            <li class="col-span-2 xl:col-span-3">
+                {{ $products->links() }}
+            </li>
         </ul>
     </section>
 </div>

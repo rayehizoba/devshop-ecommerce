@@ -16,11 +16,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-5 space-y-3">
                 <div class="flex">
-                    <x-jet-input class="block text-sm w-full md:w-auto" type="text" placeholder="Search..."
+                    <x-jet-input class="block w-full md:w-auto" type="text" placeholder="Search..."
                                  wire:model="search"/>
                 </div>
 
-                <x-table>
+                <x-table style="min-width: 500px">
                     <x-slot name="head">
                         <x-table.heading sortable wire:click="sortBy('order')"
                                          :direction="$sortField === 'order' ? $sortDirection : null">

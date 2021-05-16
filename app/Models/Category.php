@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Http\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class Category extends Model
@@ -60,14 +61,39 @@ class Category extends Model
         return $this->parent()->with('parentRecursive');
     }
 
-    public function getLatestProductsAttribute()
+    public function latestProducts()
     {
-        return $this->products()->orderByDesc('updated_at')->get();
+        return $this->products()->orderByDesc('updated_at');
     }
 
-    public function getCheapestProductsAttribute()
+    public function cheapestProducts()
     {
-        return $this->products()->cursor()->sortBy('starting_price');
+        return DB
+            ::table('category_product as cp')
+            ->select('cp.category_id', 'p.*')
+            ->join(DB::raw('(
+                    SELECT p.*, MIN(lp.price) AS starting_price
+                    FROM products AS p
+                             JOIN license_product lp on p.id = lp.product_id
+                    GROUP BY p.id
+                ) p'),
+                'cp.product_id', '=', 'p.id')
+            ->orderBy('p.starting_price');
+
+
+        return DB::select('
+            SELECT cp.category_id, p.*
+            FROM category_product cp
+            INNER JOIN (
+                SELECT p.*, MIN(lp.price) AS starting_price
+                FROM products AS p
+                         JOIN license_product lp on p.id = lp.product_id
+                GROUP BY p.id
+            ) p ON cp.product_id = p.id
+            WHERE cp.category_id = 2;
+        ');
+
+//        return $this->products()->orderBy('starting_price');
     }
 
     public function getPremiumProductsAttribute()

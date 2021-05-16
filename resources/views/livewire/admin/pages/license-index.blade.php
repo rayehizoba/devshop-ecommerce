@@ -15,7 +15,7 @@
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-5 space-y-3">
-                <x-table>
+                <x-table style="min-width: 750px">
                     <x-slot name="head">
                         <x-table.heading sortable wire:click="sortBy('order')"
                                          :direction="$sortField === 'order' ? $sortDirection : null">

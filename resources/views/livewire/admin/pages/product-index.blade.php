@@ -16,7 +16,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-5 space-y-3">
                 <div class="flex space-x-3">
-                    <x-jet-input class="block text-sm w-full md:w-auto" type="text" placeholder="Search..."
+                    <x-jet-input class="block w-full md:w-auto" type="text" placeholder="Search..."
                                  wire:model="search"/>
                     <x-input.select wire:model="filters.category">
                         <option value="">
@@ -30,7 +30,7 @@
                     </x-input.select>
                 </div>
 
-                <x-table>
+                <x-table style="min-width: 1000px">
                     <x-slot name="head">
                         <x-table.heading>
                             Cover

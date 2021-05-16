@@ -35,6 +35,12 @@ class ProductIndex extends Component
     }
 
 
+    public function updatingFilters()
+    {
+        $this->resetPage();
+    }
+
+
     private function _getProducts()
     {
         $query = Product::query();
@@ -66,7 +72,7 @@ class ProductIndex extends Component
 
     public function edit(Product $product)
     {
-        $this->openModal('admin.forms.product-form', $product, '4xl');
+        $this->openModal('admin.forms.product-form', $product->toArray(), '4xl');
     }
 
 

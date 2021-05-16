@@ -8,14 +8,14 @@
             <a href="{{ route('product', ['slug' => $product->slug]) }}" class="block text-sm font-medium truncate">
                 {{ $product->name }}
             </a>
-            <ul class="flex items-center text-gray-400 text-xs space-x-1 truncate">
-                @foreach($product->categories as $category)
-                    <li>
-                        <a href="{{ route('category', ['slug' => $category->slug]) }}"
-                           class="hover:text-gray-600 transition">{{ $category->name }}</a>@if(!$loop->last),@endif
-                    </li>
-                @endforeach
-            </ul>
+{{--            <ul class="flex items-center text-gray-400 text-xs space-x-1 truncate">--}}
+{{--                @foreach($product->categories as $category)--}}
+{{--                    <li>--}}
+{{--                        <a href="{{ route('category', ['slug' => $category->slug]) }}"--}}
+{{--                           class="hover:text-gray-600 transition">{{ $category->name }}</a>@if(!$loop->last),@endif--}}
+{{--                    </li>--}}
+{{--                @endforeach--}}
+{{--            </ul>--}}
         </div>
         <div class="flex flex-col md:items-end text-sm space-y-1">
             <p>${{ $product->starting_price }}</p>

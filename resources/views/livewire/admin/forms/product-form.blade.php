@@ -24,31 +24,91 @@
                         <x-jet-input-error for="form.name" class="mt-2" />
                     </div>
                 </div>
-{{--                <div class="flex flex-col md:flex-row">--}}
-{{--                    <div class="py-3 md:w-28">--}}
-{{--                        <x-jet-label for="order" value="{{ __('Order') }}" />--}}
-{{--                    </div>--}}
-{{--                    <div class="w-20">--}}
-{{--                        <x-jet-input id="order" type="number" min="1" placeholder="1" class="block w-full" wire:model.defer="form.order"/>--}}
-{{--                        <x-jet-input-error for="form.order" class="mt-2" />--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="flex flex-col md:flex-row">--}}
-{{--                    <div class="py-3 md:w-28">--}}
-{{--                        <x-jet-label for="summary" value="{{ __('Summary') }}" />--}}
-{{--                    </div>--}}
-{{--                    <div class="w-full lg:w-1/2 flex-1 lg:flex-initial">--}}
-{{--                        <x-jet-input id="summary" type="text" class="block w-full" wire:model.defer="form.summary"/>--}}
-{{--                        <x-jet-input-error for="form.summary" class="mt-2" />--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                <div class="flex flex-col md:flex-row">
+                    <div class="py-3 md:w-28">
+                        <x-jet-label for="category_ids" value="{{ __('Categories') }}" />
+                    </div>
+                    <div>
+                        <x-input.select wire:model="form.category_ids" id="category_ids" multiple>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
+                        </x-input.select>
+                        <x-jet-input-error for="form.category_ids" class="mt-2" />
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row">
+                    <div class="py-3 md:w-28">
+                        <x-jet-label for="web_url" value="{{ __('Web URL') }}" />
+                    </div>
+                    <div class="w-3/4">
+                        <x-jet-input id="web_url" type="url" class="mt-1 block w-full" wire:model.defer="form.web_url"/>
+                        <x-jet-input-error for="form.web_url" class="mt-2" />
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row">
+                    <div class="py-3 md:w-28">
+                        <x-jet-label for="play_store_url" value="{{ __('Play Store URL') }}" />
+                    </div>
+                    <div class="w-3/4">
+                        <x-jet-input id="play_store_url" type="url" class="mt-1 block w-full" wire:model.defer="form.play_store_url"/>
+                        <x-jet-input-error for="form.play_store_url" class="mt-2" />
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row">
+                    <div class="py-3 md:w-28">
+                        <x-jet-label for="app_store_url" value="{{ __('App Store URL') }}" />
+                    </div>
+                    <div class="w-3/4">
+                        <x-jet-input id="app_store_url" type="text" class="mt-1 block w-full" wire:model.defer="form.app_store_url"/>
+                        <x-jet-input-error for="form.app_store_url" class="mt-2" />
+                    </div>
+                </div>
                 <div class="flex flex-col md:flex-row">
                     <div class="py-3 md:w-28">
                         <x-jet-label for="description" value="{{ __('Description') }}" />
                     </div>
                     <div class="w-full flex-1">
-                        <x-input.trix id="description" wire:model.defer="form.description" />
+                        <x-input.trix id="description" wire:model.defer="form.description" style="max-height: 500px" class="overflow-y-auto"/>
                         <x-jet-input-error for="form.description" class="mt-2" />
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row">
+                    <div class="py-3 md:w-28">
+                        <x-jet-label value="{{ __('Prices') }}" />
+                    </div>
+                    <div class="md:w-1/2 border border-gray-300 rounded-lg px-3 shadow-sm">
+                        <x-table>
+                            <x-slot name="head">
+                                <x-table.heading>
+                                    License
+                                </x-table.heading>
+                                <x-table.heading>
+                                    Price ($)
+                                </x-table.heading>
+                            </x-slot>
+                            <x-slot name="body">
+                                @foreach ($licenses as $license)
+                                    <x-table.row>
+                                        <x-table.cell>
+                                            <p>
+                                                {{ $license->name }}
+                                            </p>
+                                            <small class="text-gray-500">
+                                                {{ $license->summary }}
+                                            </small>
+                                        </x-table.cell>
+                                        <x-table.cell>
+                                            <x-jet-input wire:model.defer="form.license_prices.{{ $license->id }}.price"
+                                                         type="number" class="mt-1 block w-24 text-sm"/>
+                                        </x-table.cell>
+                                    </x-table.row>
+                                @endforeach
+                            </x-slot>
+                        </x-table>
+                        <x-jet-input-error for="form.license_prices" class="mt-2" />
                     </div>
                 </div>
             </div>

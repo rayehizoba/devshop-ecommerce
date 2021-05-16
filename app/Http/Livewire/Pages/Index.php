@@ -9,9 +9,9 @@ class Index extends Component
 {
     public function render()
     {
-//        TODO: correct the following queries
         return view('livewire.pages.index', [
-            'latest_products' => Product::take(4)->get(),
+            'latest_products' => Product::orderBy('updated_at', 'desc')->take(3)->get(),
+            // TODO: correct the query for popular_products
             'popular_products' => Product::all()
         ])->layout('layouts.guest');
     }

@@ -22,7 +22,9 @@ class Product extends Model
     ];
 
     protected $appends = [
-        'starting_price'
+        'starting_price',
+        'category_ids',
+        'license_prices',
     ];
 
     static function validationRules()
@@ -35,6 +37,8 @@ class Product extends Model
             'play_store_url'   => 'nullable',
             'app_store_url'    => 'nullable',
             'description'      => 'required',
+            'category_ids'     => 'required',
+            'license_prices'      => 'required',
         ];
     }
 
@@ -66,5 +70,22 @@ class Product extends Model
     public function getStartingPriceAttribute()
     {
         return $this->cheapestLicense()->pivot->price ?? 0;
+    }
+
+    public function getCategoryIdsAttribute()
+    {
+        return $this->categories()->pluck('id');
+    }
+
+    public function getLicensePricesAttribute()
+    {
+        $pivots = $this->licenses()->get()->pluck('pivot')->toArray();
+        $prices = [];
+
+        foreach ($pivots as $pivot) {
+            $prices[$pivot['license_id']] = ['price' => $pivot['price']];
+        }
+
+        return $prices;
     }
 }

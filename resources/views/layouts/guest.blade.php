@@ -44,7 +44,8 @@
             </div>
             <form class="flex space-x-2">
                 <div class="flex-1 md:w-64">
-                    <input type="email" placeholder="Email address" class="bg-gray-200 px-4 rounded text-sm focus:outline-none focus:ring h-full w-full"/>
+                    <input type="email" placeholder="Email address"
+                           class="border-0 bg-gray-200 px-4 rounded text-sm focus:outline-none focus:ring h-full w-full"/>
                 </div>
                 <button type="submit" class="btn-primary">
                     Subscribe
