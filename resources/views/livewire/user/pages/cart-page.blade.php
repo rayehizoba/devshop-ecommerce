@@ -14,12 +14,12 @@
                 🖥️📱
             </figure>
             <div>
-                <h1 class="font-bold text-2xl md:text-3xl self-start">
+                <h1 class="font-bold text-2xl self-start">
                     devshop
                 </h1>
                 <ul class="flex items-center text-xs md:text-sm text-gray-500 space-x-1">
                     <li>
-                        <a href="/" class="text-green-700 transition hover:text-green-900">
+                        <a href="{{ route('home.page') }}" class="text-blue-500 transition hover:text-gray-500">
                             Home
                         </a>
                     </li>
@@ -33,17 +33,17 @@
             </div>
         </div>
 
-        <div class="grid gap-10 lg:gap-16 lg:grid-cols-3">
-            <div class="lg:col-span-2 space-y-5">
+        <div class="flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 lg:space-x-16">
+            <div class="flex-1 space-y-5">
                 @if(\Cart::isEmpty())
                     <div class="space-y-3">
-                        <p class="text-xl text-yellow-900 bg-yellow-50 p-5 inline-block border border-yellow-100">
+                        <p class="text-lg text-yellow-900 bg-yellow-50 p-5 inline-block border border-yellow-100 text-center w-full lg:w-auto">
                             🛒
                             Your cart is currently empty
                         </p>
                         <br>
                         <a href="{{ route('shop.page') }}"
-                           class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+                           class="btn-secondary w-full lg:w-auto justify-center">
                             Return to shop
                         </a>
                     </div>
@@ -77,18 +77,17 @@
                             </li>
                         @endforeach
                     </ul>
-                    <div class="flex space-x-5">
+                    <div class="flex space-x-2">
                         <div class="flex-1">
-                            <input type="text" placeholder="Coupon code"
-                                   class="p-2 rounded border text-sm focus:outline-none focus:ring w-full">
+                            <x-jet-input type="text" placeholder="Coupon code" class="w-full"/>
                         </div>
-                        <button type="button" class="btn-outline md:w-40 lg:w-56">
+                        <x-jet-secondary-button type="button" class="px-10">
                             Apply
-                        </button>
+                        </x-jet-secondary-button>
                     </div>
                 @endif
             </div>
-            <div class="border rounded p-5 space-y-5">
+            <div class="rounded-md p-5 space-y-5 shadow-lg border border-gray-300">
                 <ul class="text-sm divide-y space-y-3">
                     <li class="flex justify-between items-center">
                         <p>Subtotal</p>
@@ -99,10 +98,11 @@
                         <p>${{ $total }}</p>
                     </li>
                 </ul>
-                <a href="./checkout.html" class="btn-primary block text-center">
+                <a href="{{ route('checkout.page') }}"
+                   class="inline-flex w-full justify-center items-center px-4 py-4 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
                     Proceed to checkout
                 </a>
-                <ul class="text-gray-500 text-xs space-y-2">
+                <ul class="text-gray-500 text-xs space-y-2 lg:pr-10 xl:pr-20">
                     <li class="flex space-x-1">
                         <span>✅</span>
                         <p>

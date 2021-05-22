@@ -8,7 +8,14 @@ class NavigationMenu extends Component
 {
     public $cart;
 
+    protected $listeners = ['cart:refresh' => 'setCart'];
+
     public function mount()
+    {
+        $this->setCart();
+    }
+
+    public function setCart()
     {
         $this->cart = \Cart::getContent()->count();
     }

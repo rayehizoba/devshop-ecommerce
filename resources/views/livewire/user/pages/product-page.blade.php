@@ -1,6 +1,6 @@
-<div class="container py-5 lg:py-10 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-3 xl:grid-cols-4 lg:gap-x-10 lg:gap-y-5">
+<div class="container py-8 lg:py-10 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-3 xl:grid-cols-4 lg:gap-x-10 lg:gap-y-5">
 
-    <div class="bg-gray-300 rounded shadow-xl lg:col-span-2 xl:col-span-3 bg-cover bg-center"
+    <div class="rounded-lg shadow border border-gray-300 lg:col-span-2 xl:col-span-3 bg-cover bg-center"
          style="background-image: url({{ $product->cover_image_path }})">
         <div class="h-72"></div>
         <div class="lg:h-40 xl:h-72"></div>
@@ -25,7 +25,8 @@
                 <li>
                     <label for="{{ $license->id }}" class="flex items-center parent cursor-pointer">
                         <div class="flex items-center">
-                            <input wire:model="licenseId" class="hidden" type="radio" id="{{ $license->id }}" value="{{ $license->id }}" name="license"/>
+                            <input wire:model="licenseId" class="hidden" type="radio" id="{{ $license->id }}"
+                                   value="{{ $license->id }}" name="license"/>
                             <div class="radio mr-3">
                                 <i class="mdi mdi-check opacity-0 transition ease-out parent-hover:opacity-100 text-white"></i>
                             </div>
@@ -46,31 +47,32 @@
             @endforeach
         </ul>
         <div class="space-y-3">
-            <button type="button" wire:click="addToCart({{ $product->id }})"
-                    class="w-full rounded bg-green-700 hover:bg-green-900 transition focus:outline-none text-white h-12 px-4 font-medium">
+            <x-jet-button type="button" wire:click="addToCart({{ $product->id }})"
+                          class="w-full justify-center h-12">
                 Add to cart
-            </button>
+            </x-jet-button>
             <ul class="flex space-x-2">
                 @if($product->play_store_url)
                     <li class="flex-1">
                         <a href="{{ $product->play_store_url }}" target="_blank"
-                           class="h-12 flex justify-center rounded p-2 bg-gray-200 transition hover:bg-gray-300">
-                            <img src="/img/google-play-4.svg" class="h-full" alt="">
+                           class="w-full justify-center h-12 btn-secondary">
+                            <img src="/img/google-play-4.svg" class="h-full" alt="Google Play">
                         </a>
                     </li>
                 @endif
                 @if($product->app_store_url)
                     <li class="flex-1">
                         <a href="{{ $product->app_store_url }}" target="_blank"
-                           class="rounded border border-black h-12 p-1 flex justify-center transition hover:opacity-75">
-                            <img src="/img/available-on-the-app-store.svg" class="h-full" alt="">
+                           class="w-full justify-center h-12 btn-secondary">
+                            <img src="/img/available-on-the-app-store.svg" class="h-10"
+                                 alt="Available on the App Store">
                         </a>
                     </li>
                 @endif
                 @if($product->web_url)
                     <li class="flex-1">
                         <a href="{{ $product->web_url }}" target="_blank"
-                           class="rounded border border-green-700 hover:border-green-900 transition text-green-700 text-center hover:text-green-900 h-12 flex items-center justify-center px-2 text-sm font-medium">
+                           class="w-full justify-center h-12 btn-secondary">
                             Live preview
                         </a>
                     </li>
@@ -163,13 +165,15 @@
         </ul>
     </div>
 
+
+    {{-- Tabs Section  --}}
     <div x-data="tabs()" class="lg:col-span-2 xl:col-span-3">
-        <ul class="inline-flex w-full border-b select-none text-sm">
-            <template x-for="item in getTabs()" :key="item">
-                <li @click="setTab(item)"
-                    :class="getActive() === item ? 'border-green-700' : 'opacity-50 hover:opacity-100'"
-                    class="px-4 py-2 capitalize transition-all ease-out cursor-pointer border-b-2 border-white"
-                    x-text="item">
+        <ul class="inline-flex w-full border-b border-gray-300 select-none text-sm space-x-8">
+            <template hidden x-for="item in getTabs()" :key="item">
+                <li @click="setTab(item)" class="relative py-4 cursor-pointer hover:opacity-75">
+                    <div :class="{ 'border-b-4 -mb-1': getActive() === item }"
+                         class="absolute top-0 left-0 w-full h-full border-b-0 border-gray-900 transition-all ease-out duration-75"></div>
+                    <span x-text="item" class="uppercase tracking-widest text-xs font-semibold"></span>
                 </li>
             </template>
         </ul>
@@ -193,7 +197,8 @@
     {{--  Related Templates Section  --}}
     @foreach ($product->categories as $category)
         @if($category->products->where('id', '!=', $product->id)->count() > 0)
-            <section class="border-t py-8 flex flex-col md:flex-row flex-wrap items-start lg:col-span-full">
+            <section
+                    class="border-t border-gray-300 py-8 flex flex-col md:flex-row flex-wrap items-start lg:col-span-full">
                 <header class="flex-1">
                     <p class="text-lg font-medium">
                         {{ $category->name }}
@@ -203,8 +208,9 @@
                     </p>
                 </header>
                 <a href="{{ route('category', ['slug' => $category->slug]) }}"
-                   class="order-last md:order-none w-full md:w-auto text-center rounded border border-green-700 bg-green-700 md:bg-transparent p-3 px-4 text-white md:text-green-700 text-sm md:text-xs font-medium transition hover:border-green-800 hover:bg-green-800 md:hover:bg-transparent md:hover:text-green-800">
-                    View all <span class="md:hidden">related templates</span>
+                   class="order-last md:order-none w-full md:w-auto btn-secondary h-10 justify-center space-x-1">
+                    <span>View all</span>
+                    <span class="md:hidden">related templates</span>
                 </a>
                 <ul class="grid grid-cols-2 xl:grid-cols-3 gap-6 w-full my-6">
                     @foreach($category->products->where('id', '!=', $product->id)->take(4) as $each)
@@ -219,7 +225,6 @@
 
 </div>
 
-{{-- TODO: move script to product form --}}
 <script>
   function tabs() {
     return {

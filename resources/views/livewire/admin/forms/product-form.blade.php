@@ -1,15 +1,31 @@
-<div>
+<div x-data="
+{
+  tab: 'Product',
+  tabs: ['Product', 'Description', 'Screenshots'],
+  getTabs() {
+    return this.tabs
+  },
+  setTab(tab) {
+    this.tab = tab
+  },
+  getActive() {
+    return this.tab
+  },
+}
+">
     <form wire:submit.prevent="submit">
         <div class="py-4">
             <div class="px-6 text-lg">
                 {{ __($title) }}
             </div>
 
-            <div x-data="tabs()" class="lg:col-span-2 xl:col-span-3">
-                <ul class="inline-flex w-full border-b select-none text-sm px-3 mt-6">
-                    <template x-for="item in getTabs()" :key="item">
-                        <li @click="setTab(item)" :class="getActive() === item ? 'border-indigo-400' : 'opacity-50 hover:opacity-100'"
-                            class="mx-3 py-2 capitalize transition-all ease-out cursor-pointer border-b-2 border-white" x-text="item">
+            <div class="lg:col-span-2 xl:col-span-3">
+                <ul class="inline-flex w-full border-b border-b-300 select-none px-6 space-x-8">
+                    <template hidden x-for="item in getTabs()" :key="item">
+                        <li @click="setTab(item)" class="relative py-4 cursor-pointer hover:opacity-75">
+                            <div :class="{ 'border-b-4 -mb-1': getActive() === item }"
+                                 class="absolute top-0 left-0 w-full h-full border-b-0 border-gray-900 transition-all ease-out duration-75"></div>
+                            <span x-text="item" class="uppercase tracking-widest text-xs font-semibold"></span>
                         </li>
                     </template>
                 </ul>
@@ -151,3 +167,5 @@
         </div>
     </form>
 </div>
+
+

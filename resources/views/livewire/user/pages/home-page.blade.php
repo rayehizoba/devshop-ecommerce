@@ -11,7 +11,7 @@
             <h2 class="text-gray-500 lg:text-lg w-3/4 md:w-auto">
                 Premium ready-to-use templates, source codes and starter kits for developers and startups.
             </h2>
-            <a href="#" class="btn-primary">
+            <a href="#" class="btn-primary h-12">
                 Why Our Templates?
             </a>
         </div>
@@ -29,8 +29,9 @@
                 </p>
             </header>
             <a href="{{ route('shop.page', ['orderby' => 'date']) }}"
-               class="order-last md:order-none w-full md:w-auto text-center rounded border border-green-700 bg-green-700 md:bg-transparent p-3 px-4 text-white md:text-green-700 text-sm md:text-xs font-medium transition hover:border-green-800 hover:bg-green-800 md:hover:bg-transparent md:hover:text-green-800">
-                View all <span class="md:hidden">latest templates</span>
+               class="order-last md:order-none w-full md:w-auto btn-secondary justify-center space-x-1 h-10">
+                <span>View all</span>
+                <span class="md:hidden">latest templates</span>
             </a>
             <ul class="grid grid-cols-2 xl:grid-cols-3 gap-6 w-full my-6">
                 @foreach($latest_products as $product)

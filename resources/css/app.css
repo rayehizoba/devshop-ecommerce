@@ -2,6 +2,10 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+[x-cloak] {
+    display: none;
+}
+
 .parent:hover .parent-hover\:opacity-100 {
     @apply opacity-100;
 }
@@ -27,20 +31,24 @@
 }
 
 .radio {
-    @apply h-6 w-6 rounded-full bg-gray-300 flex items-center justify-center transition;
+    @apply h-6 w-6 rounded-full bg-gray-200 flex items-center justify-center transition;
 }
 
 input[type='radio']:checked ~ .radio {
-    @apply bg-green-700;
+    @apply bg-blue-500;
 }
 input[type='radio']:checked ~ .radio .mdi-check {
     @apply opacity-100;
 }
 
 .btn-primary {
-    @apply rounded bg-green-700 p-4 px-8 text-white text-sm font-medium transition hover:bg-green-800;
+    @apply inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition;
 }
 
 .btn-outline {
     @apply border rounded border-green-700 text-sm font-medium p-2 px-4 text-green-700 hover:text-green-900 hover:border-green-900;
+}
+
+.btn-secondary {
+    @apply inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 disabled:opacity-25 transition;
 }

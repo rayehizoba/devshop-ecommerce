@@ -4,20 +4,21 @@ namespace App\Http\Livewire\User\Pages;
 
 use Livewire\Component;
 
-class CartPage extends Component
+class CheckoutPage extends Component
 {
-    public function removeItem($key)
+    public function mount()
     {
-        \Cart::remove($key);
-        $this->emit('cart:refresh');
+        if (\Cart::isEmpty()) {
+            return redirect()->to('/cart');
+        }
     }
 
     public function render()
     {
-        return view('livewire.user.pages.cart-page', [
+        return view('livewire.user.pages.checkout-page', [
             'items' => \Cart::getContent(),
             'subtotal' => \Cart::getSubTotal(),
             'total' => \Cart::getTotal(),
-        ])->layout('layouts.guest');
+        ])->layout('layouts.blank');
     }
 }

@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\PaymentIntentController;
 use App\Http\Livewire\Admin\Pages\CategoryIndex;
 use App\Http\Livewire\Admin\Pages\LicenseIndex;
 use App\Http\Livewire\Admin\Pages\ProductIndex;
 use App\Http\Livewire\User\Pages\CartPage;
 use App\Http\Livewire\User\Pages\CategoryPage;
-use App\Http\Livewire\User\Pages\Index;
+use App\Http\Livewire\User\Pages\CheckoutPage;
+use App\Http\Livewire\User\Pages\HomePage;
 use App\Http\Livewire\User\Pages\ProductPage;
 use Illuminate\Support\Facades\Route;
 
@@ -24,15 +26,19 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', Index::class)->name('home');
+Route::get('/', HomePage::class)->name('home.page');
 
-Route::get('shop', Index::class)->name('shop.page');
+Route::get('shop', HomePage::class)->name('shop.page');
 
 Route::get('category/{slug}', CategoryPage::class)->name('category');
 
 Route::get('product/{slug}', ProductPage::class)->name('product');
 
 Route::get('cart', CartPage::class)->name('cart.page');
+
+Route::get('checkout', CheckoutPage::class)->name('checkout.page');
+
+Route::post('payment-intent', PaymentIntentController::class);
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

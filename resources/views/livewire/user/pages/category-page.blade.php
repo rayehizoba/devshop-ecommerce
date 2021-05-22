@@ -12,14 +12,13 @@
                 </p>
             </div>
             <div>
-                <select wire:model="orderby"
-                        class="bg-white rounded border w-full md:w-auto p-2 text-sm focus:outline-none focus:ring pr-8 text-gray-500">
+                <x-input.select wire:model="orderby" class="w-full md:w-auto">
                     @foreach(Config::get('constants.options.orderby') as $key => $value)
                         <option value="{{ $value }}">
                             {{ $key }}
                         </option>
                     @endforeach
-                </select>
+                </x-input.select>
             </div>
         </header>
         <ul class="grid grid-cols-2 xl:grid-cols-3 gap-6 w-full py-6">

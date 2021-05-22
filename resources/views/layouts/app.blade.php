@@ -45,13 +45,13 @@
             </main>
         </div>
 
+        @livewireScripts
+
+        @stack('scripts')
         @stack('modals')
 
         @livewire('components.modal')
         @livewire('components.delete-modal')
         @livewire('components.toast')
-
-        @livewireScripts
-        @stack('scripts')
     </body>
 </html>

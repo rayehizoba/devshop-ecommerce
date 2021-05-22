@@ -62,7 +62,7 @@
                                 <x-table.cell>
                                     <a href="{{ route('product', ['slug' => $product->slug]) }}" target="_blank">
                                         <img src="{{ $product->cover_image_path }}" alt=""
-                                             class="w-20 rounded-md shadow-md">
+                                             class="w-20 rounded-md border border-gray-300 shadow-sm">
                                     </a>
                                 </x-table.cell>
                                 <x-table.cell>
@@ -110,15 +110,13 @@
                                         @endif
                                     </ul>
                                 </x-table.cell>
-                                <x-table.cell class="text-right space-x-2">
-                                    <button wire:click="edit({{ $product->id }})" type="button"
-                                            class="text-gray-500 capitalize text-xs transition bg-gray-200 rounded-md p-1 px-5 hover:bg-gray-300 font-bold focus:outline-none focus:ring focus:ring-gray-100">
+                                <x-table.cell class="text-right space-x-1">
+                                    <x-jet-secondary-button wire:click="edit({{ $product->id }})">
                                         edit
-                                    </button>
-                                    <button wire:click="confirmDelete({{ $product->id }})" type="button"
-                                            class="text-gray-500 capitalize text-xs transition bg-gray-200 rounded-md p-1 px-5 hover:bg-gray-300 font-bold focus:outline-none focus:ring focus:ring-gray-100">
+                                    </x-jet-secondary-button>
+                                    <x-jet-secondary-button wire:click="confirmDelete({{ $product->id }})">
                                         delete
-                                    </button>
+                                    </x-jet-secondary-button>
                                 </x-table.cell>
                             </x-table.row>
                         @empty
@@ -134,15 +132,7 @@
                 </x-table>
 
                 <div class="flex items-center justify-between space-x-5">
-                    <select class="text-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-                            wire:model="pageSize">
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select>
-
+                    <x-input.page-size wire:model="pageSize"/>
                     <div class="flex-1">
                         {{ $products->links() }}
                     </div>
@@ -151,23 +141,3 @@
         </div>
     </div>
 </div>
-
-@push('scripts')
-    <script>
-      function tabs() {
-        return {
-          tab: 'Product',
-          tabs: ['Product', 'Description', 'Screenshots'],
-          getTabs() {
-            return this.tabs
-          },
-          setTab(tab) {
-            this.tab = tab
-          },
-          getActive() {
-            return this.tab
-          },
-        }
-      }
-    </script>
-@endpush

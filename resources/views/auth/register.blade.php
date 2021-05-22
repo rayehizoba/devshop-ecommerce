@@ -1,7 +1,18 @@
-<x-guest-layout>
+<x-blank-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <div class="flex flex-col items-center space-y-5">
+                <x-jet-authentication-card-logo />
+                <div class="space-y-3">
+                    <h1 class="text-3xl font-medium text-center">
+                        Sign up
+                    </h1>
+
+                    <p class="text-xs text-gray-500 text-center">
+                        Redownload templates, get support, and review templates.
+                    </p>
+                </div>
+            </div>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -51,10 +62,10 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-jet-button class="ml-4">
+                <x-jet-button class="ml-4 h-10">
                     {{ __('Register') }}
                 </x-jet-button>
             </div>
         </form>
     </x-jet-authentication-card>
-</x-guest-layout>
+</x-blank-layout>

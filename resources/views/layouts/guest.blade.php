@@ -30,10 +30,10 @@
     {{ $slot }}
 </main>
 
-<footer class="container divide-y">
-    <section class="h-0"></section>
+<footer class="container divide-y divide-gray-300">
+    <div class="h-0"></div>
     <!--    newsletter section-->
-    <section class="py-8">
+    <div class="py-8">
         <div class="flex flex-col md:flex-row lg:items-center lg:justify-between space-y-6 md:space-y-0">
             <div class="flex-1">
                 <p class="font-medium">
@@ -45,16 +45,15 @@
             </div>
             <form class="flex space-x-2">
                 <div class="flex-1 md:w-64">
-                    <input type="email" placeholder="Email address"
-                           class="border-0 bg-gray-200 px-4 rounded text-sm focus:outline-none focus:ring h-full w-full"/>
+                    <x-jet-input type="email" placeholder="Email address" class="w-full"/>
                 </div>
-                <button type="submit" class="btn-primary">
+                <x-jet-button type="submit" class="">
                     Subscribe
-                </button>
+                </x-jet-button>
             </form>
         </div>
-    </section>
-    <footer class="py-4">
+    </div>
+    <nav class="py-4">
         <ul class="text-xs text-gray-500 flex flex-wrap">
             <li class="my-2 mr-6 lg:mr-8">
                 <a href="#" class="transition hover:text-gray-800">
@@ -77,7 +76,7 @@
                 </a>
             </li>
         </ul>
-    </footer>
+    </nav>
 </footer>
 
 @livewireScripts
