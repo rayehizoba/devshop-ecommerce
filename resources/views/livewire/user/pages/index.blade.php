@@ -28,7 +28,7 @@
                     Most recently added to our collection.
                 </p>
             </header>
-            <a href="{{ route('shop', ['orderby' => 'date']) }}"
+            <a href="{{ route('shop.page', ['orderby' => 'date']) }}"
                class="order-last md:order-none w-full md:w-auto text-center rounded border border-green-700 bg-green-700 md:bg-transparent p-3 px-4 text-white md:text-green-700 text-sm md:text-xs font-medium transition hover:border-green-800 hover:bg-green-800 md:hover:bg-transparent md:hover:text-green-800">
                 View all <span class="md:hidden">latest templates</span>
             </a>

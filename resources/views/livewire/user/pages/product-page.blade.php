@@ -25,8 +25,7 @@
                 <li>
                     <label for="{{ $license->id }}" class="flex items-center parent cursor-pointer">
                         <div class="flex items-center">
-                            <input class="hidden" type="radio" id="{{ $license->id }}" value="{{ $license->id }}"
-                                   @if($loop->first) checked @endif name="license"/>
+                            <input wire:model="licenseId" class="hidden" type="radio" id="{{ $license->id }}" value="{{ $license->id }}" name="license"/>
                             <div class="radio mr-3">
                                 <i class="mdi mdi-check opacity-0 transition ease-out parent-hover:opacity-100 text-white"></i>
                             </div>
@@ -47,32 +46,36 @@
             @endforeach
         </ul>
         <div class="space-y-3">
+            <button type="button" wire:click="addToCart({{ $product->id }})"
+                    class="w-full rounded bg-green-700 hover:bg-green-900 transition focus:outline-none text-white h-12 px-4 font-medium">
+                Add to cart
+            </button>
             <ul class="flex space-x-2">
                 @if($product->play_store_url)
                     <li class="flex-1">
-                        <a href="{{ $product->play_store_url }}" target="_blank" class="h-12 flex justify-center rounded p-2 bg-gray-200 transition hover:bg-gray-300">
+                        <a href="{{ $product->play_store_url }}" target="_blank"
+                           class="h-12 flex justify-center rounded p-2 bg-gray-200 transition hover:bg-gray-300">
                             <img src="/img/google-play-4.svg" class="h-full" alt="">
                         </a>
                     </li>
                 @endif
                 @if($product->app_store_url)
                     <li class="flex-1">
-                        <a href="{{ $product->app_store_url }}" target="_blank" class="rounded border border-black h-12 p-1 flex justify-center transition hover:opacity-75">
+                        <a href="{{ $product->app_store_url }}" target="_blank"
+                           class="rounded border border-black h-12 p-1 flex justify-center transition hover:opacity-75">
                             <img src="/img/available-on-the-app-store.svg" class="h-full" alt="">
                         </a>
                     </li>
                 @endif
                 @if($product->web_url)
                     <li class="flex-1">
-                        <a href="{{ $product->web_url }}" target="_blank" class="rounded border border-green-700 hover:border-green-900 transition text-green-700 text-center hover:text-green-900 h-12 flex items-center justify-center px-2 text-sm font-medium">
+                        <a href="{{ $product->web_url }}" target="_blank"
+                           class="rounded border border-green-700 hover:border-green-900 transition text-green-700 text-center hover:text-green-900 h-12 flex items-center justify-center px-2 text-sm font-medium">
                             Live preview
                         </a>
                     </li>
                 @endif
             </ul>
-            <button type="button" class="w-full rounded bg-green-700 hover:bg-green-900 transition focus:outline-none text-white h-12 px-4 font-medium">
-                Add to cart
-            </button>
         </div>
 
         <div class="flex divide-x">
@@ -139,7 +142,8 @@
                     </p>
                     <div class="text-right">
                         @foreach($product->categories as $category)
-                            <a href="{{ route('category', ['slug' => $category->slug]) }}" class="text-blue-400 whitespace-nowrap">
+                            <a href="{{ route('category', ['slug' => $category->slug]) }}"
+                               class="text-blue-400 whitespace-nowrap">
                                 {{ $category->name }}@if(!$loop->last),@endif
                             </a>
                         @endforeach
@@ -162,8 +166,10 @@
     <div x-data="tabs()" class="lg:col-span-2 xl:col-span-3">
         <ul class="inline-flex w-full border-b select-none text-sm">
             <template x-for="item in getTabs()" :key="item">
-                <li @click="setTab(item)" :class="getActive() === item ? 'border-green-700' : 'opacity-50 hover:opacity-100'"
-                    class="px-4 py-2 capitalize transition-all ease-out cursor-pointer border-b-2 border-white" x-text="item">
+                <li @click="setTab(item)"
+                    :class="getActive() === item ? 'border-green-700' : 'opacity-50 hover:opacity-100'"
+                    class="px-4 py-2 capitalize transition-all ease-out cursor-pointer border-b-2 border-white"
+                    x-text="item">
                 </li>
             </template>
         </ul>
@@ -184,7 +190,7 @@
         </div>
     </div>
 
-    {{--  Related Templates  --}}
+    {{--  Related Templates Section  --}}
     @foreach ($product->categories as $category)
         @if($category->products->where('id', '!=', $product->id)->count() > 0)
             <section class="border-t py-8 flex flex-col md:flex-row flex-wrap items-start lg:col-span-full">
@@ -196,7 +202,8 @@
                         Related templates in the same category.
                     </p>
                 </header>
-                <a href="{{ route('category', ['slug' => $category->slug]) }}" class="order-last md:order-none w-full md:w-auto text-center rounded border border-green-700 bg-green-700 md:bg-transparent p-3 px-4 text-white md:text-green-700 text-sm md:text-xs font-medium transition hover:border-green-800 hover:bg-green-800 md:hover:bg-transparent md:hover:text-green-800">
+                <a href="{{ route('category', ['slug' => $category->slug]) }}"
+                   class="order-last md:order-none w-full md:w-auto text-center rounded border border-green-700 bg-green-700 md:bg-transparent p-3 px-4 text-white md:text-green-700 text-sm md:text-xs font-medium transition hover:border-green-800 hover:bg-green-800 md:hover:bg-transparent md:hover:text-green-800">
                     View all <span class="md:hidden">related templates</span>
                 </a>
                 <ul class="grid grid-cols-2 xl:grid-cols-3 gap-6 w-full my-6">
@@ -212,14 +219,21 @@
 
 </div>
 
+{{-- TODO: move script to product form --}}
 <script>
   function tabs() {
     return {
       tab: 'description',
       tabs: ['description', 'screenshots', 'reviews'],
-      getTabs() { return this.tabs },
-      setTab(tab) { this.tab = tab },
-      getActive() { return this.tab },
+      getTabs() {
+        return this.tabs
+      },
+      setTab(tab) {
+        this.tab = tab
+      },
+      getActive() {
+        return this.tab
+      },
     }
   }
 </script>

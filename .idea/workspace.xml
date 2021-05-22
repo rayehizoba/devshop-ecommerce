@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1acec001-e33a-47d4-b677-30fecb0fbb67" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/devshop-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/devshop-app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/ProductForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/ProductForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/navigation-menu/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navigation-menu/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/admin/forms/product-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/admin/forms/product-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/admin/pages/product-index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/admin/pages/product-index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/pages/product-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/pages/product-page.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Pages/CategoryPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/User/Pages/CategoryPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Pages/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/User/Pages/Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Pages/ProductPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/User/Pages/ProductPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/navigation-menu/user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navigation-menu/user.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/pages/category-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user/pages/category-page.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/pages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user/pages/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/pages/product-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user/pages/product-page.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,26 +110,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Pages/CategoryPage.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Livewire/User/Pages/CartPage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
-              <folding>
-                <element signature="e#43#67#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="176">
+              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/forms/product-form.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/livewire/user/pages/cart-page.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="944">
-              <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
-              <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
-              <caret line="50" column="47" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
-              <caret line="59" column="47" selection-start-line="59" selection-start-column="47" selection-end-line="59" selection-end-column="47" />
+            <state relative-caret-position="144">
+              <caret line="126" column="10" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+              <folding>
+                <element signature="n#div#1;n#div#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,30 +142,52 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/pages/product-index.blade.php">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1024">
-              <caret line="64" column="45" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
+            <state relative-caret-position="328">
+              <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+              <folding>
+                <element signature="e#7#55#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/components/navigation-menu.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/components/navigation-menu/user.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+            <state relative-caret-position="192">
+              <caret line="12" column="19" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/components/navigation-menu/admin.blade.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Components/NavigationMenu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="155" column="30" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
-              <caret line="159" column="30" selection-start-line="159" selection-start-column="30" selection-end-line="159" selection-end-column="30" />
-              <caret line="163" column="30" selection-start-line="163" selection-start-column="30" selection-end-line="163" selection-end-column="30" />
+            <state relative-caret-position="192">
+              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/livewire/user/pages/product-page.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Livewire/User/Pages/ProductPage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="572">
+              <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+              <folding>
+                <element signature="e#48#71#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -176,14 +196,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>confirming-password</find>
-      <find>&lt;x-jet-dialog-modal</find>
-      <find>model</find>
-      <find>show =</find>
-      <find>&lt;x-jet-form-section</find>
-      <find>Categories</find>
-      <find>$category</find>
-      <find>categories</find>
       <find>prevFocusable</find>
       <find>form.</find>
       <find>product-form</find>
@@ -197,7 +209,6 @@
       <find>$product-&gt;lic</find>
       <find>min-h-screen</find>
       <find>trix-content</find>
-      <find>wire:model</find>
       <find>item</find>
       <find>take</find>
       <find>&lt;select</find>
@@ -206,12 +217,23 @@
       <find>Prices</find>
       <find>Product Saved</find>
       <find>scripts</find>
+      <find>add to cart</find>
+      <find>&lt;x-navigation-menu</find>
+      <find>'livewire.pages</find>
+      <find>wire:model</find>
+      <find>wire:click</find>
+      <find>'shop'</find>
+      <find>shop</find>
+      <find>wire:key</find>
+      <find>App\Http\Livewire\Pages</find>
     </findStrings>
     <replaceStrings>
       <replace>Products</replace>
       <replace>$products</replace>
       <replace>$product</replace>
       <replace>products</replace>
+      <replace>'livewire.user.pages</replace>
+      <replace>App\Http\Livewire\User\Pages</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -225,16 +247,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2021_05_09_145726_create_products_table.php" />
-        <option value="$PROJECT_DIR$/database/factories/ProductFactory.php" />
-        <option value="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2021_05_09_161851_create_category_product_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2021_05_09_161905_create_license_product_table.php" />
-        <option value="$PROJECT_DIR$/database/seeders/ProductSeeder.php" />
-        <option value="$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/BaseForm.php" />
-        <option value="$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/LicenseForm.php" />
-        <option value="$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/CategoryForm.php" />
         <option value="$PROJECT_DIR$/resources/views/components/table/row.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/livewire/components/toast.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Traits/HasSlug.php" />
@@ -246,10 +258,8 @@
         <option value="$PROJECT_DIR$/resources/views/components/navigation-menu/admin-navigation.php" />
         <option value="$PROJECT_DIR$/resources/views/components/navigation-menu/user-navigation.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/components/navigation-menu.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/components/navigation-menu/user.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Livewire/Pages/ProductPage.php" />
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/livewire/pages/index.blade.php" />
         <option value="$PROJECT_DIR$/config/constants.php" />
         <option value="$PROJECT_DIR$/resources/views/components/table/cell.blade.php" />
@@ -258,7 +268,6 @@
         <option value="$PROJECT_DIR$/tailwind.config.js" />
         <option value="$PROJECT_DIR$/app/Http/Livewire/Pages/Index.php" />
         <option value="$PROJECT_DIR$/resources/css/app.css" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/livewire/pages/category-page.blade.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/0714d803-0f4c-4d97-8fcd-4cfda2f2c21e/console_1.sql" />
         <option value="$PROJECT_DIR$/app/Models/Category.php" />
@@ -270,12 +279,25 @@
         <option value="$PROJECT_DIR$/resources/views/components/table.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/livewire/admin/pages/category-index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/livewire/admin/pages/license-index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/livewire/pages/product-page.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Livewire/Admin/Forms/ProductForm.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/livewire/admin/forms/product-form.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/livewire/admin/pages/product-index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/components/navigation-menu/admin.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/livewire/pages/product-page.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Livewire/User/Pages/CategoryPage.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/livewire/components/navigation-menu.blade.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/resources/views/livewire/user/pages/product-page.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Livewire/Components/NavigationMenu.php" />
+        <option value="$PROJECT_DIR$/resources/views/components/navigation-menu/user.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/livewire/user/pages/category-page.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/livewire/user/pages/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Livewire/User/Pages/ProductPage.php" />
+        <option value="$PROJECT_DIR$/resources/views/livewire/user/pages/cart-page.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Livewire/User/Pages/CartPage.php" />
       </list>
     </option>
   </component>
@@ -422,13 +444,87 @@
             <path>
               <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Livewire" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Livewire" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Livewire" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+              <item name="Pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="navigation-menu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="jetstream" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devshop-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devshop-app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="jetstream" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -449,14 +545,16 @@
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/livewire/user" />
+      <recent name="$PROJECT_DIR$/app/Http/Livewire/User" />
+      <recent name="$PROJECT_DIR$/resources/views/components" />
+      <recent name="$PROJECT_DIR$/resources/views/components/input" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/app/Http/Traits" />
       <recent name="$PROJECT_DIR$/resources/views" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/components" />
-      <recent name="$PROJECT_DIR$/resources/views/components/input" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -506,19 +604,20 @@
       <workItem from="1620762892800" duration="1137000" />
       <workItem from="1621012037149" duration="40190000" />
       <workItem from="1621568744831" duration="2681000" />
-      <workItem from="1621687858849" duration="549000" />
+      <workItem from="1621687858849" duration="8610000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122720000" />
+    <option name="totallyTimeSpent" value="130781000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="npm" order="0" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.35180724" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.26385543" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.2" />
@@ -534,18 +633,18 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="3" visible="true" weight="0.20100144" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="3" visible="true" weight="0.20100144" />
       <window_info anchor="right" id="Favorites" order="4" weight="0.21888413" />
       <window_info anchor="right" id="Database" order="5" weight="0.22031474" />
     </layout>
     <layout-to-restore>
       <window_info id="npm" order="0" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.35180724" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.26385543" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32891566" />
-      <window_info anchor="bottom" id="Database Console" order="4" weight="0.32771084" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.2" />
+      <window_info anchor="bottom" id="Database Console" order="4" weight="0.41084337" />
       <window_info anchor="bottom" id="Docker" order="5" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32771084" />
@@ -557,83 +656,15 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="3" visible="true" weight="0.19527897" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="3" visible="true" weight="0.20100144" />
       <window_info anchor="right" id="Favorites" order="4" weight="0.21888413" />
-      <window_info anchor="right" id="Database" order="5" weight="0.21459228" />
+      <window_info anchor="right" id="Database" order="5" weight="0.22031474" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/jetstream/src/Contracts/CreatesTeams.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/jetstream/src/Http/Livewire/TeamMemberManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Components/AppLayout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="29" column="36" lean-forward="true" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/components/navigation-menu/user.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="28" column="72" selection-start-line="28" selection-start-column="72" selection-end-line="28" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="35" column="43" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/cache.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#43#3197#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
-          <folding>
-            <element signature="e#7#48#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -676,16 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Pages/ProductPage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="e#43#66#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -693,7 +714,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Pages/Index.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/User/Pages/Index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="13" column="15" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
@@ -703,7 +724,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/livewire/pages/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/livewire/user/pages/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
@@ -724,7 +745,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/livewire/pages/category-page.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/livewire/user/pages/category-page.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
           <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
@@ -815,16 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="23" />
-          <folding>
-            <element signature="e#30#58#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Admin/Pages/ProductIndex.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1184">
@@ -880,41 +891,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/livewire/pages/product-page.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="214" selection-start-line="214" selection-end-line="224" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/guest.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="47" column="105" selection-start-line="47" selection-start-column="105" selection-end-line="47" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/vendor/jetstream/components/modal.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
           <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Pages/CategoryPage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="e#43#67#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -928,24 +908,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/components/product-card.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/livewire/admin/pages/product-index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1024">
           <caret line="64" column="45" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/components/navigation-menu.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -955,6 +921,134 @@
           <caret line="155" column="30" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
           <caret line="159" column="30" selection-start-line="159" selection-start-column="30" selection-end-line="159" selection-end-column="30" />
           <caret line="163" column="30" selection-start-line="163" selection-start-column="30" selection-end-line="163" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/guest.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/livewire/components/delete-modal.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/components/navigation-menu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="232" column="62" selection-start-line="232" selection-start-column="62" selection-end-line="232" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="64" column="35" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="35" />
+          <folding>
+            <element signature="e#30#58#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/livewire/components/navigation-menu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/User/Pages/CategoryPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="46" column="10" lean-forward="true" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/Components/NavigationMenu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/vendor/jetstream/components/button.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="345" selection-start-column="63" selection-end-column="345" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+          <folding>
+            <element signature="e#7#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/components/navigation-menu/user.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/components/product-card.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/livewire/user/pages/product-page.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/User/Pages/ProductPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+          <folding>
+            <element signature="e#48#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/livewire/user/pages/cart-page.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="126" column="10" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Livewire/User/Pages/CartPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>

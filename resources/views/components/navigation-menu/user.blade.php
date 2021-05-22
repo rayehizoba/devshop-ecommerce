@@ -47,11 +47,13 @@ category_dialog: false,
                     🔍
                 </button>
             </li>
-            <li>
-                <a href="./cart.html" class="flex items-center focus:outline-none font-medium text-green-700">
-                    <span class="lg:text-xl">🛒</span>3
-                </a>
-            </li>
+            @if($cart > 0)
+                <li>
+                    <a href="{{ route('cart.page') }}" class="flex items-center focus:outline-none font-medium text-green-700">
+                        <span class="lg:text-xl">🛒</span>{{ $cart }}
+                    </a>
+                </li>
+            @endif
             <li>
                 <a x-show="!auth" href="{{ route('login') }}" class="transition hover:text-gray-800">
                     Sign in

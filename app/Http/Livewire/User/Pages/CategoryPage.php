@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Pages;
+namespace App\Http\Livewire\User\Pages;
 
 use App\Models\Category;
 use Livewire\Component;
@@ -42,7 +42,7 @@ class CategoryPage extends Component
 
     public function render()
     {
-        return view('livewire.pages.category-page', [
+        return view('livewire.user.pages.category-page', [
             'products' => $this->_getProducts()
         ])->layout('layouts.guest');
     }

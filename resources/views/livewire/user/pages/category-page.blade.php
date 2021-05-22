@@ -35,7 +35,7 @@
                     <p class="text-sm text-gray-500">
                         No templates found in this category
                     </p>
-                    <a href="{{ route('shop') }}" class="btn-outline inline-block mt-3">
+                    <a href="{{ route('shop.page') }}" class="btn-outline inline-block mt-3">
                         Explore Templates
                     </a>
                 </div>

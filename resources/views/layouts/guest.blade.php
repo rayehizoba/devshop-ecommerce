@@ -23,7 +23,8 @@
 </head>
 <body x-data class="select-none">
 
-<x-navigation-menu />
+{{--<x-navigation-menu />--}}
+@livewire('components.navigation-menu')
 
 <main>
     {{ $slot }}
