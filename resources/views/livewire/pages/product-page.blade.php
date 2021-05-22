@@ -70,7 +70,7 @@
                     </li>
                 @endif
             </ul>
-            <button type="button" class="w-full rounded bg-green-700 hover:bg-green-900 transition focus:outline-none text-white h-12 px-4 font-medium text-sm">
+            <button type="button" class="w-full rounded bg-green-700 hover:bg-green-900 transition focus:outline-none text-white h-12 px-4 font-medium">
                 Add to cart
             </button>
         </div>

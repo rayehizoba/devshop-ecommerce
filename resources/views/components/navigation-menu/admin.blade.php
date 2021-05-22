@@ -15,6 +15,10 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin.product.index') }}"
+                                    :active="request()->routeIs('admin.product.index')">
+                        {{ __('Products') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.category.index') }}"
                                     :active="request()->routeIs('admin.category.index')">
                         {{ __('Categories') }}
@@ -22,10 +26,6 @@
                     <x-jet-nav-link href="{{ route('admin.license.index') }}"
                                     :active="request()->routeIs('admin.license.index')">
                         {{ __('Licenses') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('admin.product.index') }}"
-                                    :active="request()->routeIs('admin.product.index')">
-                        {{ __('Products') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -152,6 +152,18 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('admin.product.index') }}"
+                            :active="request()->routeIs('admin.product.index')">
+                {{ __('Products') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('admin.category.index') }}"
+                            :active="request()->routeIs('admin.category.index')">
+                {{ __('Categories') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('admin.license.index') }}"
+                            :active="request()->routeIs('admin.license.index')">
+                {{ __('Licenses') }}
             </x-jet-responsive-nav-link>
         </div>
 

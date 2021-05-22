@@ -57,15 +57,21 @@
                     </x-slot>
                     <x-slot name="body">
                         @forelse($products as $product)
-                            <x-table.row wire:key="{{ $product->id }}" wire:loading.class.delay="opacity-50" class="transition">
+                            <x-table.row wire:key="{{ $product->id }}" wire:loading.class.delay="opacity-50"
+                                         class="transition">
                                 <x-table.cell>
-                                    <img src="{{ $product->cover_image_path }}" alt="" class="w-20 rounded-md shadow-md">
+                                    <a href="{{ route('product', ['slug' => $product->slug]) }}" target="_blank">
+                                        <img src="{{ $product->cover_image_path }}" alt=""
+                                             class="w-20 rounded-md shadow-md">
+                                    </a>
                                 </x-table.cell>
                                 <x-table.cell>
                                     {{ $product->id }}
                                 </x-table.cell>
                                 <x-table.cell class="max-w-sm xl:max-w-md">
-                                    {{ $product->name }}
+                                    <a href="{{ route('product', ['slug' => $product->slug]) }}" target="_blank">
+                                        {{ $product->name }}
+                                    </a>
                                 </x-table.cell>
                                 <x-table.cell>
                                     ${{ $product->starting_price }}
@@ -128,7 +134,8 @@
                 </x-table>
 
                 <div class="flex items-center justify-between space-x-5">
-                    <select class="text-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model="pageSize">
+                    <select class="text-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                            wire:model="pageSize">
                         <option value="5">5</option>
                         <option value="10">10</option>
                         <option value="25">25</option>
@@ -144,3 +151,23 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+      function tabs() {
+        return {
+          tab: 'Product',
+          tabs: ['Product', 'Description', 'Screenshots'],
+          getTabs() {
+            return this.tabs
+          },
+          setTab(tab) {
+            this.tab = tab
+          },
+          getActive() {
+            return this.tab
+          },
+        }
+      }
+    </script>
+@endpush

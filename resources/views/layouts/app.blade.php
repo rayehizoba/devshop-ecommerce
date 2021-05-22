@@ -52,5 +52,6 @@
         @livewire('components.toast')
 
         @livewireScripts
+        @stack('scripts')
     </body>
 </html>

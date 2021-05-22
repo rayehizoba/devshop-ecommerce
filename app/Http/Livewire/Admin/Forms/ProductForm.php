@@ -61,7 +61,7 @@ class ProductForm extends BaseForm
         $this->closeModal();
 
         $this->emit('list:refresh');
-        $this->emit('toast', 'Product Saved', $product['name'].' has been saved.');
+        $this->emit('toast', 'Product Saved', '\''.$product['name'].'\' has been saved.');
 
     }
 
