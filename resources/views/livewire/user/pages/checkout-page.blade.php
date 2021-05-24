@@ -17,10 +17,10 @@
         },
         body: JSON.stringify(purchase)
       })
-        .then(function(result) {
+        .then(function (result) {
           return result.json();
         })
-        .then(function(data) {
+        .then(function (data) {
           var elements = stripe.elements();
 
           var style = {
@@ -40,7 +40,7 @@
             }
           };
 
-          var card = elements.create("card", { style: style });
+          var card = elements.create("card", {style: style});
           // Stripe injects an iframe into the DOM
           card.mount("#card-element");
 
@@ -51,7 +51,7 @@
           });
 
           var form = document.getElementById("payment-form");
-          form.addEventListener("submit", function(event) {
+          form.addEventListener("submit", function (event) {
             event.preventDefault();
             // Complete payment when the submit button is clicked
             payWithCard(stripe, card, data.clientSecret);
@@ -61,7 +61,7 @@
       // Calls stripe.confirmCardPayment
       // If the card requires authentication Stripe shows a pop-up modal to
       // prompt the user to enter authentication details without leaving your page.
-      var payWithCard = function(stripe, card, clientSecret) {
+      var payWithCard = function (stripe, card, clientSecret) {
         loading(true);
         stripe
           .confirmCardPayment(clientSecret, {
@@ -69,7 +69,7 @@
               card: card
             }
           })
-          .then(function(result) {
+          .then(function (result) {
             if (result.error) {
               // Show error to your customer
               showError(result.error.message);
@@ -83,7 +83,7 @@
       /* ------- UI helpers ------- */
 
       // Shows a success message when the payment is complete
-      var orderComplete = function(paymentIntentId) {
+      var orderComplete = function (paymentIntentId) {
         loading(false);
         document
           .querySelector(".result-message a")
@@ -96,17 +96,17 @@
       };
 
       // Show the customer the error from Stripe if their card fails to charge
-      var showError = function(errorMsgText) {
+      var showError = function (errorMsgText) {
         loading(false);
         var errorMsg = document.querySelector("#card-error");
         errorMsg.textContent = errorMsgText;
-        setTimeout(function() {
+        setTimeout(function () {
           errorMsg.textContent = "";
         }, 4000);
       };
 
       // Show a spinner on payment submission
-      var loading = function(isLoading) {
+      var loading = function (isLoading) {
         if (isLoading) {
           // Disable the button and show a spinner
           document.querySelector("button").disabled = true;
@@ -207,32 +207,45 @@
                     <p>${{ $total }}</p>
                 </li>
             </ul>
+
             <div class="rounded-lg bg-gray-100 p-3">
-                <div class="flex items-center justify-center uppercase text-gray-400 text-xs font-medium">
-
-
-
-                    <form id="payment-form" class="w-full">
-                        <div id="card-element"><!--Stripe.js injects the Card Element--></div>
-                        <x-jet-button id="submit" class="justify-center w-full py-4">
-                            <div class="spinner hidden" id="spinner"></div>
-                            <span id="button-text">Place order</span>
-                        </x-jet-button>
-                        <p id="card-error" role="alert"></p>
-                        <p class="result-message hidden">
-                            Payment succeeded, see the result in your
-                            <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
-                        </p>
-                    </form>
-
-
-
-
-                </div>
-{{--                <x-jet-button class="justify-center w-full py-4">--}}
-{{--                    Place order--}}
-{{--                </x-jet-button>--}}
+                <form id="payment-form" class="w-full">
+                    <div class="h-10 px-3 flex items-center border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm bg-white mb-3">
+                        <div class="flex-1 text-sm text-gray-500" id="card-element">
+                            <!--Stripe.js injects the Card Element-->
+                            Please wait. Loading Stripe Payment...
+                        </div>
+                    </div>
+                    <p id="card-error" role="alert" class="mb-3 text-sm text-red-500"></p>
+                    <p class="result-message hidden">
+                        Payment succeeded, see the result in your
+                        <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
+                    </p>
+                    <x-jet-button id="submit" class="justify-center w-full py-4">
+                        <div class="spinner hidden" id="spinner"></div>
+                        <span id="button-text">Place order</span>
+                    </x-jet-button>
+                </form>
             </div>
+
+            <div class="border rounded-lg p-5 text-sm text-gray-500 space-y-3">
+                <p class="text-gray-900 text-xs uppercase font-semibold">
+                    Make a test payment
+                </p>
+                <div class="flex justify-between">
+                    Payment succeeds <span class="text-blue-500 font-semibold">4242 4242 4242 4242</span>
+                </div>
+                <div class="flex justify-between">
+                    Authentication required <span class="text-blue-500 font-semibold">4000 0025 0000 3155</span>
+                </div>
+                <div class="flex justify-between">
+                    Payment is declined <span class="text-blue-500 font-semibold">4000 0000 0000 9995</span>
+                </div>
+                <p class="text-xs text-gray-900">
+                    These test card numbers work with any CVC, postal code and future expiry date.
+                </p>
+            </div>
+
             <ul class="text-gray-500 text-xs space-y-2">
                 <li class="flex space-x-1">
                     <span>✅</span>

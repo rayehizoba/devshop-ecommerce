@@ -1,6 +1,6 @@
 <div class="container py-8 lg:py-10 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-3 xl:grid-cols-4 lg:gap-x-10 lg:gap-y-5">
 
-    <div class="rounded-lg shadow border border-gray-300 lg:col-span-2 xl:col-span-3 bg-cover bg-center"
+    <div class="rounded-lg shadow border border-gray-100 lg:col-span-2 xl:col-span-3 bg-cover bg-center"
          style="background-image: url({{ $product->cover_image_path }})">
         <div class="h-72"></div>
         <div class="lg:h-40 xl:h-72"></div>
