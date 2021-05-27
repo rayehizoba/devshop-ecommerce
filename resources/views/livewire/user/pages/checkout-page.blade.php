@@ -1,271 +1,261 @@
-<div class="container py-10 space-y-10">
+<div>
     <script src="https://js.stripe.com/v3/"></script>
     <script>
-      // A reference to Stripe.js initialized with your real test publishable API key.
-      const stripe = Stripe("pk_test_51Iu0IkLzGV7Que857BQdpXUBqQ9cM6XLN0vXk63cUy0f69X24CVxKirwrCpbMaqN3lscRdhtwsf2Mb7IbK7z1vL900shyYU0zn");
+      function checkoutPage() {
+        // A reference to Stripe.js initialized with your real test publishable API key.
+        const stripe = Stripe(@json(env('STRIPE_PUBLISHABLE_KEY')));
 
-      // The items the customer wants to buy
-      const purchase = @json($items);
+        const elements = stripe.elements();
 
-      // Disable the button until we have Stripe set up on the page
-      // document.getElementById("submit").disabled = true;
-      fetch("/payment-intent", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        },
-        body: JSON.stringify(purchase)
-      })
-        .then(function (result) {
-          return result.json();
-        })
-        .then(function (data) {
-          var elements = stripe.elements();
-
-          var style = {
-            base: {
-              color: "#32325d",
-              fontFamily: 'Arial, sans-serif',
-              fontSmoothing: "antialiased",
-              fontSize: "16px",
-              "::placeholder": {
-                color: "#32325d"
-              }
-            },
-            invalid: {
-              fontFamily: 'Arial, sans-serif',
-              color: "#fa755a",
-              iconColor: "#fa755a"
+        const style = {
+          base: {
+            color: "#32325d",
+            fontFamily: 'Poppins, sans-serif',
+            fontSmoothing: "antialiased",
+            fontSize: "16px",
+            "::placeholder": {
+              color: "#32325d"
             }
-          };
+          },
+          invalid: {
+            fontFamily: 'Poppins, sans-serif',
+            color: "#fa755a",
+            iconColor: "#fa755a"
+          }
+        };
 
-          var card = elements.create("card", {style: style});
-          // Stripe injects an iframe into the DOM
-          card.mount("#card-element");
+        const cardElement = elements.create("card", {style: style});
+        // Stripe injects an iframe into the DOM
+        cardElement.mount("#card-element");
 
-          card.on("change", function (event) {
-            // Disable the Pay button if there are no card details in the Element
-            document.querySelector("button").disabled = event.empty;
-            document.querySelector("#card-error").textContent = event.error ? event.error.message : "";
-          });
-
-          var form = document.getElementById("payment-form");
-          form.addEventListener("submit", function (event) {
-            event.preventDefault();
-            // Complete payment when the submit button is clicked
-            payWithCard(stripe, card, data.clientSecret);
-          });
+        cardElement.on("change", function (event) {
+          // Disable the Pay button if there are no card details in the Element
+          document.querySelector("button").disabled = event.empty;
+          document.querySelector("#card-error").textContent = event.error ? event.error.message : "";
         });
 
-      // Calls stripe.confirmCardPayment
-      // If the card requires authentication Stripe shows a pop-up modal to
-      // prompt the user to enter authentication details without leaving your page.
-      var payWithCard = function (stripe, card, clientSecret) {
-        loading(true);
-        stripe
-          .confirmCardPayment(clientSecret, {
-            payment_method: {
-              card: card
-            }
-          })
-          .then(function (result) {
-            if (result.error) {
-              // Show error to your customer
-              showError(result.error.message);
-            } else {
-              // The payment succeeded!
-              orderComplete(result.paymentIntent.id);
-            }
-          });
-      };
+        // Calls stripe.confirmCardPayment
+        // If the card requires authentication Stripe shows a pop-up modal to
+        // prompt the user to enter authentication details without leaving your page.
+        const payWithCard = function (stripe, card) {
+          loading(true);
+          stripe
+            .confirmCardPayment(@json($paymentIntent->client_secret), {
+              payment_method: {
+                card: card
+              }
+            })
+            .then(function (result) {
+              if (result.error) {
+                // Show error to your customer
+                showError(result.error.message);
+              } else {
+                // The payment succeeded!
+                orderComplete(result.paymentIntent.id);
+              }
+            });
+        };
 
-      /* ------- UI helpers ------- */
+        /* ------- UI helpers ------- */
 
-      // Shows a success message when the payment is complete
-      var orderComplete = function (paymentIntentId) {
-        loading(false);
-        document
-          .querySelector(".result-message a")
-          .setAttribute(
-            "href",
-            "https://dashboard.stripe.com/test/payments/" + paymentIntentId
-          );
-        document.querySelector(".result-message").classList.remove("hidden");
-        document.querySelector("button").disabled = true;
-      };
-
-      // Show the customer the error from Stripe if their card fails to charge
-      var showError = function (errorMsgText) {
-        loading(false);
-        var errorMsg = document.querySelector("#card-error");
-        errorMsg.textContent = errorMsgText;
-        setTimeout(function () {
-          errorMsg.textContent = "";
-        }, 4000);
-      };
-
-      // Show a spinner on payment submission
-      var loading = function (isLoading) {
-        if (isLoading) {
-          // Disable the button and show a spinner
+        // Shows a success message when the payment is complete
+        const orderComplete = function (paymentIntentId) {
+          Livewire.emit('orderComplete', paymentIntentId);
+          loading(false);
+          document
+            .querySelector(".result-message a")
+            .setAttribute(
+              "href",
+              "https://dashboard.stripe.com/test/payments/" + paymentIntentId
+            );
+          document.querySelector(".result-message").classList.remove("hidden");
           document.querySelector("button").disabled = true;
-          document.querySelector("#spinner").classList.remove("hidden");
-          document.querySelector("#button-text").classList.add("hidden");
-        } else {
-          document.querySelector("button").disabled = false;
-          document.querySelector("#spinner").classList.add("hidden");
-          document.querySelector("#button-text").classList.remove("hidden");
-        }
-      };
+        };
 
+        // Show the customer the error from Stripe if their card fails to charge
+        const showError = function (errorMsgText) {
+          loading(false);
+          const errorMsg = document.querySelector("#card-error");
+          errorMsg.textContent = errorMsgText;
+          setTimeout(function () {
+            errorMsg.textContent = "";
+          }, 4000);
+        };
+
+        // Show a spinner on payment submission
+        const loading = function (isLoading) {
+          if (isLoading) {
+            // Disable the button and show a spinner
+            document.querySelector("button").disabled = true;
+            document.querySelector("#spinner").classList.remove("hidden");
+            document.querySelector("#button-text").classList.add("hidden");
+          } else {
+            document.querySelector("button").disabled = false;
+            document.querySelector("#spinner").classList.add("hidden");
+            document.querySelector("#button-text").classList.remove("hidden");
+          }
+        };
+
+        return {
+          async submitPayment() {
+            if (cardElement) {
+              const validated = await this.$wire.validateForm();
+              if (validated) {
+                payWithCard(stripe, cardElement);
+              } else {
+                // show first input error
+                const refInputErrors = document.querySelectorAll('[ref-input-error]');
+                if (refInputErrors.length) {
+                  refInputErrors[0].scrollIntoViewIfNeeded();
+                }
+              }
+            }
+          },
+        }
+      }
     </script>
 
-    <div class="flex items-center">
-        <figure class="text-4xl md:text-5xl leading-tight md:leading-snug">
-            🖥️📱
-        </figure>
-        <div>
-            <h1 class="font-bold text-2xl md:text-3xl self-start">
-                devshop
-            </h1>
-            <ul class="flex items-center text-xs md:text-sm text-gray-500 space-x-1">
-                <li>
-                    <a href="{{ route('home.page') }}" class="text-blue-500 transition hover:text-gray-500">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    >
-                </li>
-                <li>
-                    <a href="{{ route('cart.page') }}" class="text-blue-500 transition hover:text-gray-500">
-                        Cart
-                    </a>
-                </li>
-                <li>
-                    >
-                </li>
-                <li>
-                    Checkout
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="flex flex-col lg:flex-row space-y-10 lg:space-y-0 lg:space-x-16">
-        <div class="w-full lg:w-3/5 space-y-5">
-            <p class="font-medium text-2xl">
-                Billing details
-            </p>
-            <div class="grid grid-cols-2 gap-5">
-                <div>
-                    <label for="firstname" class="text-sm font-medium">
-                        First Name <span class="text-red-500">*</span>
-                    </label>
-                    <x-jet-input id="firstname" type="text" class="mt-1 block w-full"
-                                 wire:model.defer="form.firstname"/>
-                </div>
-                <div>
-                    <label for="lastname" class="text-sm font-medium">
-                        Last Name <span class="text-red-500">*</span>
-                    </label>
-                    <x-jet-input id="lastname" type="text" class="mt-1 block w-full" wire:model.defer="form.lastname"/>
-                </div>
-            </div>
-
+    <div x-data="checkoutPage()" class="container py-10 space-y-10">
+        <div class="flex items-center">
+            <figure class="text-4xl md:text-5xl leading-tight md:leading-snug">
+                🖥️📱
+            </figure>
             <div>
-                <label for="email" class="text-sm font-medium">
-                    Email address <span class="text-red-500">*</span>
-                </label>
-                <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="form.email"/>
+                <h1 class="font-bold text-2xl md:text-3xl self-start">
+                    devshop
+                </h1>
+                <ul class="flex items-center text-xs md:text-sm text-gray-500 space-x-1">
+                    <li>
+                        <a href="{{ route('home.page') }}" class="text-blue-500 transition hover:text-gray-500">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        >
+                    </li>
+                    <li>
+                        <a href="{{ route('cart.page') }}" class="text-blue-500 transition hover:text-gray-500">
+                            Cart
+                        </a>
+                    </li>
+                    <li>
+                        >
+                    </li>
+                    <li>
+                        Checkout
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="w-full lg:w-2/5 border border-gray-300 rounded-lg shadow-lg p-5 pb-10 space-y-5">
-            <ul class="text-sm divide-y space-y-3">
-                @foreach($items as $item)
-                    <li class="flex justify-between items-center space-x-10 pt-3">
-                        <div class="flex-1 space-y-1">
-                            <div class="text-sm flex space-x-1">
-                                <p>{{ $item->name }}</p>
-                                <i class="mdi mdi-close"></i>
-                                <strong>{{ $item->quantity }}</strong>
+
+        <div class="flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 lg:space-x-16 md:items-start">
+            <div class="w-full lg:w-7/12 space-y-5">
+                <p class="font-medium text-2xl">
+                    Billing details
+                </p>
+
+                <div>
+                    <label for="name" class="text-sm font-medium">
+                        Name <span class="text-red-500">*</span>
+                    </label>
+                    <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="name"/>
+                    <x-jet-input-error ref-input-error for="name" class="mt-2" />
+                </div>
+
+                <div>
+                    <label for="email" class="text-sm font-medium">
+                        Email address <span class="text-red-500">*</span>
+                    </label>
+                    <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="email"/>
+                    <x-jet-input-error ref-input-error for="email" class="mt-2" />
+                </div>
+
+                <div>
+                    <label for="subscribe" class="flex items-center">
+                        <x-jet-checkbox id="subscribe" wire:model.defer="subscribe" />
+                        <span class="ml-2 text-sm text-gray-600">{{ __('Subscribe for Sales & New Templates') }}</span>
+                    </label>
+                </div>
+
+                <div>
+                    <label for="create_account" class="flex items-center">
+                        <x-jet-checkbox id="create_account" name="create_account" />
+                        <span class="ml-2 text-sm text-gray-600">{{ __('Create Account') }}</span>
+                    </label>
+                </div>
+            </div>
+            <div class="w-full lg:w-5/12 border border-gray-300 rounded-lg shadow-lg p-5 space-y-5">
+                <ul class="text-sm divide-y space-y-3">
+                    @foreach($items as $item)
+                        <li class="flex justify-between items-center space-x-10 pt-3">
+                            <div class="flex-1 space-y-1">
+                                <div class="text-sm flex space-x-1">
+                                    <p>{{ $item->name }}</p>
+                                    <i class="mdi mdi-close"></i>
+                                    <strong>{{ $item->quantity }}</strong>
+                                </div>
+                                <p class="text-gray-500 text-xs">
+                                    License Type: {{ $item->attributes->license_type }}
+                                </p>
                             </div>
-                            <p class="text-gray-500 text-xs">
-                                License Type: {{ $item->attributes->license_type }}
-                            </p>
-                        </div>
-                        <p>${{ $item->price }}</p>
+                            <p>${{ $item->price }}</p>
+                        </li>
+                    @endforeach
+                    <li class="flex justify-between items-center pt-3">
+                        <p>Subtotal</p>
+                        <p>${{ $subtotal }}</p>
                     </li>
-                @endforeach
-                <li class="flex justify-between items-center pt-3">
-                    <p>Subtotal</p>
-                    <p>${{ $subtotal }}</p>
-                </li>
-                <li class="flex justify-between items-center pt-3">
-                    <p>Total</p>
-                    <p>${{ $total }}</p>
-                </li>
-            </ul>
+                    <li class="flex justify-between items-center pt-3">
+                        <p>Total</p>
+                        <p>${{ $total }}</p>
+                    </li>
+                </ul>
 
-            <div class="rounded-lg bg-gray-100 p-3">
-                <form id="payment-form" class="w-full">
-                    <div class="h-10 px-3 flex items-center border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm bg-white mb-3">
-                        <div class="flex-1 text-sm text-gray-500" id="card-element">
-                            <!--Stripe.js injects the Card Element-->
-                            Please wait. Loading Stripe Payment...
+                <div class="rounded-lg bg-gray-100 p-3">
+                    <form class="w-full" wire:ignore>
+                        <div class="h-10 px-3 flex items-center border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm bg-white mb-3">
+                            <div class="flex-1 text-sm text-gray-500" id="card-element">
+                                <!--Stripe.js injects the Card Element-->
+                                Please wait. Loading Stripe Payment...
+                            </div>
                         </div>
-                    </div>
-                    <p id="card-error" role="alert" class="mb-3 text-sm text-red-500"></p>
-                    <p class="result-message hidden">
-                        Payment succeeded, see the result in your
-                        <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
-                    </p>
-                    <x-jet-button id="submit" class="justify-center w-full py-4">
-                        <div class="spinner hidden" id="spinner"></div>
-                        <span id="button-text">Place order</span>
-                    </x-jet-button>
-                </form>
-            </div>
+                        <p id="card-error" role="alert" class="mb-3 text-sm text-red-500"></p>
+                        <p class="result-message hidden text-sm mb-3">
+                            Payment succeeded, see the result in your
+                            <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
+                        </p>
+                        <x-jet-button type="button" x-on:click="submitPayment" class="justify-center w-full py-4">
+                            <div class="spinner hidden" id="spinner">Placing order...</div>
+                            <span id="button-text">Place order</span>
+                        </x-jet-button>
+                    </form>
+                </div>
 
-            <div class="border rounded-lg p-5 text-sm text-gray-500 space-y-3">
-                <p class="text-gray-900 text-xs uppercase font-semibold">
-                    Make a test payment
-                </p>
-                <div class="flex justify-between">
-                    Payment succeeds <span class="text-blue-500 font-semibold">4242 4242 4242 4242</span>
-                </div>
-                <div class="flex justify-between">
-                    Authentication required <span class="text-blue-500 font-semibold">4000 0025 0000 3155</span>
-                </div>
-                <div class="flex justify-between">
-                    Payment is declined <span class="text-blue-500 font-semibold">4000 0000 0000 9995</span>
-                </div>
-                <p class="text-xs text-gray-900">
-                    These test card numbers work with any CVC, postal code and future expiry date.
-                </p>
-            </div>
+                @if(App::environment('local'))
+                    <x-test-payment-cards />
+                @endif
 
-            <ul class="text-gray-500 text-xs space-y-2">
-                <li class="flex space-x-1">
-                    <span>✅</span>
-                    <p>
-                        100% Satisfaction Guarantee
-                    </p>
-                </li>
-                <li class="flex space-x-1">
-                    <span>✅</span>
-                    <p>
-                        6 months technical support
-                    </p>
-                </li>
-                <li class="flex space-x-1">
-                    <span>✅</span>
-                    <p>
-                        30-day money-back guarantee
-                    </p>
-                </li>
-            </ul>
+                <ul class="text-gray-500 text-xs space-y-2">
+                    <li class="flex space-x-1">
+                        <span>✅</span>
+                        <p>
+                            100% Satisfaction Guarantee
+                        </p>
+                    </li>
+                    <li class="flex space-x-1">
+                        <span>✅</span>
+                        <p>
+                            6 months technical support
+                        </p>
+                    </li>
+                    <li class="flex space-x-1">
+                        <span>✅</span>
+                        <p>
+                            30-day money-back guarantee
+                        </p>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

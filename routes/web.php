@@ -38,9 +38,6 @@ Route::get('cart', CartPage::class)->name('cart.page');
 
 Route::get('checkout', CheckoutPage::class)->name('checkout.page');
 
-Route::post('payment-intent', PaymentIntentController::class);
-
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

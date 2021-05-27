@@ -3,7 +3,6 @@
 @endphp
 
 <nav class="border-b border-gray-100" x-data="{
-auth: false,
 account_dialog: false,
 category_dialog: false,
 }">
@@ -29,7 +28,8 @@ category_dialog: false,
                         <ul class="space-y-4 py-5">
                             @foreach($categories as $category)
                                 <li>
-                                    <a href="{{ route('category', ['slug' => $category->slug]) }}" class="hover:text-gray-900">
+                                    <a href="{{ route('category', ['slug' => $category->slug]) }}"
+                                       class="hover:text-gray-900">
                                         {{ $category->name }}
                                     </a>
                                 </li>
@@ -61,49 +61,57 @@ category_dialog: false,
                     </a>
                 </li>
             @endif
-            <li>
-                <a x-show="!auth" href="{{ route('login') }}" class="transition hover:text-gray-800">
-                    Sign in
-                </a>
 
-                {{-- User Account Menu --}}
-                <div x-show="auth" x-cloak class="md:relative">
-                    <div @click="account_dialog = true"
-                         class="cursor-pointer h-7 md:h-8 w-7 md:w-8 bg-gray-400 rounded-full flex items-center justify-center text-xs lg:text-sm font-medium shadow-lg text-white">
-                        RE
-                    </div>
-                    <div x-show="account_dialog"
-                         class="origin-top lg:origin-top-right absolute right-0 w-full md:w-64 rounded-b-md shadow-xl z-10 mt-2"
-                         x-transition:enter="transition-gpu ease-out  duration-100 transform"
-                         x-transition:enter-start="opacity-0 scale-95"
-                         x-transition:enter-end="opacity-100 scale-100"
-                         x-transition:leave="transition ease-in duration-75 transform"
-                         x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
-                        <div @click.away="account_dialog = false"
-                             class="bg-white rounded-md shadow-xs text-gray-500 border px-5 text-sm">
-                            <ul class="space-y-3 py-3">
-                                <li>
-                                    <a href="#" class="flex items-center space-x-1">
-                                        <i class="mdi mdi-account text-blue-700 text-lg"></i>
-                                        <span>Account</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flex items-center space-x-1">
-                                        <i class="mdi mdi-logout text-blue-700 text-lg"></i>
-                                        <span>Log out</span>
-                                    </a>
-                                </li>
-                            </ul>
+            <li>
+                @if(!Auth::check() && Route::has('login'))
+                    <a href="{{ route('login') }}" class="transition hover:text-gray-800">
+                        {{ _('Sign in') }}
+                    </a>
+                @endif
+                @if(Auth::check())
+                    {{-- User Account Menu --}}
+                    <div class="md:relative">
+                        <div @click="account_dialog = true"
+                             class="cursor-pointer h-7 md:h-8 w-7 md:w-8 bg-gray-400 rounded-full flex items-center justify-center text-xs lg:text-sm font-medium shadow-lg text-white">
+                            RE
+                        </div>
+                        <div x-show="account_dialog"
+                             class="origin-top lg:origin-top-right absolute right-0 w-full md:w-64 rounded-b-md shadow-xl z-10 mt-2"
+                             x-transition:enter="transition-gpu ease-out  duration-100 transform"
+                             x-transition:enter-start="opacity-0 scale-95"
+                             x-transition:enter-end="opacity-100 scale-100"
+                             x-transition:leave="transition ease-in duration-75 transform"
+                             x-transition:leave-start="opacity-100 scale-100"
+                             x-transition:leave-end="opacity-0 scale-95">
+                            <div @click.away="account_dialog = false"
+                                 class="bg-white rounded-md shadow-xs text-gray-500 border px-5 text-sm">
+                                <ul class="space-y-3 py-3">
+                                    <li>
+                                        <a href="#" class="flex items-center space-x-1">
+                                            <i class="mdi mdi-account text-blue-700 text-lg"></i>
+                                            <span>Account</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center space-x-1">
+                                            <i class="mdi mdi-logout text-blue-700 text-lg"></i>
+                                            <span>Log out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
             </li>
-            <li x-show="!auth" x-cloak class="hidden md:inline">
-                <a href="./register.html" class="transition hover:text-gray-800">
-                    Sign up
-                </a>
-            </li>
+
+            @if(!Auth::check() && Route::has('register'))
+                <li class="hidden md:inline">
+                    <a href="{{ route('register') }}" class="transition hover:text-gray-800">
+                        {{ __('Sign up') }}
+                    </a>
+                </li>
+            @endif
         </ul>
     </div>
 </nav>

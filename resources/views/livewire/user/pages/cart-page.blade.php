@@ -33,8 +33,8 @@
             </div>
         </div>
 
-        <div class="flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 lg:space-x-16">
-            <div class="flex-1 space-y-5">
+        <div class="flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 lg:space-x-16 md:items-start">
+            <div class="w-full lg:w-7/12 space-y-5">
                 @if(\Cart::isEmpty())
                     <div class="space-y-3">
                         <p class="text-lg text-yellow-900 bg-yellow-50 p-5 inline-block border border-yellow-100 text-center w-full lg:w-auto">
@@ -87,7 +87,7 @@
                     </div>
                 @endif
             </div>
-            <div class="rounded-md p-5 space-y-5 shadow-lg border border-gray-300">
+            <div class="w-full lg:w-5/12 border border-gray-300 rounded-lg p-5 space-y-5 shadow-lg border border-gray-300">
                 <ul class="text-sm divide-y space-y-3">
                     <li class="flex justify-between items-center">
                         <p>Subtotal</p>
