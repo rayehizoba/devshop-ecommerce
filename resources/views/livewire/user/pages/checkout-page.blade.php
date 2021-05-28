@@ -99,10 +99,12 @@
         return {
           async submitPayment() {
             if (cardElement) {
+              loading(true);
               const validated = await this.$wire.validateForm();
               if (validated) {
                 payWithCard(stripe, cardElement);
               } else {
+                loading(false);
                 // show first input error
                 const refInputErrors = document.querySelectorAll('[ref-input-error]');
                 if (refInputErrors.length) {
@@ -177,12 +179,7 @@
                     </label>
                 </div>
 
-                <div>
-                    <label for="create_account" class="flex items-center">
-                        <x-jet-checkbox id="create_account" name="create_account" />
-                        <span class="ml-2 text-sm text-gray-600">{{ __('Create Account') }}</span>
-                    </label>
-                </div>
+{{--                <pre>{{ Session::getId() }}</pre>--}}
             </div>
             <div class="w-full lg:w-5/12 border border-gray-300 rounded-lg shadow-lg p-5 space-y-5">
                 <ul class="text-sm divide-y space-y-3">

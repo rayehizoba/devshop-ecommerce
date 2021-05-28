@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\User\Pages;
 
+use App\Models\Order;
+use App\Models\OrderLine;
 use App\Models\Subscriber;
 use Livewire\Component;
 
@@ -11,7 +13,6 @@ class CheckoutPage extends Component
     public $name;
     public $email;
     public $subscribe = true;
-    public $create_account = false;
 
     protected $rules = [
         'name' => 'required|min:6',
@@ -44,22 +45,33 @@ class CheckoutPage extends Component
 
     public function orderComplete($payment_intent_id)
     {
-//        Order::create([
-//            'name' => $this->name,
-//            'email' => $this->email,
-//            'payment_intent_id' => $payment_intent_id,
-//            'items' => \Cart::getContent(),
-//            'total' => \Cart::getTotal(),
-//        ]);
+        $order = Order::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'payment_intent_id' => $payment_intent_id,
+        ]);
+
+        foreach (\Cart::getContent() as $lineItem) {
+            OrderLine::create([
+                'order_id' => $order->id,
+                'product_id' => $lineItem->attributes->product_id,
+                'license_id' => $lineItem->attributes->license_id,
+                'quantity' => $lineItem->quantity,
+                'price' => $lineItem->price,
+            ]);
+        }
+
 //        dispatch order complete email using a queue that reacts to order.create events
 //        this email will list the licensed products and show a download link for each licensed product
 
         \Cart::clear();
 
-        $subscriber = Subscriber::firstOrNew(['email' => $this->email]);
-        $subscriber->save();
+        if ($this->subscribe) {
+            $subscriber = Subscriber::firstOrNew(['email' => $this->email]);
+            $subscriber->save();
+        }
 
-        return redirect()->to('/order-received');
+        return redirect()->to('/order-received/'.$order->id);
     }
 
     private function _convertDollarsToCents($dollars)
@@ -73,6 +85,9 @@ class CheckoutPage extends Component
         return \Stripe\PaymentIntent::create([
             'amount' => $this->_convertDollarsToCents(\Cart::getTotal()),
             'currency' => 'usd',
+//            'metadata' => [
+//                'order_id' => '6735',
+//            ],
         ]);
     }
 }

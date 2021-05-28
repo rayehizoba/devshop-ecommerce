@@ -8,6 +8,7 @@ use App\Http\Livewire\User\Pages\CartPage;
 use App\Http\Livewire\User\Pages\CategoryPage;
 use App\Http\Livewire\User\Pages\CheckoutPage;
 use App\Http\Livewire\User\Pages\HomePage;
+use App\Http\Livewire\User\Pages\OrderReceivedPage;
 use App\Http\Livewire\User\Pages\ProductPage;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,8 @@ Route::get('product/{slug}', ProductPage::class)->name('product');
 Route::get('cart', CartPage::class)->name('cart.page');
 
 Route::get('checkout', CheckoutPage::class)->name('checkout.page');
+
+Route::get('order-received/{order}', OrderReceivedPage::class)->name('order-received.page');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

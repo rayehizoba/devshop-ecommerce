@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Storage;
 
 class ProductFactory extends Factory
 {
@@ -22,8 +23,10 @@ class ProductFactory extends Factory
     public function definition()
     {
         $chance = (int) 100 / 3;
+        $files = Storage::allFiles('public/demo_products');
+        $randomFile = $files[rand(0, count($files) - 1)];
         return [
-            'cover_image_path' => $this->faker->imageUrl(),
+            'cover_image_path' => $randomFile,
             'name' => $this->faker->sentence(),
             'slug' => $this->faker->slug(),
             'web_url' => (rand(1,100)<=$chance) ? $this->faker->url() : null,

@@ -61,8 +61,9 @@
                                          class="transition">
                                 <x-table.cell>
                                     <a href="{{ route('product', ['slug' => $product->slug]) }}" target="_blank">
-                                        <img src="{{ $product->cover_image_path }}" alt=""
-                                             class="w-20 rounded-md border border-gray-100 shadow-sm">
+                                        <img src="{{ Storage::url($product->cover_image_path) }}"
+                                             alt={{ $product->name }}
+                                                     class="w-20 rounded-md border border-gray-100 shadow-sm">
                                     </a>
                                 </x-table.cell>
                                 <x-table.cell>

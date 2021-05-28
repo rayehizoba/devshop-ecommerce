@@ -66,13 +66,14 @@ class ProductIndex extends Component
 
     public function create()
     {
-        $this->openModal('admin.forms.product-form', [], '4xl');
+        $this->openModal('admin.forms.product-form', [], '5xl');
     }
 
 
     public function edit(Product $product)
     {
-        $this->openModal('admin.forms.product-form', $product->toArray(), '4xl');
+        $product->load('screenshots');
+        $this->openModal('admin.forms.product-form', $product->toArray(), '5xl');
     }
 
 

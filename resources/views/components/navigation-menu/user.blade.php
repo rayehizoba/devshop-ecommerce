@@ -2,10 +2,7 @@
     $categories = App\Models\Category::orderBy('order')->get();
 @endphp
 
-<nav class="border-b border-gray-100" x-data="{
-account_dialog: false,
-category_dialog: false,
-}">
+<nav class="border-b border-gray-100 select-none" x-data="{account_dialog: false, category_dialog: false,}">
     <div class="container mx-auto py-3 flex flex-col lg:flex-row items-center lg:space-x-10 space-y-2 lg:space-y-0">
         <a href="{{ route('home.page') }}" class="font-bold text-xl md:text-2xl self-start lg:self-auto">
             devshop

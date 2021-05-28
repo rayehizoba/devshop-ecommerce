@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User\Pages;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class ProductPage extends Component
@@ -27,17 +28,22 @@ class ProductPage extends Component
 //        return \Cart::clear();
 //        dd($key);
 
+//        if (Auth::check()) {
+//            \Cart::session(Auth::user()->id)->add($cartData);
+//        } else {
+//        }
         \Cart::add([
             'id' => $key,
             'name' => $product->name,
             'price' => $license->pivot->price,
             'quantity' => 1,
             'attributes' => [
-                'cover_image_path' => $product->cover_image_path,
+                'product_slug' => $product->slug,
+                'product_id' => $product->id,
+                'product_cover_image_path' => $product->cover_image_path,
+                'license_id' => $license->id,
                 'license_type' => $license->name,
-                'slug' => $product->slug,
-            ]
-//            'associatedModel' => $product,
+            ],
         ]);
 
         session()->flash('message', '“' . $product->name . '” has been added to your cart.');

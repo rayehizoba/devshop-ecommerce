@@ -1,10 +1,8 @@
 <div class="container py-8 lg:py-10 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-3 xl:grid-cols-4 lg:gap-x-10 lg:gap-y-5">
-
-    <div class="rounded-lg shadow border border-gray-100 lg:col-span-2 xl:col-span-3 bg-cover bg-center"
-         style="background-image: url({{ $product->cover_image_path }})">
-        <div class="h-72"></div>
-        <div class="lg:h-40 xl:h-72"></div>
-    </div>
+    <a href="{{ Storage::url($product->cover_image_path) }}" class="glightbox lg:col-span-2 xl:col-span-3">
+        <img src="{{ Storage::url($product->cover_image_path) }}" alt="{{ $product->name }}"
+             class="rounded-lg shadow border">
+    </a>
 
     <h1 class="font-medium text-xl lg:text-3xl lg:col-span-full lg:row-start-1">
         {{ $product->name }}
@@ -30,7 +28,7 @@
                             <div class="radio mr-3">
                                 <i class="mdi mdi-check opacity-0 transition ease-out parent-hover:opacity-100 text-white"></i>
                             </div>
-                            <div>
+                            <div class="flex-1">
                                 <p class="text-sm font-medium">
                                     {{ $license->name }}
                                 </p>
@@ -98,7 +96,7 @@
             </div>
             <div class="flex-1 flex flex-col items-center py-5">
                 <p class="text-xl font-medium">
-                    🛒60
+                    🛒 {{ $product->purchases }}
                 </p>
                 <p class="text-xs text-gray-400">
                     Purchases
@@ -182,9 +180,16 @@
                 {!! $product->description !!}
             </div>
             <div x-show="getActive() === 'screenshots'">
-                <p class="text-sm leading-relaxed">
-                    coming soon...
-                </p>
+                <ul class="overflow-x-auto space-x-3 whitespace-nowrap -mx-3 md:mx-0 px-3 md:px-0">
+                    @foreach($product->screenshots as $screenshot)
+                        <li class="inline-flex">
+                            <a href="{{ Storage::url($screenshot->path) }}" class="glightbox">
+                                <img src="{{ Storage::url($screenshot->path) }}" alt=""
+                                     class="h-64 md:h-72 border rounded-lg shadow-sm">
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
             <div x-show="getActive() === 'reviews'">
                 <p class="text-sm leading-relaxed">
@@ -229,7 +234,7 @@
   function tabs() {
     return {
       tab: 'description',
-      tabs: ['description', 'screenshots', 'reviews'],
+      tabs: ['description', @if (count($product->screenshots))'screenshots', @endif 'reviews'],
       getTabs() {
         return this.tabs
       },
@@ -242,3 +247,15 @@
     }
   }
 </script>
+
+@push('styles')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"/>
+@endpush
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script type="text/javascript">
+      const lightbox = GLightbox();
+    </script>
+@endpush
+

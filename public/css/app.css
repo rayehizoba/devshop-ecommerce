@@ -33383,13 +33383,13 @@ select {
 }
 
 .trix-content ol {
-  list-style-position: inside;
   list-style-type: decimal;
+  padding-left: 1.25rem;
 }
 
 .trix-content ul {
-  list-style-position: inside;
   list-style-type: disc;
+  padding-left: 1.25rem;
 }
 
 .trix-content h1 {
@@ -33414,6 +33414,11 @@ select {
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.trix-content pre,
+.trix-content code {
+  white-space: pre-wrap;
 }
 
 .container {

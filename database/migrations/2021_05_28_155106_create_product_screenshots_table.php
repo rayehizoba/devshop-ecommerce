@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLicenseProductTable extends Migration
+class CreateProductScreenshotsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateLicenseProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('license_product', function (Blueprint $table) {
-            $table->foreignId('license_id')->constrained();
+        Schema::create('product_screenshots', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('product_id')->constrained();
-            $table->integer('price')->default(0)->comment('default currency => usd');
-            $table->string('download_path');
+            $table->string('path');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateLicenseProductTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('license_product');
+        Schema::dropIfExists('product_screenshots');
     }
 }

@@ -51,13 +51,13 @@
                     <ul class="divide-y">
                         @foreach($items as $item)
                             <li wire:key="{{ $item->id }}" class="flex items-center space-x-2 lg:space-x-4 py-5">
-                                <a href="{{ route('product', ['slug' => $item->attributes->slug]) }}">
+                                <a href="{{ route('product', ['slug' => $item->attributes->product_slug]) }}">
                                     <div class="h-16 w-20 bg-gray-100 bg-center bg-cover border rounded"
-                                         style="background-image: url({{ $item->attributes->cover_image_path }})"></div>
+                                         style="background-image: url({{ Storage::url($item->attributes->product_cover_image_path) }})"></div>
                                 </a>
                                 <div class="flex-1 space-y-1">
                                     <p class="font-medium text-sm">
-                                        <a href="{{ route('product', ['slug' => $item->attributes->slug]) }}">
+                                        <a href="{{ route('product', ['slug' => $item->attributes->product_slug]) }}">
                                             {{ $item->name }}
                                         </a>
                                     </p>

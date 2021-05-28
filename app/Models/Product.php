@@ -25,22 +25,8 @@ class Product extends Model
         'starting_price',
         'category_ids',
         'license_prices',
+        'purchases',
     ];
-
-    static function validationRules()
-    {
-        return [
-            'id'               => 'nullable',
-            'cover_image_path' => 'required',
-            'name'             => 'required',
-            'web_url'          => 'nullable',
-            'play_store_url'   => 'nullable',
-            'app_store_url'    => 'nullable',
-            'description'      => 'required',
-            'category_ids'     => 'required',
-            'license_prices'      => 'required',
-        ];
-    }
 
     public function setNameAttribute($value) {
 
@@ -52,6 +38,11 @@ class Product extends Model
         $this->attributes['slug'] = $slug;
     }
 
+    public function screenshots()
+    {
+        return $this->hasMany(ProductScreenshot::class);
+    }
+
     public function categories()
     {
         return $this->belongsToMany(Category::class);
@@ -59,7 +50,7 @@ class Product extends Model
 
     public function licenses()
     {
-        return $this->belongsToMany(License::class)->orderBy('order')->withPivot('price');
+        return $this->belongsToMany(License::class)->orderBy('order')->withPivot('price', 'download_path');
     }
 
     public function cheapestLicense()
@@ -87,5 +78,10 @@ class Product extends Model
         }
 
         return $prices;
+    }
+
+    public function getPurchasesAttribute()
+    {
+        return $this->hasMany(OrderLine::class)->count();
     }
 }
