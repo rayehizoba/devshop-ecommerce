@@ -1,6 +1,6 @@
 {{--   actually we want @admin not @auth but we can change this later--}}
-@auth
+@admin
     <x-navigation-menu.admin/>
-@else
+@notadmin
     <x-navigation-menu.user :cart="$cart"/>
-@endauth
+@endadmin

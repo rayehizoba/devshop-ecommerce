@@ -1,6 +1,6 @@
 <div>
     <a href="{{ route('product', ['slug' => $product->slug]) }}">
-        <div class="rounded-lg border border-gray-100 shadow-sm h-32 md:h-64 lg:h-72 xl:h-80 w-full bg-cover bg-left-top"
+        <div class="rounded-lg border border-gray-100 shadow-sm h-32 md:h-64 lg:h-72 w-full bg-cover bg-center"
              style="background-image: url({{ Storage::url($product->cover_image_path) }})"></div>
     </a>
     <div class="flex flex-col md:flex-row md:items-start pt-3 md:p-3 space-y-1 md:space-y-0">
