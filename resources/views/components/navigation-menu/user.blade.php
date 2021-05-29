@@ -79,16 +79,23 @@
                                 </p>
                                 <ul class="divide-y">
                                     <li>
-                                        <a href="#" class="flex items-center space-x-1 hover:bg-gray-100 py-1 px-5 md:pr-20 transition">
+                                        <a href="{{ route('profile.show') }}"
+                                           class="flex items-center space-x-1 hover:bg-gray-100 py-1 px-5 md:pr-20 transition">
                                             <i class="mdi mdi-account text-blue-500 text-lg"></i>
                                             <span>Account</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="flex items-center space-x-1 hover:bg-gray-100 py-1 px-5 md:pr-20 transition">
-                                            <i class="mdi mdi-logout text-blue-500 text-lg"></i>
-                                            <span>Log out</span>
-                                        </a>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <a href="{{ route('logout') }}"
+                                               class="flex items-center space-x-1 hover:bg-gray-100 py-1 px-5 md:pr-20 transition"
+                                               onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                                <i class="mdi mdi-logout text-blue-500 text-lg"></i>
+                                                <span>{{ __('Log Out') }}</span>
+                                            </a>
+                                        </form>
                                     </li>
                                 </ul>
                             </div>

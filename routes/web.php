@@ -41,12 +41,12 @@ Route::get('checkout', CheckoutPage::class)->name('checkout.page');
 
 Route::get('order-received/{order}', OrderReceivedPage::class)->name('order-received.page');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
 Route
-    ::middleware(['auth:sanctum', 'verified'])
+    ::middleware(['auth:sanctum', 'verified', 'admin'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
