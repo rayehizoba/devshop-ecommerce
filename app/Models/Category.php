@@ -17,15 +17,6 @@ class Category extends Model
         'order',
     ];
 
-    static function validationRules()
-    {
-        return [
-            'id' => 'nullable',
-            'name' => 'required',
-            'order' => 'required'
-        ];
-    }
-
     public function products()
     {
         return $this->belongsToMany(Product::class);

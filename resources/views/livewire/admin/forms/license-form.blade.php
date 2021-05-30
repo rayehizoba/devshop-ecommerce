@@ -6,41 +6,29 @@
             </div>
 
             <div class="mt-4 space-y-5">
-                <div class="flex flex-col md:flex-row">
-                    <div class="py-3 md:w-28">
+                <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5">
+                    <div class="space-y-2 md:w-1/2">
                         <x-jet-label for="name" value="{{ __('Name') }}" />
+                        <div x-data="{}" x-init="() => setTimeout(() => $refs.autofocus.focus(), 250)">
+                            <x-jet-input x-ref="autofocus" id="name" type="text" class="block w-full" wire:model.defer="form.name" autocomplete="off"/>
+                        </div>
+                        <x-jet-input-error for="name" />
                     </div>
-                    <div x-data="{}" x-init="() => setTimeout(() => $refs.autofocus.focus(), 250)">
-                        <x-jet-input x-ref="autofocus" id="name" type="text" class="mt-1 block w-full" wire:model.defer="form.name" autocomplete="off"/>
-                        <x-jet-input-error for="form.name" class="mt-2" />
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row">
-                    <div class="py-3 md:w-28">
+                    <div class="space-y-2">
                         <x-jet-label for="order" value="{{ __('Order') }}" />
-                    </div>
-                    <div class="w-20">
-                        <x-jet-input id="order" type="number" min="1" placeholder="1" class="block w-full" wire:model.defer="form.order"/>
-                        <x-jet-input-error for="form.order" class="mt-2" />
+                        <x-jet-input id="order" type="number" min="1" placeholder="1" class="block w-20" wire:model.defer="form.order"/>
+                        <x-jet-input-error for="order" />
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row">
-                    <div class="py-3 md:w-28">
-                        <x-jet-label for="summary" value="{{ __('Summary') }}" />
-                    </div>
-                    <div class="w-full lg:w-1/2 flex-1 lg:flex-initial">
-                        <x-jet-input id="summary" type="text" class="block w-full" wire:model.defer="form.summary"/>
-                        <x-jet-input-error for="form.summary" class="mt-2" />
-                    </div>
+                <div class="space-y-2">
+                    <x-jet-label for="summary" value="{{ __('Summary') }}" />
+                    <x-jet-input id="summary" type="text" class="block w-full" wire:model.defer="form.summary"/>
+                    <x-jet-input-error for="summary" />
                 </div>
-                <div class="flex flex-col md:flex-row">
-                    <div class="py-3 md:w-28">
-                        <x-jet-label for="description" value="{{ __('Description') }}" />
-                    </div>
-                    <div class="w-full flex-1">
-                        <x-input.trix id="description" wire:model.defer="form.description" />
-                        <x-jet-input-error for="form.description" class="mt-2" />
-                    </div>
+                <div class="space-y-2">
+                    <x-jet-label for="description" value="{{ __('Description') }}" />
+                    <x-input.trix id="description" wire:model.defer="form.description" />
+                    <x-jet-input-error for="description" />
                 </div>
             </div>
         </div>

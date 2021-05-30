@@ -58,7 +58,6 @@ class ProductForm extends BaseForm
             foreach($product->licenses as $license) {
                 $this->associated['licenses'][$license->id] = $license->pivot;
             }
-//            dd($this->associated['licenses']);
         }
     }
 

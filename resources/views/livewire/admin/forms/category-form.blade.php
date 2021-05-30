@@ -6,15 +6,15 @@
             </div>
 
             <div class="mt-4 space-y-5">
-                <div x-data="{}" x-init="() => setTimeout(() => $refs.autofocus.focus(), 250)">
+                <div x-data="{}" x-init="() => setTimeout(() => $refs.autofocus.focus(), 250)" class="space-y-2">
                     <x-jet-label for="name" value="{{ __('Name') }}" />
-                    <x-jet-input x-ref="autofocus" id="name" type="text" class="mt-1 block w-full" wire:model.defer="form.name" autocomplete="off"/>
-                    <x-jet-input-error for="form.name" class="mt-2" />
+                    <x-jet-input x-ref="autofocus" id="name" type="text" class="block w-full" wire:model.defer="form.name" autocomplete="off"/>
+                    <x-jet-input-error for="name" class="" />
                 </div>
-                <div class="w-20">
+                <div class="w-20 space-y-2">
                     <x-jet-label for="order" value="{{ __('Order') }}" />
-                    <x-jet-input id="order" type="number" min="1" placeholder="1" class="mt-1 block w-full" wire:model.defer="form.order"/>
-                    <x-jet-input-error for="form.order" class="mt-2" />
+                    <x-jet-input id="order" type="number" min="1" placeholder="1" class="block w-full" wire:model.defer="form.order"/>
+                    <x-jet-input-error for="order" class="" />
                 </div>
             </div>
         </div>

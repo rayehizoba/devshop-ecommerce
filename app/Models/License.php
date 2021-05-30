@@ -16,17 +16,6 @@ class License extends Model
         'description',
     ];
 
-    static function validationRules()
-    {
-        return [
-            'id' => 'nullable',
-            'name' => 'required',
-            'order' => 'required',
-            'summary' => 'required',
-            'description' => 'required',
-        ];
-    }
-
     public function products()
     {
         return $this->belongsToMany(Product::class);

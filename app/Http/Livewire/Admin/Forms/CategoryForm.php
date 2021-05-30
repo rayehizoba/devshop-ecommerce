@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Admin\Forms;
 
 use App\Http\Livewire\Traits\InteractsWithModal;
 use App\Models\Category;
-use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryForm extends BaseForm
 {
@@ -18,23 +18,20 @@ class CategoryForm extends BaseForm
         'order' => 1,
     ];
 
-
-    public function rules()
-    {
-        return Arr::dot(['form' => Category::validationRules()]);
-    }
-
-
     public function mount(array $params = [])
     {
         parent::mount($params);
         $this->title = isset($params['id']) ? 'Update Category' : 'Add A Category';
     }
 
-
     public function submit()
     {
-        $data = $this->validate()['form'];
+        $data = Validator::make($this->form, [
+            'id' => 'nullable',
+            'name' => 'required',
+            'order' => 'required'
+        ])->validate();
+
         $category = Category::updateOrCreate(
             ['id' => $data['id']],
             $data
@@ -47,12 +44,10 @@ class CategoryForm extends BaseForm
 
     }
 
-
     public function cancel()
     {
         $this->closeModal();
     }
-
 
     public function render()
     {
