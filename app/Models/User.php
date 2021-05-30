@@ -64,4 +64,15 @@ class User extends Authenticatable
     {
         return $this->is_admin;
     }
+
+    public function getInitialsAttribute()
+    {
+        $words = explode(" ", $this->name);
+        $initials = "";
+
+        for ($i=0; $i<count($words) && $i<2; $i++) {
+            $initials .= $words[$i][0];
+        }
+        return $initials;
+    }
 }

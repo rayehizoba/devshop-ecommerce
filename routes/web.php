@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PaymentIntentController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Livewire\Admin\Pages\CategoryIndex;
 use App\Http\Livewire\Admin\Pages\LicenseIndex;
 use App\Http\Livewire\Admin\Pages\ProductIndex;
@@ -40,6 +41,8 @@ Route::get('cart', CartPage::class)->name('cart.page');
 Route::get('checkout', CheckoutPage::class)->name('checkout.page');
 
 Route::get('order-received/{order}', OrderReceivedPage::class)->name('order-received.page');
+
+Route::post('subscribe', SubscriptionController::class)->name('subscribe');
 
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard', function () {
     return view('dashboard');

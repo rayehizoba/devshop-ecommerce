@@ -13,6 +13,6 @@ class HomePage extends Component
             'latest_products' => Product::orderBy('updated_at', 'desc')->take(3)->get(),
             // TODO: correct the query for popular_products
             'popular_products' => Product::all()
-        ])->layout('layouts.guest');
+        ]);
     }
 }

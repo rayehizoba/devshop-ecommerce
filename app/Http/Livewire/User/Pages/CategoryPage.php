@@ -44,6 +44,6 @@ class CategoryPage extends Component
     {
         return view('livewire.user.pages.category-page', [
             'products' => $this->_getProducts()
-        ])->layout('layouts.guest');
+        ]);
     }
 }

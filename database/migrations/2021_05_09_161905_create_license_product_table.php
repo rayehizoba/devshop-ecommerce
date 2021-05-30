@@ -17,7 +17,7 @@ class CreateLicenseProductTable extends Migration
             $table->foreignId('license_id')->constrained();
             $table->foreignId('product_id')->constrained();
             $table->integer('price')->default(0)->comment('default currency => usd');
-            $table->string('download_path');
+            $table->string('package_path');
             $table->timestamps();
         });
     }

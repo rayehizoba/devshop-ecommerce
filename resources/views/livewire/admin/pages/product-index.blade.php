@@ -1,4 +1,4 @@
-<div x-data>
+<div x-data class="bg-gray-100">
     <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-5 px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
@@ -57,7 +57,7 @@
                     </x-slot>
                     <x-slot name="body">
                         @forelse($products as $product)
-                            <x-table.row wire:key="{{ $product->id }}" wire:loading.class.delay="opacity-50"
+                            <x-table.row wire:key="{{ $product->id }}" wire:loading.class.delay="animate-pulse"
                                          class="transition">
                                 <x-table.cell>
                                     <a href="{{ route('product', ['slug' => $product->slug]) }}" target="_blank">

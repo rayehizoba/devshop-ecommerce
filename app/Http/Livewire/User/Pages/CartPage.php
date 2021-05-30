@@ -18,6 +18,6 @@ class CartPage extends Component
             'items' => \Cart::getContent(),
             'subtotal' => \Cart::getSubTotal(),
             'total' => \Cart::getTotal(),
-        ])->layout('layouts.guest');
+        ]);
     }
 }

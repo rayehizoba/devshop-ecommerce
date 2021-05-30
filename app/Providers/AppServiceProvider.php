@@ -38,32 +38,12 @@ class AppServiceProvider extends ServiceProvider
             return "<?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($expression))->diffForHumans(); ?>";
         });
 
-        Blade::directive('admin', function ($expression) {
-            $conditon = false;
-
-            if (Auth::check()) {
-                $condition = Auth::user()->is_admin;
-            }
-
-            return "<?php if ($condition) { ?>";
+        Blade::directive('admin', function () {
+            return "<?php if (Auth::check() && Auth::user()->isAdmin()): ?>";
         });
 
-        Blade::directive('notadmin', function () {
-            return "<?php } else { ?>";
-        });
-
-        Blade::directive('endadmin', function () {
-            return "<?php } ?>";
-        });
-
-        Blade::directive('initials', function ($expression) {
-            $words = explode(" ", $expression);
-            $acronym = "";
-
-//            for ($i=0; $i<count($words) && $i<2; $i++) {
-//                $acronym .= $words[$i][0];
-//            }
-            return "<?php echo {$expression} {$acronym}; ?>";
+        Blade::directive('public', function () {
+            return "<?php if ((Auth::check() && !Auth::user()->isAdmin()) || !Auth::check()): ?>";
         });
     }
 }

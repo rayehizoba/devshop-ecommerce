@@ -5,11 +5,12 @@ namespace App\Models;
 use App\Http\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
 class Product extends Model
 {
-    use HasFactory, HasSlug;
+    use HasFactory, HasSlug, SoftDeletes;
 
     protected $fillable = [
         'cover_image_path',
@@ -23,12 +24,13 @@ class Product extends Model
 
     protected $appends = [
         'starting_price',
-        'category_ids',
-        'license_prices',
-        'purchases',
+//        'category_ids',
+//        'license_prices',
+//        'purchases',
     ];
 
-    public function setNameAttribute($value) {
+    public function setNameAttribute($value)
+    {
 
         if (static::whereSlug($slug = Str::slug($value))->exists()) {
             $slug = $this->incrementSlug($slug);
@@ -50,7 +52,7 @@ class Product extends Model
 
     public function licenses()
     {
-        return $this->belongsToMany(License::class)->orderBy('order')->withPivot('price', 'download_path');
+        return $this->belongsToMany(License::class)->orderBy('order')->withPivot('price', 'package_path');
     }
 
     public function cheapestLicense()
@@ -58,30 +60,31 @@ class Product extends Model
         return $this->licenses()->orderBy('price')->first();
     }
 
+    public function purchases()
+    {
+        return $this->hasMany(OrderLine::class);
+    }
+
     public function getStartingPriceAttribute()
     {
         return $this->cheapestLicense()->pivot->price ?? 0;
     }
 
-    public function getCategoryIdsAttribute()
-    {
-        return $this->categories()->pluck('id');
-    }
+//    public function getCategoryIdsAttribute()
+//    {
+//        return $this->categories()->pluck('id');
+//    }
 
-    public function getLicensePricesAttribute()
-    {
-        $pivots = $this->licenses()->get()->pluck('pivot')->toArray();
-        $prices = [];
+//    public function getLicensePricesAttribute()
+//    {
+//        $pivots = $this->licenses()->get()->pluck('pivot')->toArray();
+//        $prices = [];
+//
+//        foreach ($pivots as $pivot) {
+//            $prices[$pivot['license_id']] = ['price' => $pivot['price']];
+//        }
+//
+//        return $prices;
+//    }
 
-        foreach ($pivots as $pivot) {
-            $prices[$pivot['license_id']] = ['price' => $pivot['price']];
-        }
-
-        return $prices;
-    }
-
-    public function getPurchasesAttribute()
-    {
-        return $this->hasMany(OrderLine::class)->count();
-    }
 }

@@ -1,4 +1,4 @@
-<div class="container space-y-5 divide-y">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5 divide-y">
     <section class="pt-8 flex flex-col md:flex-row flex-wrap items-start divide-y space-y-6">
         <header class="flex-1 flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0 w-full">
             <div>
@@ -27,14 +27,17 @@
                     <x-product-card :product="$product"/>
                 </li>
             @empty
-                <div class="col-span-2 xl:col-span-3 text-center py-20">
-                    <p class="text-2xl">
-                        No Products
-                    </p>
-                    <p class="text-sm text-gray-500">
-                        No templates found in this category
-                    </p>
-                    <a href="{{ route('shop.page') }}" class="btn-outline inline-block mt-3">
+                <div class="col-span-2 xl:col-span-3 text-center py-20 space-y-3">
+                    <div>
+                        <p class="text-2xl">
+                            No Products
+                        </p>
+                        <p class="text-sm text-gray-500">
+                            No templates found in this category
+                        </p>
+                    </div>
+                    <a href="{{ route('shop.page') }}"
+                       class="btn-secondary w-full lg:w-auto justify-center">
                         Explore Templates
                     </a>
                 </div>

@@ -1,4 +1,4 @@
-<div class="container py-8 lg:py-10 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-3 xl:grid-cols-4 lg:gap-x-10 lg:gap-y-5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-10 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-3 xl:grid-cols-4 lg:gap-x-10 lg:gap-y-5">
     <a href="{{ Storage::url($product->cover_image_path) }}" class="glightbox lg:col-span-2 xl:col-span-3">
         <img src="{{ Storage::url($product->cover_image_path) }}" alt="{{ $product->name }}"
              class="rounded-lg shadow border">
@@ -96,7 +96,7 @@
             </div>
             <div class="flex-1 flex flex-col items-center py-5">
                 <p class="text-xl font-medium">
-                    🛒 {{ $product->purchases }}
+                    🛒 {{ $product->purchases->count() }}
                 </p>
                 <p class="text-xs text-gray-400">
                     Purchases

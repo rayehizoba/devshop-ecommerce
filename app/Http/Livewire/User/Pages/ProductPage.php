@@ -46,13 +46,13 @@ class ProductPage extends Component
             ],
         ]);
 
-        session()->flash('message', '“' . $product->name . '” has been added to your cart.');
+        session()->flash('flash.banner', '“' . $product->name . '” has been added to your cart.');
 
         return redirect()->to('/cart');
     }
 
     public function render()
     {
-        return view('livewire.user.pages.product-page')->layout('layouts.guest');
+        return view('livewire.user.pages.product-page');
     }
 }

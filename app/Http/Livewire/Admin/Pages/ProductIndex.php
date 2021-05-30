@@ -72,7 +72,6 @@ class ProductIndex extends Component
 
     public function edit(Product $product)
     {
-        $product->load('screenshots');
         $this->openModal('admin.forms.product-form', $product->toArray(), '5xl');
     }
 

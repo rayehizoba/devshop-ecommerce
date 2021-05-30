@@ -1,6 +1,5 @@
-{{--   actually we want @admin not @auth but we can change this later--}}
-@auth
+@admin
     <x-navigation-menu.admin/>
 @else
-    <x-navigation-menu.user/>
-@endauth
+    <x-navigation-menu.public/>
+@endif

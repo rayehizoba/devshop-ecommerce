@@ -3,11 +3,11 @@
 @endphp
 
 <nav class="border-b border-gray-100 select-none" x-data="{account_dialog: false, category_dialog: false,}">
-    <div class="container mx-auto py-3 flex flex-col lg:flex-row items-center lg:space-x-10 space-y-2 lg:space-y-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col lg:flex-row items-center lg:space-x-10 space-y-2 lg:space-y-0">
         <a href="{{ route('home.page') }}" class="font-bold text-xl md:text-2xl self-start lg:self-auto">
             devshop
         </a>
-        <ul class="w-full flex flex-1 items-center justify-center lg:justify-start space-x-4 md:space-x-6 text-gray-500 text-sm md:text-base relative">
+        <ul class="w-full flex flex-1 items-center justify-center lg:justify-start space-x-4 md:space-x-6 text-gray-500 text-sm font-medium relative">
             <li class="md:relative">
                 {{-- Product Categories Menu --}}
                 <div @click="category_dialog = true" class="cursor-pointer transition hover:text-gray-800">
@@ -26,7 +26,7 @@
                             @foreach($categories as $category)
                                 <li>
                                     <a href="{{ route('category', ['slug' => $category->slug]) }}"
-                                       class="block py-2 hover:bg-gray-100 px-5 transition">
+                                       class="block py-2 hover:bg-gray-100 hover:text-gray-900 px-5 transition">
                                         {{ $category->name }}
                                     </a>
                                 </li>
@@ -36,21 +36,19 @@
                 </div>
             </li>
             <li class="hidden md:inline">
-                <a href="#" class="transition hover:text-gray-800">Why Our Templates?</a>
+                <a href="#" class="transition hover:text-gray-800">
+                    Why Our Templates ?
+                </a>
             </li>
             <li>
-                <a href="#" class="transition hover:text-gray-800">The Guide</a>
+                <a href="#" class="transition hover:text-gray-800">
+                    The Guide
+                </a>
             </li>
             <li class="flex flex-1"></li>
-            {{-- Cart Button --}}
-            @if(\Cart::getContent()->count() > 0)
-                <li>
-                    <a href="{{ route('cart.page') }}" class="text-blue-500 font-semibold">
-                        Cart ({{ \Cart::getContent()->count() }})
-                    </a>
-                </li>
-            @endif
-
+            <li>
+                <livewire:components.cart-button />
+            </li>
             <li>
                 @if(!Auth::check() && Route::has('login'))
                     <a href="{{ route('login') }}" class="transition hover:text-gray-800">
@@ -61,8 +59,8 @@
                     {{-- User Account Menu --}}
                     <div class="md:relative">
                         <div @click="account_dialog = true"
-                             class="cursor-pointer h-7 md:h-8 w-7 md:w-8 bg-blue-500 rounded-full flex items-center justify-center text-xs lg:text-sm font-semibold shadow-lg text-white">
-                            RE
+                             class="cursor-pointer h-7 md:h-8 w-7 md:w-8 bg-blue-700 rounded-full flex items-center justify-center text-xs lg:text-sm font-semibold shadow-lg text-white">
+                            {{ Auth::user()->initials }}
                         </div>
                         <div x-cloak x-show="account_dialog"
                              class="origin-top lg:origin-top-right absolute right-0 w-full md:w-auto rounded-b-md shadow-xl z-10 mt-2"
@@ -73,27 +71,25 @@
                              x-transition:leave-start="opacity-100 scale-100"
                              x-transition:leave-end="opacity-0 scale-95">
                             <div @click.away="account_dialog = false"
-                                 class="bg-white rounded-md shadow-xs text-gray-900 border text-sm py-1">
-                                <p class="text-xs text-gray-400 px-5 py-2">
+                                 class="bg-white rounded-md shadow-xs text-gray-500 border text-sm py-1">
+                                <p class="text-xs text-gray-400 px-5 py-2 md:pr-10 whitespace-nowrap">
                                     {{ Auth::user()->name }}
                                 </p>
                                 <ul class="divide-y">
                                     <li>
                                         <a href="{{ route('profile.show') }}"
-                                           class="flex items-center space-x-1 hover:bg-gray-100 py-1 px-5 md:pr-20 transition">
-                                            <i class="mdi mdi-account text-blue-500 text-lg"></i>
-                                            <span>Account</span>
+                                           class="block hover:bg-gray-100 hover:text-gray-900 py-2 px-5 md:pr-10 transition">
+                                            {{ __('Account') }}
                                         </a>
                                     </li>
                                     <li>
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                             <a href="{{ route('logout') }}"
-                                               class="flex items-center space-x-1 hover:bg-gray-100 py-1 px-5 md:pr-20 transition"
+                                               class="block hover:bg-gray-100 hover:text-gray-900 py-2 px-5 md:pr-10 transition"
                                                onclick="event.preventDefault();
                                                     this.closest('form').submit();">
-                                                <i class="mdi mdi-logout text-blue-500 text-lg"></i>
-                                                <span>{{ __('Log Out') }}</span>
+                                                {{ __('Log Out') }}
                                             </a>
                                         </form>
                                     </li>

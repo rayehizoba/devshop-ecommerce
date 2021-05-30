@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('play_store_url')->nullable();
             $table->string('app_store_url')->nullable();
             $table->text('description');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

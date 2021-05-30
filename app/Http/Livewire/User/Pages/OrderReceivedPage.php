@@ -40,6 +40,6 @@ class OrderReceivedPage extends Component
             'items' => $cart->getContent(),
             'subtotal' => $cart->getSubTotal(),
             'total' => $cart->getTotal(),
-        ])->layout('layouts.guest');
+        ]);
     }
 }
