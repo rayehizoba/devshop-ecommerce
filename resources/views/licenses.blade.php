@@ -12,7 +12,88 @@
                 <p class="text-gray-500 text-sm">
                     Here’s an overview of what each license allows for to make it easy to pick what you need:
                 </p>
-                <div class="h-10 border mt-3"></div>
+                <table class="table-auto w-full mt-3 border-collapse border border-gray-300 text-gray-500 text-sm">
+                    <thead>
+                    <tr>
+                        <th class="border border-gray-300 p-3"></th>
+                        @foreach($licenses as $license)
+                            <th class="border border-gray-300 p-3">
+                                {{ $license->name }}
+                            </th>
+                        @endforeach
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="border border-gray-300 p-3">
+                            Number of end products
+                        </td>
+                        @foreach($licenses as $license)
+                            <td class="border border-gray-300 p-3">
+                                {{ $license->end_products }}
+                            </td>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-3">
+                            Use for personal or a client
+                        </td>
+                        @foreach($licenses as $license)
+                            <td class="border border-gray-300 p-3">
+                                @if($license->for_personal_or_client)
+                                    ✅
+                                @else
+                                    ❌
+                                @endif
+                            </td>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-3">
+                            Use in a free end product
+                            <em>(Can have multiple users)</em>
+                        </td>
+                        @foreach($licenses as $license)
+                            <td class="border border-gray-300 p-3">
+                                @if($license->for_multiple_user_product)
+                                    ✅
+                                @else
+                                    ❌
+                                @endif
+                            </td>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-3">
+                            Use in an end product that is “sold”
+                            <em>(Can have multiple paying users)</em>
+                        </td>
+                        @foreach($licenses as $license)
+                            <td class="border border-gray-300 p-3">
+                                @if($license->for_multiple_paying_user_product)
+                                    ✅
+                                @else
+                                    ❌
+                                @endif
+                            </td>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-3">
+                            Use in derivative themes or “generators”
+                        </td>
+                        @foreach($licenses as $license)
+                            <td class="border border-gray-300 p-3">
+                                @if($license->for_theme_generators)
+                                    ✅
+                                @else
+                                    ❌
+                                @endif
+                            </td>
+                        @endforeach
+                    </tr>
+                    </tbody>
+                </table>
             </div>
             @foreach($licenses as $license)
                 <div class="py-16 trix-content">
