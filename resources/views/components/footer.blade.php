@@ -26,6 +26,11 @@
     <nav class="py-4">
         <ul class="text-xs text-gray-500 flex flex-wrap">
             <li class="my-2 mr-6 lg:mr-8">
+                <a href="#" class="transition text-blue-500 hover:text-blue-700">
+                    Redownload templates
+                </a>
+            </li>
+            <li class="my-2 mr-6 lg:mr-8">
                 <a href="#" class="transition hover:text-gray-800">
                     Help Center
                 </a>
@@ -36,13 +41,8 @@
                 </a>
             </li>
             <li class="my-2 mr-6 lg:mr-8">
-                <a href="#" class="transition hover:text-gray-800">
+                <a href="{{ route('licenses') }}" class="transition hover:text-gray-800">
                     Licenses
-                </a>
-            </li>
-            <li class="my-2">
-                <a href="./redownload.html" class="transition hover:text-gray-800">
-                    Redownload templates
                 </a>
             </li>
         </ul>

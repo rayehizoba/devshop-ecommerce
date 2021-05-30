@@ -40,11 +40,6 @@
                     Why Our Templates ?
                 </a>
             </li>
-            <li>
-                <a href="#" class="transition hover:text-gray-800">
-                    The Guide
-                </a>
-            </li>
             <li class="flex flex-1"></li>
             <li>
                 <livewire:components.cart-button />

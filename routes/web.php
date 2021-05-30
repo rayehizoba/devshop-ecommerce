@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LicenseController;
 use App\Http\Controllers\PaymentIntentController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Livewire\Admin\Pages\CategoryIndex;
@@ -43,6 +44,8 @@ Route::get('checkout', CheckoutPage::class)->name('checkout.page');
 Route::get('order-received/{order}', OrderReceivedPage::class)->name('order-received.page');
 
 Route::post('subscribe', SubscriptionController::class)->name('subscribe');
+
+Route::get('licenses', [LicenseController::class, 'index'])->name('licenses');
 
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard', function () {
     return view('dashboard');

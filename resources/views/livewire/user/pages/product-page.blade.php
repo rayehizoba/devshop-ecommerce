@@ -13,7 +13,7 @@
             <p class="font-medium">
                 License Options
             </p>
-            <a href="#" class="text-xs text-blue-400">
+            <a href="{{ route('licenses') }}" target="_blank" class="text-xs text-blue-500">
                 Full details
                 <i class="mdi mdi-arrow-right"></i>
             </a>
@@ -90,7 +90,7 @@
                         <i class="mdi mdi-star text-gray-300"></i>
                     </li>
                 </ul>
-                <p class="text-xs text-gray-400">
+                <p class="text-xs text-gray-500">
                     (2 reviews)
                 </p>
             </div>
@@ -98,7 +98,7 @@
                 <p class="text-xl font-medium">
                     🛒 {{ $product->purchases->count() }}
                 </p>
-                <p class="text-xs text-gray-400">
+                <p class="text-xs text-gray-500">
                     Purchases
                 </p>
             </div>
@@ -110,7 +110,7 @@
                     <p class="font-medium">
                         Released
                     </p>
-                    <p class="text-gray-400">
+                    <p class="text-gray-500">
                         @diffdateforhumans($product->created_at)
                     </p>
                 </div>
@@ -120,7 +120,7 @@
                     <p class="font-medium">
                         Updated
                     </p>
-                    <p class="text-gray-400">
+                    <p class="text-gray-500">
                         @diffdateforhumans($product->updated_at)
                     </p>
                 </div>
@@ -130,8 +130,8 @@
                     <p class="font-medium">
                         Version
                     </p>
-                    <p class="text-gray-400">
-                        v1.0.0
+                    <p class="text-gray-500">
+                        vX.X.X
                     </p>
                 </div>
             </li>
@@ -143,7 +143,7 @@
                     <div class="text-right">
                         @foreach($product->categories as $category)
                             <a href="{{ route('category', ['slug' => $category->slug]) }}"
-                               class="text-blue-400 whitespace-nowrap">
+                               class="text-blue-500 whitespace-nowrap">
                                 {{ $category->name }}@if(!$loop->last),@endif
                             </a>
                         @endforeach
@@ -155,7 +155,7 @@
                     <p class="font-medium">
                         Questions?
                     </p>
-                    <a href="mailto:rayehizoba@gmail.com" class="text-blue-400">
+                    <a href="mailto:{{ env('CONTACT_MAIL') }}" class="text-blue-500">
                         Contact Us
                     </a>
                 </div>
