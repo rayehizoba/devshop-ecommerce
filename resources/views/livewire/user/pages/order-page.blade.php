@@ -55,12 +55,12 @@
                 <ol>
                     @foreach($order->lines as $line)
                         <li class="space-y-1 p-3 text-gray-500 flex justify-between items-center @if($loop->even) bg-gray-100 @endif">
-                            <a class="text-blue-500 hover:underline mr-3"
+                            <a class="text-blue-500 hover:underline mr-3 text-sm md:text-base"
                                href="{{ route('product', ['slug' => $line->product->slug]) }}">
                                 {{ $line->product->name }}
                             </a>
                             <a href="{{ $line->package_path }}"
-                               class="uppercase text-sm font-medium hover:text-blue-500 flex space-x-1 items-center">
+                               class="uppercase text-xs md:text-sm font-medium hover:text-blue-500 flex space-x-1 items-center">
                                 <i class="mdi mdi-folder-zip text-base"></i>
                                 <span>Download</span>
                             </a>

@@ -7,7 +7,7 @@
         <a href="{{ route('home.page') }}" class="font-bold text-xl md:text-2xl self-start lg:self-auto">
             devshop
         </a>
-        <ul class="w-full flex flex-1 items-center justify-center lg:justify-start space-x-4 md:space-x-6 text-gray-500 text-sm font-medium relative">
+        <ul class="w-full flex flex-1 items-center justify-center lg:justify-start space-x-4 md:space-x-6 text-gray-500 text-xs md:text-sm font-medium relative">
             <li class="md:relative">
                 {{-- Product Categories Menu --}}
                 <div @click="category_dialog = true" class="cursor-pointer transition hover:text-gray-800">
@@ -35,14 +35,14 @@
                     </div>
                 </div>
             </li>
-            <li>
+            <li class="@if(\Cart::getContent()->count() > 0) hidden md:block  @endif">
                 <a href="#" class="transition hover:text-gray-800">
                     Why Our Templates?
                 </a>
             </li>
             <li class="flex flex-1"></li>
             <li>
-                <livewire:components.cart-button />
+                <livewire:components.cart-button/>
             </li>
             <li>
                 @if(!Auth::check() && Route::has('login'))

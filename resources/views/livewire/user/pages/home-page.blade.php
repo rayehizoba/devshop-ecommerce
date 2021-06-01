@@ -8,7 +8,7 @@
             <h1 class="text-4xl md:text-6xl font-bold tracking-tight">
                 Build Apps Fast
             </h1>
-            <h2 class="text-gray-500 lg:text-lg w-3/4 md:w-auto">
+            <h2 class="text-gray-700 lg:text-lg w-3/4 md:w-auto">
                 Premium ready-to-use templates, source codes and starter kits for developers and startups.
             </h2>
             <a href="#" class="btn-primary h-12">

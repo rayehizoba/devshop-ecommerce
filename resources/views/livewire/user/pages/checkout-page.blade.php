@@ -236,7 +236,7 @@
                             <p>
                                 We've sent you a confirmation email containing all of your downloads.
                             </p>
-                            <ul class="flex space-x-5 text-blue-500">
+                            <ul class="flex flex-wrap whitespace-nowrap space-x-5 text-blue-500">
                                 <li>
                                     <a href="{{ route('shop.page') }}" class="hover:underline">
                                         Return to shop

@@ -28,7 +28,7 @@
         <div class="w-full lg:w-7/12 space-y-5">
             @if(\Cart::isEmpty())
                 <div class="space-y-3 text-center flex flex-col items-center justify-center py-12">
-                    <p class="text-2xl">
+                    <p class="text-lg md:text-2xl">
                         🛒 Your cart is currently empty
                     </p>
                     <a href="{{ route('shop.page') }}"
