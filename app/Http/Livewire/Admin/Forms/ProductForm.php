@@ -8,6 +8,7 @@ use App\Models\License;
 use App\Models\Product;
 use App\Models\ProductScreenshot;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Livewire\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 
@@ -55,7 +56,7 @@ class ProductForm extends BaseForm
             $product = Product::find($params['id']);
             $this->associated['screenshots'] = $product->screenshots;
             $this->associated['categories'] = $product->categories()->pluck('id');
-            foreach($product->licenses as $license) {
+            foreach ($product->licenses as $license) {
                 $this->associated['licenses'][$license->id] = $license->pivot;
             }
         }
@@ -94,7 +95,12 @@ class ProductForm extends BaseForm
         $data = Validator::make($this->form, [
             'id' => 'nullable',
             'cover_image_path' => 'required',
-            'name' => 'required',
+            'name' => [
+                'required',
+                isset($this->form['id'])
+                    ? Rule::unique('products')->ignore($this->form['id'])
+                    : Rule::unique('products')
+            ],
             'web_url' => 'required_without_all:play_store_url,app_store_url',
             'play_store_url' => 'required_without_all:web_url,app_store_url',
             'app_store_url' => 'required_without_all:web_url,play_store_url',

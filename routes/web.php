@@ -43,10 +43,6 @@ Route::get('cart', CartPage::class)->name('cart.page');
 
 Route::get('checkout', CheckoutPage::class)->name('checkout.page');
 
-Route::get('orders', OrdersPage::class)->name('orders.page');
-
-Route::get('order/{number}', OrderPage::class)->name('order.page');
-
 Route::post('subscribe', SubscriptionController::class)->name('subscribe');
 
 Route::get('licenses', [LicenseController::class, 'index'])->name('licenses');
@@ -58,6 +54,13 @@ Route::post('hooks', HooksController::class);
 //
 //    return new App\Mail\OrderConfirmed($order);
 //});
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+
+    Route::get('orders', OrdersPage::class)->name('orders.page');
+    Route::get('order/{number}', OrderPage::class)->name('order.page');
+
+});
 
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard', function () {
     return view('dashboard');

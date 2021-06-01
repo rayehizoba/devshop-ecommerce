@@ -16,8 +16,8 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('cover_image_path');
-            $table->string('name');
-            $table->string('slug');
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
             $table->string('web_url')->nullable();
             $table->string('play_store_url')->nullable();
             $table->string('app_store_url')->nullable();

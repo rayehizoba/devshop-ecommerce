@@ -78,7 +78,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('profile.show') }}"
+                                        <a href="{{ route('orders.page') }}"
                                            class="block hover:bg-gray-100 hover:text-gray-900 py-2 px-5 transition">
                                             {{ __('My Orders') }}
                                         </a>
