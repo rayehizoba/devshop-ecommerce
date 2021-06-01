@@ -19,7 +19,7 @@
 }
 
 .trix-content h1 {
-    @apply text-2xl font-semibold !important;
+    @apply text-xl font-medium !important;
 }
 
 .trix-content a {

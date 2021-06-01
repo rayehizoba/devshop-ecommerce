@@ -25,6 +25,7 @@
         };
 
         const cardElement = elements.create("card", {style: style});
+
         // Stripe injects an iframe into the DOM
         cardElement.mount("#card-element");
 
@@ -40,10 +41,8 @@
         const payWithCard = function (stripe, card) {
           loading(true);
           stripe
-            .confirmCardPayment(@json($paymentIntent->client_secret), {
-              payment_method: {
-                card: card
-              }
+            .confirmCardPayment(@json($paymentIntent['client_secret']), {
+              payment_method: {card: card}
             })
             .then(function (result) {
               if (result.error) {
@@ -60,15 +59,17 @@
 
         // Shows a success message when the payment is complete
         const orderComplete = function (paymentIntentId) {
-          Livewire.emit('orderComplete', paymentIntentId);
+          Livewire.emit('order:success');
           loading(false);
-          document
-            .querySelector(".result-message a")
-            .setAttribute(
-              "href",
-              "https://dashboard.stripe.com/test/payments/" + paymentIntentId
-            );
-          document.querySelector(".result-message").classList.remove("hidden");
+            @if(App::environment('local'))
+            document
+              .querySelector(".result-message a")
+              .setAttribute(
+                "href",
+                "https://dashboard.stripe.com/test/payments/" + paymentIntentId
+              );
+            @endif
+            document.querySelector(".result-message").classList.remove("hidden");
           document.querySelector("button").disabled = true;
         };
 
@@ -102,6 +103,7 @@
               loading(true);
               const validated = await this.$wire.validateForm();
               if (validated) {
+                await this.$wire.placeOrder(@json($paymentIntent['id']));
                 payWithCard(stripe, cardElement);
               } else {
                 loading(false);
@@ -156,12 +158,13 @@
                     Billing details
                 </p>
 
-                <div>
+                <div x-data="{}" x-init="() => setTimeout(() => $refs.autofocus.focus(), 250)">
                     <label for="name" class="text-sm font-medium">
                         Name <span class="text-red-500">*</span>
                     </label>
-                    <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="name"/>
-                    <x-jet-input-error ref-input-error for="name" class="mt-2" />
+                    <x-jet-input id="name" x-ref="autofocus" type="text" class="mt-1 block w-full"
+                                 wire:model.defer="name"/>
+                    <x-jet-input-error ref-input-error for="name" class="mt-2"/>
                 </div>
 
                 <div>
@@ -169,17 +172,15 @@
                         Email address <span class="text-red-500">*</span>
                     </label>
                     <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="email"/>
-                    <x-jet-input-error ref-input-error for="email" class="mt-2" />
+                    <x-jet-input-error ref-input-error for="email" class="mt-2"/>
                 </div>
 
                 <div>
                     <label for="subscribe" class="flex items-center">
-                        <x-jet-checkbox id="subscribe" wire:model.defer="subscribe" />
+                        <x-jet-checkbox id="subscribe" wire:model.defer="subscribe"/>
                         <span class="ml-2 text-sm text-gray-600">{{ __('Subscribe for Sales & New Templates') }}</span>
                     </label>
                 </div>
-
-{{--                <pre>{{ Session::getId() }}</pre>--}}
             </div>
             <div class="w-full lg:w-5/12 border border-gray-300 rounded-lg shadow-lg p-5 space-y-5">
                 <ul class="text-sm divide-y space-y-3">
@@ -187,15 +188,15 @@
                         <li class="flex justify-between items-center space-x-10 pt-3">
                             <div class="flex-1 space-y-1">
                                 <div class="text-sm flex space-x-1">
-                                    <p>{{ $item->name }}</p>
+                                    <p>{{ $item['name'] }}</p>
                                     <i class="mdi mdi-close"></i>
-                                    <strong>{{ $item->quantity }}</strong>
+                                    <strong>{{ $item['quantity'] }}</strong>
                                 </div>
                                 <p class="text-gray-500 text-xs">
-                                    License Type: {{ $item->attributes->license_type }}
+                                    License Type: {{ $item['license_name'] }}
                                 </p>
                             </div>
-                            <p>${{ $item->price }}</p>
+                            <p>${{ $item['price'] }}</p>
                         </li>
                     @endforeach
                     <li class="flex justify-between items-center pt-3">
@@ -217,19 +218,46 @@
                             </div>
                         </div>
                         <p id="card-error" role="alert" class="mb-3 text-sm text-red-500"></p>
-                        <p class="result-message hidden text-sm mb-3">
-                            Payment succeeded, see the result in your
-                            <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
-                        </p>
                         <x-jet-button type="button" x-on:click="submitPayment" class="justify-center w-full py-4">
                             <div class="spinner hidden" id="spinner">Placing order...</div>
                             <span id="button-text">Place order</span>
                         </x-jet-button>
+                        <div class="result-message hidden text-sm mt-3 space-y-3">
+                            <p>
+                                ✅ Payment succeeded.
+                            </p>
+                            @if(App::environment('local'))
+                                <p>
+                                    See the result in your
+                                    <a href="" target="_blank" class="hover:underline">Stripe dashboard.</a> Refresh the page
+                                    to pay again.
+                                </p>
+                            @endif
+                            <p>
+                                We've sent you a confirmation email containing all of your downloads.
+                            </p>
+                            <ul class="flex space-x-5 text-blue-500">
+                                <li>
+                                    <a href="{{ route('shop.page') }}" class="hover:underline">
+                                        Return to shop
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('orders.page') }}" class="hover:underline">
+                                        @if(Auth::check())
+                                            My Orders
+                                        @else
+                                            Redownload Templates
+                                        @endif
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </form>
                 </div>
 
                 @if(App::environment('local'))
-                    <x-test-payment-cards />
+                    <x-test-payment-cards/>
                 @endif
 
                 <ul class="text-gray-500 text-xs space-y-2">

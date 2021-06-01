@@ -12,12 +12,12 @@
                 <p class="text-gray-500 text-sm">
                     Here’s an overview of what each license allows for to make it easy to pick what you need:
                 </p>
-                <table class="table-auto w-full mt-3 border-collapse border border-gray-300 text-gray-500 text-sm">
+                <table class="table-auto w-full mt-3 border-collapse border border-gray-300 text-gray-500 text-xs lg:text-sm">
                     <thead>
                     <tr>
-                        <th class="border border-gray-300 p-3"></th>
+                        <th class="border border-gray-300 p-2 md:p-3"></th>
                         @foreach($licenses as $license)
-                            <th class="border border-gray-300 p-3">
+                            <th class="border border-gray-300 p-2 md:p-3">
                                 {{ $license->name }}
                             </th>
                         @endforeach
@@ -25,21 +25,21 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td class="border border-gray-300 p-3">
+                        <td class="border border-gray-300 p-2 md:p-3">
                             Number of end products
                         </td>
                         @foreach($licenses as $license)
-                            <td class="border border-gray-300 p-3">
+                            <td class="border border-gray-300 p-2 md:p-3">
                                 {{ $license->end_products }}
                             </td>
                         @endforeach
                     </tr>
                     <tr>
-                        <td class="border border-gray-300 p-3">
+                        <td class="border border-gray-300 p-2 md:p-3">
                             Use for personal or a client
                         </td>
                         @foreach($licenses as $license)
-                            <td class="border border-gray-300 p-3">
+                            <td class="border border-gray-300 p-2 md:p-3">
                                 @if($license->for_personal_or_client)
                                     ✅
                                 @else
@@ -49,12 +49,12 @@
                         @endforeach
                     </tr>
                     <tr>
-                        <td class="border border-gray-300 p-3">
+                        <td class="border border-gray-300 p-2 md:p-3">
                             Use in a free end product
                             <em>(Can have multiple users)</em>
                         </td>
                         @foreach($licenses as $license)
-                            <td class="border border-gray-300 p-3">
+                            <td class="border border-gray-300 p-2 md:p-3">
                                 @if($license->for_multiple_user_product)
                                     ✅
                                 @else
@@ -64,12 +64,12 @@
                         @endforeach
                     </tr>
                     <tr>
-                        <td class="border border-gray-300 p-3">
+                        <td class="border border-gray-300 p-2 md:p-3">
                             Use in an end product that is “sold”
                             <em>(Can have multiple paying users)</em>
                         </td>
                         @foreach($licenses as $license)
-                            <td class="border border-gray-300 p-3">
+                            <td class="border border-gray-300 p-2 md:p-3">
                                 @if($license->for_multiple_paying_user_product)
                                     ✅
                                 @else
@@ -79,11 +79,11 @@
                         @endforeach
                     </tr>
                     <tr>
-                        <td class="border border-gray-300 p-3">
+                        <td class="border border-gray-300 p-2 md:p-3">
                             Use in derivative themes or “generators”
                         </td>
                         @foreach($licenses as $license)
-                            <td class="border border-gray-300 p-3">
+                            <td class="border border-gray-300 p-2 md:p-3">
                                 @if($license->for_theme_generators)
                                     ✅
                                 @else
@@ -124,8 +124,8 @@
                     Need help picking your license?
                 </h2>
                 <p>
-                    Just shoot us an email at <a href="mailto:{{ env('CONTACT_MAIL') }}"
-                                                 class="text-blue-500">{{ env('CONTACT_MAIL') }}</a> and we’ll help you
+                    Just shoot us an email at <a href="mailto:{{ env('MAIL_FROM_ADDRESS') }}"
+                                                 class="text-blue-500">{{ env('MAIL_FROM_ADDRESS') }}</a> and we’ll help you
                     decide which license makes sense for your needs!
                 </p>
             </div>
@@ -136,8 +136,8 @@
                 <p>
                     There may be times when you need to upgrade your license from the original type you purchased and we
                     have a solution that ensures you can apply your original purchase cost to the new license purchase.
-                    Please email <a href="mailto:{{ env('CONTACT_MAIL') }}"
-                                    class="text-blue-500">{{ env('CONTACT_MAIL') }}</a> with the following information:
+                    Please email <a href="mailto:{{ env('MAIL_FROM_ADDRESS') }}"
+                                    class="text-blue-500">{{ env('MAIL_FROM_ADDRESS') }}</a> with the following information:
                 </p>
                 <ul class="list-disc pl-5 list-inside">
                     <li>

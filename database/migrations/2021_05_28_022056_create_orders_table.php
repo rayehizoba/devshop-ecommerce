@@ -17,7 +17,17 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('payment_intent_id')->unique();
+            $table->enum('payment_intent_status', [
+                'requires_payment_method',
+                'requires_confirmation',
+                'requires_action',
+                'processing',
+                'requires_capture',
+                'canceled',
+                'succeeded'
+            ]);
             $table->string('email');
+            $table->string('number')->unique();
             $table->timestamps();
         });
     }

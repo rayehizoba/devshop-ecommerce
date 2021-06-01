@@ -35,7 +35,7 @@
             </a>
             <ul class="grid grid-cols-2 xl:grid-cols-3 gap-6 w-full my-6">
                 @foreach($latest_products as $product)
-                    <li class="@if($loop->index > 1) hidden lg:block @endif">
+                    <li class="@if($loop->index > 1) hidden xl:block @endif">
                         <x-product-card :product="$product"/>
                     </li>
                 @endforeach

@@ -39,26 +39,26 @@
             @else
                 <ul class="divide-y">
                     @foreach($items as $item)
-                        <li wire:key="{{ $item->id }}" class="flex items-center space-x-2 lg:space-x-4 py-5">
-                            <a href="{{ route('product', ['slug' => $item->attributes->product_slug]) }}">
+                        <li wire:key="{{ $item['id'] }}" class="flex items-center space-x-2 lg:space-x-4 py-5">
+                            <a href="{{ route('product', ['slug' => $item['slug']]) }}">
                                 <div class="h-16 w-20 bg-gray-100 bg-center bg-cover border rounded"
-                                     style="background-image: url({{ Storage::url($item->attributes->product_cover_image_path) }})"></div>
+                                     style="background-image: url({{ Storage::url($item['cover_image_path']) }})"></div>
                             </a>
                             <div class="flex-1 space-y-1">
                                 <p class="font-medium text-sm">
-                                    <a href="{{ route('product', ['slug' => $item->attributes->product_slug]) }}">
-                                        {{ $item->name }}
+                                    <a href="{{ route('product', ['slug' => $item['slug']]) }}">
+                                        {{ $item['name'] }}
                                     </a>
                                 </p>
                                 <p class="text-gray-500 text-xs">
-                                    License Type: {{ $item->attributes->license_type }}
+                                    License Type: {{ $item['license_name'] }}
                                 </p>
                             </div>
                             <div class="flex flex-col items-end space-y-1">
                                 <p class="font-medium text-sm">
-                                    ${{ $item->price }}
+                                    ${{ $item['price'] }}
                                 </p>
-                                <button wire:click="removeItem({{ $item->id }})"
+                                <button wire:click="removeItem({{ $item['id'] }})"
                                         class="focus:outline-none text-xs text-gray-500 transition-gpu hover:text-blue-500 hover:border-blue-500 border-b">
                                     Remove
                                 </button>

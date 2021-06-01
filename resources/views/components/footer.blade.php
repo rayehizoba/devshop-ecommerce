@@ -12,7 +12,9 @@
                 </p>
             </div>
             <form class="flex space-x-2" method="POST" action="{{ route('subscribe') }}">
-                @csrf
+                <div hidden>
+                    @csrf
+                </div>
                 <div class="flex-1 md:w-64">
                     <x-jet-input name="email" type="email" placeholder="Email address" class="w-full" required/>
                 </div>
@@ -26,7 +28,7 @@
     <nav class="py-4">
         <ul class="text-xs text-gray-500 flex flex-wrap">
             <li class="my-2 mr-6 lg:mr-8">
-                <a href="#" class="transition text-blue-500 hover:text-blue-700">
+                <a href="{{ route('orders.page') }}" class="transition text-blue-500 hover:text-blue-700">
                     Redownload templates
                 </a>
             </li>

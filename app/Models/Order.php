@@ -13,10 +13,21 @@ class Order extends Model
         'name',
         'email',
         'payment_intent_id',
+        'payment_intent_status',
+        'number',
+    ];
+
+    protected $appends = [
+        'total'
     ];
 
     public function lines()
     {
         return $this->hasMany(OrderLine::class);
+    }
+
+    public function getTotalAttribute()
+    {
+        return $this->lines()->sum('price');
     }
 }

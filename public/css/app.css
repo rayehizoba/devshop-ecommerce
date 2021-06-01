@@ -33393,9 +33393,9 @@ select {
 }
 
 .trix-content h1 {
-  font-weight: 600 !important;
-  font-size: 1.5rem !important;
-  line-height: 2rem !important;
+  font-weight: 500 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.75rem !important;
 }
 
 .trix-content a {

@@ -35,9 +35,9 @@
                     </div>
                 </div>
             </li>
-            <li class="hidden md:inline">
+            <li>
                 <a href="#" class="transition hover:text-gray-800">
-                    Why Our Templates ?
+                    Why Our Templates?
                 </a>
             </li>
             <li class="flex flex-1"></li>
@@ -57,7 +57,7 @@
                              class="cursor-pointer h-7 md:h-8 w-7 md:w-8 bg-blue-700 rounded-full flex items-center justify-center text-xs lg:text-sm font-semibold shadow-lg text-white">
                             {{ Auth::user()->initials }}
                         </div>
-                        <div x-cloak x-show="account_dialog"
+                        <div x-cloak x-show="account_dialog" style="min-width: 150px;"
                              class="origin-top lg:origin-top-right absolute right-0 w-full md:w-auto rounded-b-md shadow-xl z-10 mt-2"
                              x-transition:enter="transition-gpu ease-out  duration-100 transform"
                              x-transition:enter-start="opacity-0 scale-95"
@@ -73,15 +73,21 @@
                                 <ul class="divide-y">
                                     <li>
                                         <a href="{{ route('profile.show') }}"
-                                           class="block hover:bg-gray-100 hover:text-gray-900 py-2 px-5 md:pr-10 transition">
-                                            {{ __('Account') }}
+                                           class="block hover:bg-gray-100 hover:text-gray-900 py-2 px-5 transition">
+                                            {{ __('My Account') }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('profile.show') }}"
+                                           class="block hover:bg-gray-100 hover:text-gray-900 py-2 px-5 transition">
+                                            {{ __('My Orders') }}
                                         </a>
                                     </li>
                                     <li>
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                             <a href="{{ route('logout') }}"
-                                               class="block hover:bg-gray-100 hover:text-gray-900 py-2 px-5 md:pr-10 transition"
+                                               class="block hover:bg-gray-100 hover:text-gray-900 py-2 px-5 transition"
                                                onclick="event.preventDefault();
                                                     this.closest('form').submit();">
                                                 {{ __('Log Out') }}

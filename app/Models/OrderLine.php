@@ -17,6 +17,10 @@ class OrderLine extends Model
         'price',
     ];
 
+    protected $appends = [
+        'package_path'
+    ];
+
     public function order()
     {
         return $this->belongsTo(Order::class);
@@ -30,5 +34,13 @@ class OrderLine extends Model
     public function license()
     {
         return $this->belongsTo(License::class);
+    }
+
+    public function getPackagePathAttribute()
+    {
+        return LicenseProduct::firstWhere([
+            'product_id' => $this->product->id,
+            'license_id' => $this->license->id,
+        ])->package_path;
     }
 }

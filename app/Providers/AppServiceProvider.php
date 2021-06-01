@@ -27,7 +27,18 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Builder::macro('search', function ($field, $string) {
-            return $string ? $this->where($field, 'like', '%'.$string.'%') : $this;
+            if ($string) {
+                if (gettype($field) === "array") {
+                    $first = array_shift($field);
+                    $this->where($first, 'like', '%'.$string.'%');
+                    foreach ($field as $each) {
+                        $this->orWhere($each, 'like', '%'.$string.'%');
+                    }
+                } elseif (gettype($field) === "string") {
+                    return $this->where($field, 'like', '%'.$string.'%');
+                }
+            }
+            return $this;
         });
 
         Blade::directive('dateforhumans', function ($expression) {
@@ -44,6 +55,10 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::directive('public', function () {
             return "<?php if ((Auth::check() && !Auth::user()->isAdmin()) || !Auth::check()): ?>";
+        });
+
+        Blade::directive('priceforhumans', function ($expression) {
+            return "<?php if($expression === 0) echo 'Free'; else echo '$'.$expression ?>";
         });
     }
 }

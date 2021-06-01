@@ -24,9 +24,6 @@ class Product extends Model
 
     protected $appends = [
         'starting_price',
-//        'category_ids',
-//        'license_prices',
-//        'purchases',
     ];
 
     public function setNameAttribute($value)

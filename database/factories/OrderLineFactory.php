@@ -22,7 +22,7 @@ class OrderLineFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'quantity' => 1,
         ];
     }
 }

@@ -2,10 +2,13 @@
 
 namespace App\Http\Livewire\User\Pages;
 
+use App\Http\Traits\HasCart;
 use Livewire\Component;
 
 class CartPage extends Component
 {
+    use HasCart;
+
     public function removeItem($key)
     {
         \Cart::remove($key);
@@ -15,7 +18,7 @@ class CartPage extends Component
     public function render()
     {
         return view('livewire.user.pages.cart-page', [
-            'items' => \Cart::getContent(),
+            'items' => $this->_getCartContent(),
             'subtotal' => \Cart::getSubTotal(),
             'total' => \Cart::getTotal(),
         ]);

@@ -1,7 +1,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-10 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-3 xl:grid-cols-4 lg:gap-x-10 lg:gap-y-5">
     <a href="{{ Storage::url($product->cover_image_path) }}" class="glightbox lg:col-span-2 xl:col-span-3">
         <img src="{{ Storage::url($product->cover_image_path) }}" alt="{{ $product->name }}"
-             class="rounded-lg shadow border">
+             class="rounded-lg shadow-lg bg-gray-100">
     </a>
 
     <h1 class="font-medium text-xl lg:text-3xl lg:col-span-full lg:row-start-1">
@@ -37,8 +37,8 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="ml-auto text-xl font-medium">
-                            ${{ $license->pivot->price }}
+                        <div class="ml-auto text-xl font-medium uppercase">
+                            @priceforhumans($license->pivot->price)
                         </div>
                     </label>
                 </li>
@@ -155,7 +155,7 @@
                     <p class="font-medium">
                         Questions?
                     </p>
-                    <a href="mailto:{{ env('CONTACT_MAIL') }}" class="text-blue-500">
+                    <a href="mailto:{{ env('MAIL_FROM_ADDRESS') }}" class="text-blue-500">
                         Contact Us
                     </a>
                 </div>
@@ -165,7 +165,7 @@
 
 
     {{-- Tabs Section  --}}
-    <div x-data="tabs()" class="lg:col-span-2 xl:col-span-3">
+    <div x-cloak x-data="tabs()" class="lg:col-span-2 xl:col-span-3">
         <ul class="inline-flex w-full border-b border-gray-300 select-none text-sm space-x-8">
             <template hidden x-for="item in getTabs()" :key="item">
                 <li @click="setTab(item)" class="relative py-4 cursor-pointer hover:opacity-75">
@@ -179,8 +179,8 @@
             <div x-show="getActive() === 'description'" class="trix-content">
                 {!! $product->description !!}
             </div>
-            <div x-show="getActive() === 'screenshots'">
-                <ul class="overflow-x-auto space-x-3 whitespace-nowrap -mx-3 md:mx-0 px-3 md:px-0">
+            <div x-show="getActive() === 'screenshots'" class="relative -mx-4 md:mx-0 px-4 md:px-0">
+                <ul class="overflow-x-auto space-x-3 whitespace-nowrap -mx-4 md:mx-0 px-4 md:px-0">
                     @foreach($product->screenshots as $screenshot)
                         <li class="inline-flex">
                             <a href="{{ Storage::url($screenshot->path) }}" class="glightbox">
@@ -189,7 +189,9 @@
                             </a>
                         </li>
                     @endforeach
+                    <li class="md:w-5 inline-block"></li>
                 </ul>
+                <div class="absolute top-0 right-0 bottom-0 w-5 md:w-10 bg-gradient-to-r from-transparent to-white"></div>
             </div>
             <div x-show="getActive() === 'reviews'">
                 <p class="text-sm leading-relaxed">
